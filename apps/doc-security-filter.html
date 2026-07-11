@@ -323,6 +323,7 @@ const PATTERN_META = {
   url:    {label:'URL', placeholder:'URL'},
   account:{label:'계좌번호(추정)', placeholder:'계좌번호'},
   amount: {label:'금액', placeholder:'금액'},
+  percent:{label:'비율(%)', placeholder:'비율'},
   number: {label:'일반 숫자', placeholder:'수량'},
 };
 
@@ -481,6 +482,9 @@ document.getElementById('optCandidateMinFreq').addEventListener('change', e=>{
 ============================================================ */
 const AMOUNT_UNIT = '(?:조|억|천만|백만|십만|만|천)';
 const AMOUNT_SRC = '\\d[\\d,]*(?:\\.\\d+)?\\s?(?:' + AMOUNT_UNIT + '\\s?원?|원)';
+/* 이익률·증감률 등 비율(%) 표기. 스코프(전체 숫자/금액 패턴만)와 무관하게 항상 탐지한다 —
+   전화번호·이메일처럼 구조가 뚜렷한 패턴이라 숫자 처리 범위 설정의 영향을 받지 않아야 한다. */
+const PERCENT_SRC = '\\d+(?:\\.\\d+)?\\s?(?:%p?|퍼센트(?:포인트)?)';
 
 function makePatternDefs(){
   return [
@@ -490,6 +494,7 @@ function makePatternDefs(){
     { type:'email',  re:new RegExp('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}', 'y') },
     { type:'url',    re:new RegExp('(?:https?://[^\\s]+)|(?:www\\.[^\\s]+)', 'y') },
     { type:'amount', re:new RegExp(AMOUNT_SRC, 'y') },
+    { type:'percent',re:new RegExp(PERCENT_SRC, 'y') },
     { type:'account',re:new RegExp('\\d[\\d-]{9,17}\\d', 'y') },
     { type:'number', re:new RegExp('\\d{1,3}(?:,\\d{3})+(?:\\.\\d+)?|\\d+(?:\\.\\d+)?', 'y') },
   ];
@@ -1025,19 +1030,23 @@ document.getElementById('btnDownloadXlsx').addEventListener('click', ()=>{
      (이전 버전은 str.split(value).join(replacement)로 전체 치환해, 값이 다른 셀의 부분 문자열과
       우연히 겹치면 — 예: 숫자 "1"이 "2024-01-01" 안에 들어있는 경우 — 문서 전체가 깨지는 버그가 있었다)
    - 숫자 셀: '지정한 열만' / '전체 숫자' 범위에서만 손을 대고, '금액 패턴만' 범위에서는 셀의 표시
-     텍스트(w)가 실제 금액 패턴에 매칭될 때만 변환한다. 그 외 숫자(날짜, 사번, 수량 등)는 원본 그대로 둔다.
+     텍스트(w)가 실제 금액·비율(%) 패턴으로 표시될 때만 변환한다. 그 외 숫자(날짜, 사번, 수량 등)는
+     원본 그대로 둔다. 비율(%)로 표시되는 숫자는 모드 B(비율 유지 스케일링)를 적용해도 숫자를 곱하지
+     않고 항상 플레이스홀더로 바꾼다 — 이익률 같은 비율 값은 배수를 곱하면 의미 자체가 왜곡되기 때문.
    - 원본 워크북 전체(Workbook/Styles/열너비/행높이/병합 등)를 통째로 복제해 값만 바꾸므로,
      기존 서식·행높이 정보가 그대로 유지된다. 다만 SheetJS 무료판은 셀 스타일(글꼴/색상 등) 재기록을
      지원하지 않아, 색상·글꼴까지 100% 동일하게 나오진 않을 수 있다.
-   - 수식이 들어있는 셀(cell.f)은 계산 결과가 깨지지 않도록 건드리지 않는다. */
+   - 수식 셀(cell.f)도 캐시된 표시값에 민감정보가 있으면 반드시 치환하고, 그 경우에 한해 수식을
+     결과값으로 고정한다(재계산 시 원본 수식이 다시 노출되는 것을 막기 위함). 민감정보가 없는
+     수식은 그대로 유지한다. */
 function transformWorkbook(wb, groups, approved, numberMode, numberScope, selectedColumns){
   const keyToGroup = new Map();
   groups.forEach(g=>{ if (approved.has(g.key)) keyToGroup.set(g.type + '::' + g.value, g); });
 
-  function applyToString(str){
-    if (!str) return str;
+  function scanAndReplace(str){
+    if (!str) return { matches: [], replaced: str };
     const matches = scanDocument(str, dictionary, { numberScope });
-    if (!matches.length) return str;
+    if (!matches.length) return { matches, replaced: str };
     let out = '';
     let last = 0;
     matches.forEach(m=>{
@@ -1049,7 +1058,7 @@ function transformWorkbook(wb, groups, approved, numberMode, numberScope, select
       last = m.end;
     });
     out += str.slice(last);
-    return out;
+    return { matches, replaced: out };
   }
 
   const newWb = JSON.parse(JSON.stringify(wb));
@@ -1059,34 +1068,38 @@ function transformWorkbook(wb, groups, approved, numberMode, numberScope, select
     Object.keys(sheet).forEach(addr=>{
       if (addr[0] === '!') return; // 병합/열너비/행높이 등 시트 메타데이터는 그대로 둔다
       const cell = sheet[addr];
-      if (!cell || cell.f) return; // 수식 셀은 손대지 않음
+      if (!cell) return;
       const decoded = XLSX.utils.decode_cell(addr);
 
       if (cell.t === 's' || cell.t === 'str') {
-        const replaced = applyToString(String(cell.v));
-        if (replaced !== cell.v) { cell.v = replaced; delete cell.w; }
+        const { replaced } = scanAndReplace(String(cell.v));
+        if (replaced !== cell.v) {
+          cell.v = replaced; cell.t = 's';
+          delete cell.w; delete cell.f;
+        }
         return;
       }
 
       if (cell.t === 'n') {
         const display = cell.w != null ? String(cell.w) : String(cell.v);
-        const patternMatch = applyToString(display);
-        const matchedByPattern = patternMatch !== display;
+        const { matches, replaced } = scanAndReplace(display);
+        const matchedByPattern = replaced !== display;
+        const isPercent = matches.some(m => m.type === 'percent');
 
         let shouldTransform = false;
         if (numberScope === 'columns') shouldTransform = sheetIdx === 0 && selectedColumns.has(decoded.c);
         else if (numberScope === 'all') shouldTransform = true;
-        else shouldTransform = matchedByPattern; // 'amount': 실제 금액 패턴으로 표시되는 숫자만
+        else shouldTransform = matchedByPattern; // 'amount': 실제 금액·비율 패턴으로 표시되는 숫자만
 
         if (!shouldTransform) return;
 
-        if (numberMode === 'B') {
+        if (numberMode === 'B' && !isPercent) {
           cell.v = Math.round(cell.v * getSessionMultiplier());
-          delete cell.w;
+          delete cell.w; delete cell.f;
         } else {
           cell.t = 's';
-          cell.v = matchedByPattern ? patternMatch : '[숫자]';
-          delete cell.w; delete cell.z;
+          cell.v = matchedByPattern ? replaced : '[숫자]';
+          delete cell.w; delete cell.z; delete cell.f;
         }
       }
     });
