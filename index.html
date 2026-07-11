@@ -684,7 +684,7 @@ async function handleFile(file){
   try {
     if (ext === 'xlsx' || ext === 'csv') {
       const buf = await file.arrayBuffer();
-      const wb = XLSX.read(buf, { type:'array' });
+      const wb = XLSX.read(buf, { type:'array', cellStyles:true, cellNF:true });
       state.workbook = wb;
       state.fileType = 'excel';
       let flat = '';
@@ -1017,50 +1017,76 @@ document.getElementById('btnDownloadXlsx').addEventListener('click', ()=>{
   }, 30);
 });
 
-/* 엑셀 셀 단위 치환: 사전/문자 그룹은 전역 스캐너로 문자열 치환, 숫자 셀은 옵션에 따라 처리 */
+/* 엑셀 셀 단위 치환
+   - 문자열 셀: 전역 스캐너(scanDocument)를 셀 텍스트에 그대로 다시 적용해 '정확한 위치'만 치환한다.
+     (이전 버전은 str.split(value).join(replacement)로 전체 치환해, 값이 다른 셀의 부분 문자열과
+      우연히 겹치면 — 예: 숫자 "1"이 "2024-01-01" 안에 들어있는 경우 — 문서 전체가 깨지는 버그가 있었다)
+   - 숫자 셀: '지정한 열만' / '전체 숫자' 범위에서만 손을 대고, '금액 패턴만' 범위에서는 셀의 표시
+     텍스트(w)가 실제 금액 패턴에 매칭될 때만 변환한다. 그 외 숫자(날짜, 사번, 수량 등)는 원본 그대로 둔다.
+   - 원본 워크북 전체(Workbook/Styles/열너비/행높이/병합 등)를 통째로 복제해 값만 바꾸므로,
+     기존 서식·행높이 정보가 그대로 유지된다. 다만 SheetJS 무료판은 셀 스타일(글꼴/색상 등) 재기록을
+     지원하지 않아, 색상·글꼴까지 100% 동일하게 나오진 않을 수 있다.
+   - 수식이 들어있는 셀(cell.f)은 계산 결과가 깨지지 않도록 건드리지 않는다. */
 function transformWorkbook(wb, groups, approved, numberMode, numberScope, selectedColumns){
-  const approvedGroups = groups.filter(g=>approved.has(g.key));
+  const keyToGroup = new Map();
+  groups.forEach(g=>{ if (approved.has(g.key)) keyToGroup.set(g.type + '::' + g.value, g); });
+
   function applyToString(str){
-    // 셀 문자열 안에서 그룹별 원본 값들을 매핑된 라벨로 치환
-    approvedGroups.forEach(g=>{
-      if (g.type === 'amount' || g.type === 'number') {
-        const replacement = computeReplacement(g, numberMode);
-        str = str.split(g.value).join(replacement);
-      } else {
-        str = str.split(g.value).join(g.label);
-      }
+    if (!str) return str;
+    const matches = scanDocument(str, dictionary, { numberScope });
+    if (!matches.length) return str;
+    let out = '';
+    let last = 0;
+    matches.forEach(m=>{
+      if (m.start < last) return;
+      const g = keyToGroup.get(m.type + '::' + m.value);
+      if (!g) return;
+      out += str.slice(last, m.start);
+      out += computeReplacement(g, numberMode);
+      last = m.end;
     });
-    return str;
+    out += str.slice(last);
+    return out;
   }
-  const newWb = { SheetNames: wb.SheetNames.slice(), Sheets: {} };
-  wb.SheetNames.forEach((sn, sheetIdx)=>{
-    const sheet = wb.Sheets[sn];
-    const newSheet = {};
+
+  const newWb = JSON.parse(JSON.stringify(wb));
+  newWb.SheetNames.forEach((sn, sheetIdx)=>{
+    const sheet = newWb.Sheets[sn];
+    if (!sheet) return;
     Object.keys(sheet).forEach(addr=>{
-      if (addr[0] === '!') { newSheet[addr] = sheet[addr]; return; }
+      if (addr[0] === '!') return; // 병합/열너비/행높이 등 시트 메타데이터는 그대로 둔다
       const cell = sheet[addr];
+      if (!cell || cell.f) return; // 수식 셀은 손대지 않음
       const decoded = XLSX.utils.decode_cell(addr);
-      const inColumnScope = numberScope !== 'columns'
-        ? true
-        : (sheetIdx === 0 && selectedColumns.has(decoded.c));
-      const newCell = Object.assign({}, cell);
-      if (cell.t === 's') {
-        newCell.v = applyToString(String(cell.v));
-        delete newCell.w;
-      } else if (cell.t === 'n') {
-        if (inColumnScope) {
-          if (numberMode === 'B') {
-            newCell.v = Math.round(cell.v * getSessionMultiplier());
-          } else {
-            newCell.t = 's';
-            newCell.v = '[숫자]';
-          }
-          delete newCell.w;
+
+      if (cell.t === 's' || cell.t === 'str') {
+        const replaced = applyToString(String(cell.v));
+        if (replaced !== cell.v) { cell.v = replaced; delete cell.w; }
+        return;
+      }
+
+      if (cell.t === 'n') {
+        const display = cell.w != null ? String(cell.w) : String(cell.v);
+        const patternMatch = applyToString(display);
+        const matchedByPattern = patternMatch !== display;
+
+        let shouldTransform = false;
+        if (numberScope === 'columns') shouldTransform = sheetIdx === 0 && selectedColumns.has(decoded.c);
+        else if (numberScope === 'all') shouldTransform = true;
+        else shouldTransform = matchedByPattern; // 'amount': 실제 금액 패턴으로 표시되는 숫자만
+
+        if (!shouldTransform) return;
+
+        if (numberMode === 'B') {
+          cell.v = Math.round(cell.v * getSessionMultiplier());
+          delete cell.w;
+        } else {
+          cell.t = 's';
+          cell.v = matchedByPattern ? patternMatch : '[숫자]';
+          delete cell.w; delete cell.z;
         }
       }
-      newSheet[addr] = newCell;
     });
-    newWb.Sheets[sn] = newSheet;
   });
   return newWb;
 }
