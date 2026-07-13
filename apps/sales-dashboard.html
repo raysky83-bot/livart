@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매출·이익 대시보드</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+  body{font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;}
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+  ::-webkit-scrollbar-track{background:transparent}
+  .ms-panel{max-height:280px}
+  .ms-options::-webkit-scrollbar{width:6px}
+  [data-tooltip]{position:relative}
+</style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen">
+
+<div class="bg-blue-800 text-white text-center text-[13px] font-semibold py-2 px-3">
+  🔒 모든 처리는 이 PC의 브라우저 안에서만 이루어집니다 <span class="opacity-80 font-normal">(업로드한 파일은 외부 서버로 전송되지 않습니다)</span>
+</div>
+
+<header class="bg-white border-b border-slate-200 px-6 pt-3.5 pb-3">
+  <a href="../index.html" class="text-slate-500 hover:text-blue-800 text-[12.5px] no-underline">← 포털로</a>
+  <div class="flex items-center justify-between flex-wrap gap-2 mt-1">
+    <h1 class="text-lg font-bold text-blue-800">매출·이익 대시보드</h1>
+    <div class="flex items-center gap-2">
+      <span id="dataRangeInfo" class="text-[12px] text-slate-500"></span>
+      <button id="btnAddFile" class="text-[13px] font-semibold bg-blue-700 hover:bg-blue-800 text-white rounded-md px-3 py-1.5">+ 파일 추가</button>
+      <button id="btnBatches" class="text-[13px] font-semibold bg-white hover:bg-slate-50 text-slate-600 border border-slate-300 rounded-md px-3 py-1.5">불러온 파일 목록</button>
+      <button id="btnClearAll" class="text-[13px] font-semibold bg-white hover:bg-red-50 text-red-600 border border-red-200 rounded-md px-3 py-1.5">전체 초기화</button>
+    </div>
+  </div>
+  <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" multiple class="hidden">
+</header>
+
+<!-- 업로드 안내 (데이터 없을 때) -->
+<div id="emptyState" class="max-w-2xl mx-auto mt-16 text-center px-6">
+  <div id="dropzone" class="border-2 border-dashed border-slate-300 rounded-2xl p-14 bg-white cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition">
+    <div class="text-4xl mb-3">📊</div>
+    <div class="text-slate-700 font-semibold mb-1">ERP RAW 엑셀/CSV 파일을 이곳에 드래그하거나 클릭해서 업로드하세요</div>
+    <div class="text-slate-400 text-[12.5px]">매출일자·영업그룹·매출담당자명·계정구분·메인품목코드·품목주거래처명·품목명·수량·금액·매출원가·이익금액 컬럼을 자동으로 인식합니다.</div>
+  </div>
+  <div class="text-slate-400 text-[11.5px] mt-4 leading-relaxed">매달 새 RAW 파일을 "+ 파일 추가"로 계속 쌓아올릴 수 있습니다. 업로드된 데이터는 이 브라우저에만 저장됩니다.</div>
+  <div id="parseError" class="hidden mt-5 text-left bg-red-50 border border-red-200 text-red-700 text-[12.5px] rounded-lg p-4"></div>
+</div>
+
+<!-- 대시보드 본문 -->
+<div id="dashboard" class="hidden max-w-[1500px] mx-auto px-4 py-5 flex gap-4 items-start">
+
+  <!-- 사이드바 필터 -->
+  <aside class="w-[260px] shrink-0 bg-white border border-slate-200 rounded-xl p-4 sticky top-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-[13px] font-bold text-slate-700">검색 조건</h2>
+      <button id="btnResetFilters" class="text-[11.5px] text-blue-700 hover:underline">초기화</button>
+    </div>
+    <div id="filterList" class="space-y-2"></div>
+    <div id="activeChips" class="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-slate-100"></div>
+  </aside>
+
+  <!-- 메인 -->
+  <main class="flex-1 min-w-0 space-y-4">
+
+    <!-- KPI 카드 -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="kpiGrid"></div>
+
+    <!-- 월별 추이 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="text-[13.5px] font-bold text-slate-700">월별 매출·이익 추이</h3>
+        <span class="text-[11.5px] text-slate-400">막대=매출액 · 선=이익률(%)</span>
+      </div>
+      <div class="h-72"><canvas id="trendChart"></canvas></div>
+    </div>
+
+    <!-- 동적 비중 분석 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <h3 class="text-[13.5px] font-bold text-slate-700">세부 매출 비중 분석</h3>
+        <div class="flex items-center gap-2">
+          <label class="text-[12px] text-slate-500">기준</label>
+          <select id="breakdownDim" class="text-[12.5px] border border-slate-300 rounded-md px-2 py-1"></select>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="h-80"><canvas id="breakdownChart"></canvas></div>
+        <div class="overflow-auto h-80 border border-slate-100 rounded-lg">
+          <table class="w-full text-[12.5px]">
+            <thead class="bg-slate-50 sticky top-0"><tr>
+              <th class="text-left px-3 py-2 font-semibold text-slate-600">구분</th>
+              <th class="text-right px-3 py-2 font-semibold text-slate-600">매출액</th>
+              <th class="text-right px-3 py-2 font-semibold text-slate-600">이익액</th>
+              <th class="text-right px-3 py-2 font-semibold text-slate-600">이익률</th>
+              <th class="text-right px-3 py-2 font-semibold text-slate-600">비중</th>
+            </tr></thead>
+            <tbody id="breakdownTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 상세 데이터 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+        <h3 class="text-[13.5px] font-bold text-slate-700">상세 데이터 <span id="detailCount" class="text-slate-400 font-normal"></span></h3>
+        <button id="btnExportCsv" class="text-[12px] font-semibold bg-white hover:bg-slate-50 text-blue-700 border border-blue-200 rounded-md px-3 py-1.5">현재 조건으로 CSV 내보내기</button>
+      </div>
+      <div class="overflow-auto border border-slate-100 rounded-lg" style="max-height:420px">
+        <table class="w-full text-[12px] whitespace-nowrap">
+          <thead class="bg-slate-50 sticky top-0" id="detailThead"></thead>
+          <tbody id="detailTbody"></tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center gap-3 mt-3" id="pager"></div>
+    </div>
+
+  </main>
+</div>
+
+<!-- 불러온 파일 목록 모달 -->
+<div id="batchModal" class="hidden fixed inset-0 bg-slate-900/40 z-40 flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl w-full max-w-md p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="font-bold text-slate-800 text-[14px]">불러온 파일 목록</h3>
+      <button id="btnCloseBatchModal" class="text-slate-400 hover:text-slate-600 text-lg leading-none">✕</button>
+    </div>
+    <div id="batchList" class="space-y-2 max-h-80 overflow-auto"></div>
+    <div class="text-[11.5px] text-slate-400 mt-3">같은 달을 실수로 두 번 올렸다면 목록에서 삭제해 중복 집계를 막을 수 있습니다.</div>
+  </div>
+</div>
+
+<div id="loadingOverlay" class="hidden fixed inset-0 bg-slate-900/60 z-50 flex flex-col items-center justify-center gap-3 text-white text-sm">
+  <div class="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+  <div id="loadingMsg">처리 중...</div>
+</div>
+
+<div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white text-[13px] px-4 py-2.5 rounded-lg opacity-0 transition-opacity pointer-events-none z-50"></div>
+
+<footer class="text-center text-slate-400 text-[11.5px] py-8">🔒 이 도구는 브라우저 내에서만 동작합니다. 데이터는 이 PC의 로컬 저장소(localStorage)에만 보관되며 서버로 전송되지 않습니다.</footer>
+
+<script>
+'use strict';
+
+/* ============================================================
+   저장소
+============================================================ */
+const LS_BATCHES = 'salesDash_batches_v1';
+const LS_ROWS = 'salesDash_rows_v1';
+
+function loadJSON(key, fallback){ try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch(e){ return fallback; } }
+function saveJSON(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); return true; } catch(e){ return false; } }
+
+let batches = loadJSON(LS_BATCHES, []);  // [{id, fileName, uploadedAt, rowCount}]
+let rows = loadJSON(LS_ROWS, []);        // 파싱된 행 배열 (아래 스키마)
+rows.forEach(r => { r.date = new Date(r.date); }); // localStorage는 Date를 문자열로 저장하므로 복원 시 되살린다
+
+/* ============================================================
+   유틸
+============================================================ */
+const fmtInt = n => Number.isFinite(n) ? Math.round(n).toLocaleString('ko-KR') : '0';
+const fmtPct = n => Number.isFinite(n) ? (n*100).toFixed(1) + '%' : '0.0%';
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.opacity = '1';
+  setTimeout(()=>t.style.opacity='0', 2400);
+}
+function showLoading(msg){ document.getElementById('loadingMsg').textContent = msg||'처리 중...'; document.getElementById('loadingOverlay').classList.remove('hidden'); }
+function hideLoading(){ document.getElementById('loadingOverlay').classList.add('hidden'); }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function uid(){ return Math.random().toString(36).slice(2,10) + Date.now().toString(36); }
+function yieldFrame(){ return new Promise(r=>setTimeout(r,0)); }
+
+/* ============================================================
+   컬럼 매핑 (헤더 문구가 살짝 달라져도 인식하도록 동의어 지원)
+============================================================ */
+const COLUMN_SYNONYMS = {
+  date:       ['매출일자','일자','날짜'],
+  org:        ['영업그룹','조직','부서'],
+  rep:        ['매출담당자명','담당자','영업사원','영업사원명'],
+  accountType:['계정구분','계정명'],
+  code:       ['메인품목코드','코드명','품목코드'],
+  customer:   ['품목주거래처명','주거래처명','고객사명','거래처명'],
+  itemName:   ['품목명'],
+  qty:        ['수량'],
+  amount:     ['금액','매출액','매출'],
+  cost:       ['매출원가','원가'],
+  profit:     ['이익금액','이익액','이익'],
+};
+const REQUIRED_KEYS = ['date','amount','cost','profit'];
+
+function findHeaderRow(aoa){
+  const allSyn = Object.values(COLUMN_SYNONYMS).flat();
+  for (let i=0;i<Math.min(10, aoa.length);i++){
+    const row = aoa[i] || [];
+    const hits = row.filter(cell => allSyn.includes(String(cell||'').trim())).length;
+    if (hits >= 4) return i;
+  }
+  return -1;
+}
+function mapColumns(headerRow){
+  const norm = headerRow.map(h => String(h||'').trim());
+  const map = {};
+  Object.entries(COLUMN_SYNONYMS).forEach(([key, cands])=>{
+    const idx = norm.findIndex(h => cands.includes(h));
+    if (idx >= 0) map[key] = idx;
+  });
+  return map;
+}
+
+/* ============================================================
+   코드명 파싱 (예: "2-G2-E9-940-SU21")
+   seg0=계정원시코드(미사용, 계정구분 컬럼 신뢰) / seg1=고객사구분+그룹군
+   seg2=주거래처코드(미사용, 거래처명 컬럼 신뢰) / seg3=품목세부코드
+   seg4=계절+성별+연도(2자리)
+============================================================ */
+const CUSTOMER_TYPE_MAP = { G:'관계사', P:'일반사' };
+const SEASON_MAP = { S:'하계', F:'동계', N:'사계절' };
+const GENDER_MAP = { M:'남성', W:'여성', U:'공통' };
+
+function parseCode(code){
+  const parts = String(code||'').split('-');
+  const out = {
+    customerTypeLabel: '미분류', customerGroupLabel: '미분류',
+    itemDetailCode: '', seasonLabel: '미분류', genderLabel: '미분류', designYearLabel: '연도미상',
+  };
+  if (parts.length !== 5) return out;
+  const [, p1, , p3, p4] = parts;
+  if (p1 && p1.length >= 1){
+    const t = p1[0];
+    out.customerTypeLabel = CUSTOMER_TYPE_MAP[t] || `기타(${t})`;
+    const g = p1.slice(1);
+    out.customerGroupLabel = g ? `그룹 ${g}` : '미분류';
+  }
+  out.itemDetailCode = p3 || '';
+  if (p4 && p4.length >= 4){
+    const s = p4[0], g = p4[1], y = p4.slice(2);
+    out.seasonLabel = SEASON_MAP[s] || `기타(${s})`;
+    out.genderLabel = GENDER_MAP[g] || `기타(${g})`;
+    out.designYearLabel = /^\d{2}$/.test(y) ? `20${y}년` : '연도미상';
+  }
+  return out;
+}
+function parseDate(str){
+  const s = String(str||'').trim().replace(/\./g,'/').replace(/-/g,'/');
+  const m = s.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+  if (!m) return null;
+  const d = new Date(Number(m[1]), Number(m[2])-1, Number(m[3]));
+  return isNaN(d.getTime()) ? null : d;
+}
+function toNumber(v){
+  if (typeof v === 'number') return v;
+  const n = parseFloat(String(v||'').replace(/,/g,''));
+  return Number.isFinite(n) ? n : 0;
+}
+
+/* ============================================================
+   파일 파싱 → 행 배열
+============================================================ */
+async function parseFile(file){
+  const buf = await file.arrayBuffer();
+  const wb = XLSX.read(buf, { type:'array' });
+  const sheetName = wb.SheetNames[0];
+  const aoa = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header:1, raw:false, defval:'' });
+  const headerIdx = findHeaderRow(aoa);
+  if (headerIdx < 0) throw new Error('헤더 행을 찾지 못했습니다. 매출일자·금액 등 컬럼명이 포함된 표인지 확인해주세요.');
+  const colMap = mapColumns(aoa[headerIdx]);
+  const missing = REQUIRED_KEYS.filter(k => !(k in colMap));
+  if (missing.length) throw new Error('다음 필수 컬럼을 찾지 못했습니다: ' + missing.join(', '));
+
+  const batchId = uid();
+  const parsed = [];
+  const itemNameByCode = new Map(); // 품목세부코드 -> Map(이름후보->빈도)
+
+  for (let i = headerIdx + 1; i < aoa.length; i++){
+    const r = aoa[i];
+    if (!r || !r.some(c => String(c).trim())) continue;
+    const dateStr = r[colMap.date];
+    const date = parseDate(dateStr);
+    if (!date) continue; // 날짜 없는 빈/합계 행은 제외
+
+    const code = colMap.code != null ? r[colMap.code] : '';
+    const derived = parseCode(code);
+    const itemName = colMap.itemName != null ? String(r[colMap.itemName]||'') : '';
+    if (derived.itemDetailCode && itemName){
+      const seg = itemName.split('-');
+      const cand = seg.length >= 2 ? seg[seg.length-1].trim() : itemName.trim();
+      if (cand){
+        if (!itemNameByCode.has(derived.itemDetailCode)) itemNameByCode.set(derived.itemDetailCode, new Map());
+        const m = itemNameByCode.get(derived.itemDetailCode);
+        m.set(cand, (m.get(cand)||0)+1);
+      }
+    }
+
+    parsed.push({
+      batchId,
+      date, year: date.getFullYear(), month: date.getMonth()+1,
+      org: colMap.org != null ? String(r[colMap.org]||'').trim() || '미분류' : '미분류',
+      rep: colMap.rep != null ? String(r[colMap.rep]||'').trim() || '미분류' : '미분류',
+      accountType: colMap.accountType != null ? String(r[colMap.accountType]||'').trim() || '미분류' : '미분류',
+      code: String(code||''),
+      customer: colMap.customer != null ? String(r[colMap.customer]||'').trim() || '미분류' : '미분류',
+      itemName,
+      qty: colMap.qty != null ? toNumber(r[colMap.qty]) : 0,
+      amount: toNumber(r[colMap.amount]),
+      cost: toNumber(r[colMap.cost]),
+      profit: toNumber(r[colMap.profit]),
+      customerTypeLabel: derived.customerTypeLabel,
+      customerGroupLabel: derived.customerGroupLabel,
+      itemDetailCode: derived.itemDetailCode,
+      itemDetailLabel: derived.itemDetailCode, // 아래에서 친숙한 이름으로 보정
+      seasonLabel: derived.seasonLabel,
+      genderLabel: derived.genderLabel,
+      designYearLabel: derived.designYearLabel,
+    });
+  }
+
+  // 품목세부코드 -> 대표 이름 보정 ("940 (폴리반팔티셔츠)")
+  const codeLabel = new Map();
+  itemNameByCode.forEach((freq, code)=>{
+    let best = '', bestN = 0;
+    freq.forEach((n, name)=>{ if (n > bestN){ best = name; bestN = n; } });
+    codeLabel.set(code, best ? `${code} (${best})` : code);
+  });
+  parsed.forEach(row=>{
+    if (row.itemDetailCode) row.itemDetailLabel = codeLabel.get(row.itemDetailCode) || row.itemDetailCode;
+    else row.itemDetailLabel = '미분류';
+  });
+
+  return { batchId, fileName: file.name, rows: parsed };
+}
+
+/* ============================================================
+   업로드 처리
+============================================================ */
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+document.getElementById('btnAddFile').addEventListener('click', ()=>fileInput.click());
+dropzone.addEventListener('click', ()=>fileInput.click());
+dropzone.addEventListener('dragover', e=>{ e.preventDefault(); dropzone.classList.add('border-blue-400','bg-blue-50/40'); });
+dropzone.addEventListener('dragleave', ()=>dropzone.classList.remove('border-blue-400','bg-blue-50/40'));
+dropzone.addEventListener('drop', e=>{
+  e.preventDefault(); dropzone.classList.remove('border-blue-400','bg-blue-50/40');
+  if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+});
+fileInput.addEventListener('change', e=>{
+  const files = Array.from(e.target.files); // input.files는 라이브 리스트라 값을 먼저 배열로 떼어낸다
+  e.target.value = '';
+  if (files.length) handleFiles(files);
+});
+
+async function handleFiles(fileList){
+  const errEl = document.getElementById('parseError');
+  errEl.classList.add('hidden'); errEl.textContent = '';
+  showLoading('파일 분석 중...');
+  await yieldFrame();
+  let added = 0, failedMsgs = [];
+  for (const file of Array.from(fileList)){
+    try {
+      const { batchId, fileName, rows: newRows } = await parseFile(file);
+      if (!newRows.length){ failedMsgs.push(`${file.name}: 유효한 데이터 행이 없습니다.`); continue; }
+      batches.push({ id: batchId, fileName, uploadedAt: Date.now(), rowCount: newRows.length });
+      rows = rows.concat(newRows);
+      added += newRows.length;
+    } catch(e){
+      failedMsgs.push(`${file.name}: ${e.message}`);
+    }
+  }
+  const savedOk = saveJSON(LS_ROWS, rows) && saveJSON(LS_BATCHES, batches);
+  hideLoading();
+  if (failedMsgs.length){
+    errEl.classList.remove('hidden');
+    errEl.innerHTML = '<b>일부 파일을 처리하지 못했습니다:</b><br>' + failedMsgs.map(escapeHtml).join('<br>');
+  }
+  if (added){
+    toast(`${added.toLocaleString('ko-KR')}건 추가되었습니다.${savedOk ? '' : ' (용량 초과로 자동저장은 되지 않았습니다)'}`);
+    initFiltersFromData();
+    render();
+  }
+  updateView();
+}
+
+document.getElementById('btnClearAll').addEventListener('click', ()=>{
+  if (!confirm('불러온 모든 데이터를 삭제하고 초기 화면으로 되돌립니다. 계속할까요?')) return;
+  rows = []; batches = [];
+  localStorage.removeItem(LS_ROWS); localStorage.removeItem(LS_BATCHES);
+  filterState = {}; currentPage = 1;
+  updateView();
+});
+
+/* 불러온 파일 목록 모달 */
+const batchModal = document.getElementById('batchModal');
+document.getElementById('btnBatches').addEventListener('click', ()=>{ renderBatchModal(); batchModal.classList.remove('hidden'); });
+document.getElementById('btnCloseBatchModal').addEventListener('click', ()=>batchModal.classList.add('hidden'));
+function renderBatchModal(){
+  const el = document.getElementById('batchList');
+  if (!batches.length){ el.innerHTML = '<div class="text-slate-400 text-[13px] text-center py-6">불러온 파일이 없습니다.</div>'; return; }
+  el.innerHTML = batches.map(b => `
+    <div class="flex items-center justify-between border border-slate-200 rounded-lg px-3 py-2">
+      <div class="min-w-0">
+        <div class="text-[12.5px] font-semibold text-slate-700 truncate">${escapeHtml(b.fileName)}</div>
+        <div class="text-[11px] text-slate-400">${new Date(b.uploadedAt).toLocaleString('ko-KR')} · ${b.rowCount.toLocaleString('ko-KR')}건</div>
+      </div>
+      <button data-batch="${b.id}" class="btn-remove-batch text-[11.5px] text-red-600 border border-red-200 rounded-md px-2 py-1 hover:bg-red-50 shrink-0 ml-2">삭제</button>
+    </div>
+  `).join('');
+  el.querySelectorAll('.btn-remove-batch').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.dataset.batch;
+      batches = batches.filter(b => b.id !== id);
+      rows = rows.filter(r => r.batchId !== id);
+      saveJSON(LS_ROWS, rows); saveJSON(LS_BATCHES, batches);
+      renderBatchModal();
+      initFiltersFromData();
+      updateView();
+      toast('파일을 목록에서 제거했습니다.');
+    });
+  });
+}
+
+/* ============================================================
+   필터 정의 & 상태
+============================================================ */
+const FILTER_DEFS = [
+  { key:'year',           label:'연도',        get:r=>r.year,               fmt:v=>`${v}년`,      sort:'num' },
+  { key:'month',          label:'월',          get:r=>r.month,              fmt:v=>`${v}월`,      sort:'num' },
+  { key:'org',            label:'조직',        get:r=>r.org,                sort:'text' },
+  { key:'rep',            label:'영업사원',    get:r=>r.rep,                sort:'text' },
+  { key:'customer',       label:'고객사명',    get:r=>r.customer,           sort:'text' },
+  { key:'customerGroupLabel', label:'고객사 그룹군', get:r=>r.customerGroupLabel, sort:'text' },
+  { key:'accountType',    label:'계정구분',    get:r=>r.accountType,        sort:'text' },
+  { key:'customerTypeLabel', label:'고객사구분', get:r=>r.customerTypeLabel, sort:'text' },
+  { key:'seasonLabel',    label:'계절',        get:r=>r.seasonLabel,        sort:'text' },
+  { key:'genderLabel',    label:'성별',        get:r=>r.genderLabel,        sort:'text' },
+  { key:'designYearLabel',label:'디자인연도',  get:r=>r.designYearLabel,    sort:'text' },
+  { key:'itemDetailLabel',label:'품목세부명',  get:r=>r.itemDetailLabel,    sort:'text' },
+];
+let filterState = {}; // key -> Set(values) ; 비어있으면(전체)
+let filterOptionsCache = {}; // key -> [{value,label}]
+
+function sortValues(values, sortType){
+  const arr = [...values];
+  if (sortType === 'num') return arr.sort((a,b)=>a-b);
+  return arr.sort((a,b)=>{
+    const am = /^기타|^미분류|^연도미상/.test(a), bm = /^기타|^미분류|^연도미상/.test(b);
+    if (am !== bm) return am ? 1 : -1;
+    return String(a).localeCompare(String(b), 'ko');
+  });
+}
+function initFiltersFromData(){
+  FILTER_DEFS.forEach(def=>{
+    const vals = sortValues([...new Set(rows.map(def.get))], def.sort);
+    filterOptionsCache[def.key] = vals.map(v => ({ value:v, label: def.fmt ? def.fmt(v) : String(v) }));
+  });
+  renderFilterList();
+}
+
+function applyFilters(dataRows){
+  return dataRows.filter(r => FILTER_DEFS.every(def=>{
+    const sel = filterState[def.key];
+    if (!sel || !sel.size) return true;
+    return sel.has(def.get(r));
+  }));
+}
+
+/* ---- 다중 선택 드롭다운 컴포넌트 ---- */
+function renderFilterList(){
+  const container = document.getElementById('filterList');
+  container.innerHTML = '';
+  FILTER_DEFS.forEach(def=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'relative';
+    wrap.innerHTML = `
+      <button type="button" data-key="${def.key}" class="ms-btn w-full flex items-center justify-between text-left text-[12.5px] border border-slate-200 rounded-lg px-3 py-2 hover:border-blue-300 bg-white">
+        <span class="text-slate-600">${def.label}</span>
+        <span class="ms-count text-slate-400"></span>
+      </button>
+      <div class="ms-panel hidden absolute z-20 left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-lg p-2">
+        <div class="flex items-center justify-between px-1 pb-1.5 mb-1.5 border-b border-slate-100">
+          <button type="button" class="ms-all text-[11px] text-blue-700 hover:underline">전체 선택</button>
+          <button type="button" class="ms-none text-[11px] text-slate-400 hover:underline">선택 해제</button>
+        </div>
+        <div class="ms-options overflow-auto space-y-0.5" style="max-height:220px"></div>
+      </div>
+    `;
+    container.appendChild(wrap);
+    const btn = wrap.querySelector('.ms-btn');
+    const panel = wrap.querySelector('.ms-panel');
+    const optsEl = wrap.querySelector('.ms-options');
+
+    function renderOptions(){
+      const opts = filterOptionsCache[def.key] || [];
+      const sel = filterState[def.key];
+      optsEl.innerHTML = opts.map(o => `
+        <label class="flex items-center gap-2 px-1.5 py-1 rounded hover:bg-slate-50 cursor-pointer text-[12.5px]">
+          <input type="checkbox" data-val="${escapeHtml(String(o.value))}" ${(!sel || sel.has(o.value)) ? 'checked':''} class="w-3.5 h-3.5">
+          <span class="text-slate-700 truncate">${escapeHtml(o.label)}</span>
+        </label>
+      `).join('') || '<div class="text-slate-400 text-[12px] px-1.5 py-2">옵션 없음</div>';
+    }
+    function updateBtnLabel(){
+      const total = (filterOptionsCache[def.key]||[]).length;
+      const sel = filterState[def.key];
+      const n = sel ? sel.size : total;
+      btn.querySelector('.ms-count').textContent = (!sel || n===total) ? '전체' : `${n}개`;
+    }
+    renderOptions(); updateBtnLabel();
+
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      document.querySelectorAll('.ms-panel').forEach(p => { if (p!==panel) p.classList.add('hidden'); });
+      panel.classList.toggle('hidden');
+    });
+    optsEl.addEventListener('change', (e)=>{
+      const cb = e.target.closest('input[type=checkbox]'); if (!cb) return;
+      const opts = filterOptionsCache[def.key];
+      const rawVal = cb.dataset.val;
+      const match = opts.find(o => String(o.value) === rawVal);
+      if (!match) return;
+      if (!filterState[def.key]) filterState[def.key] = new Set(opts.map(o=>o.value));
+      if (cb.checked) filterState[def.key].add(match.value); else filterState[def.key].delete(match.value);
+      if (filterState[def.key].size === opts.length) delete filterState[def.key];
+      updateBtnLabel();
+      renderActiveChips();
+      updateView();
+    });
+    wrap.querySelector('.ms-all').addEventListener('click', ()=>{
+      delete filterState[def.key]; renderOptions(); updateBtnLabel(); renderActiveChips(); updateView();
+    });
+    wrap.querySelector('.ms-none').addEventListener('click', ()=>{
+      filterState[def.key] = new Set(); renderOptions(); updateBtnLabel(); renderActiveChips(); updateView();
+    });
+    wrap._renderOptions = renderOptions;
+    wrap._updateBtnLabel = updateBtnLabel;
+  });
+}
+document.addEventListener('click', ()=> document.querySelectorAll('.ms-panel').forEach(p=>p.classList.add('hidden')));
+
+function renderActiveChips(){
+  const el = document.getElementById('activeChips');
+  const chips = [];
+  FILTER_DEFS.forEach(def=>{
+    const sel = filterState[def.key];
+    if (sel && sel.size) chips.push(`${def.label} ${sel.size}개`);
+  });
+  el.innerHTML = chips.length
+    ? chips.map(c => `<span class="text-[11px] bg-blue-50 text-blue-700 rounded-full px-2.5 py-1">${escapeHtml(c)}</span>`).join('')
+    : '<span class="text-[11.5px] text-slate-300">적용된 조건 없음 (전체 보기)</span>';
+}
+document.getElementById('btnResetFilters').addEventListener('click', ()=>{
+  filterState = {};
+  document.querySelectorAll('#filterList > div').forEach(w => { w._renderOptions(); w._updateBtnLabel(); });
+  renderActiveChips();
+  updateView();
+});
+
+/* ============================================================
+   집계 & 렌더링
+============================================================ */
+function aggregate(dataRows){
+  const amount = dataRows.reduce((s,r)=>s+r.amount,0);
+  const cost = dataRows.reduce((s,r)=>s+r.cost,0);
+  const profit = dataRows.reduce((s,r)=>s+r.profit,0);
+  const qty = dataRows.reduce((s,r)=>s+r.qty,0);
+  return { amount, cost, profit, qty, count: dataRows.length, margin: amount ? profit/amount : 0 };
+}
+function renderKpis(agg){
+  const cards = [
+    { label:'매출액', value: fmtInt(agg.amount) + '원', color:'text-blue-800' },
+    { label:'이익액', value: fmtInt(agg.profit) + '원', color:'text-emerald-700' },
+    { label:'이익률', value: fmtPct(agg.margin), color:'text-amber-600' },
+    { label:'거래건수', value: fmtInt(agg.count) + '건', color:'text-slate-700' },
+  ];
+  document.getElementById('kpiGrid').innerHTML = cards.map(c => `
+    <div class="bg-white border border-slate-200 rounded-xl p-4">
+      <div class="text-[12px] text-slate-400 mb-1">${c.label}</div>
+      <div class="text-xl font-extrabold ${c.color}">${c.value}</div>
+    </div>
+  `).join('');
+}
+
+let trendChartInst = null;
+function renderTrendChart(dataRows){
+  const map = new Map(); // "YYYY-MM" -> {amount,profit}
+  dataRows.forEach(r=>{
+    const k = `${r.year}-${String(r.month).padStart(2,'0')}`;
+    if (!map.has(k)) map.set(k, {amount:0, profit:0});
+    const v = map.get(k); v.amount += r.amount; v.profit += r.profit;
+  });
+  const labels = [...map.keys()].sort();
+  const amounts = labels.map(k=>map.get(k).amount);
+  const margins = labels.map(k=>{ const v = map.get(k); return v.amount ? (v.profit/v.amount*100) : 0; });
+
+  const ctx = document.getElementById('trendChart');
+  if (trendChartInst) trendChartInst.destroy();
+  trendChartInst = new Chart(ctx, {
+    data: {
+      labels: labels.map(k=>k.replace('-', '년 ')+'월'),
+      datasets: [
+        { type:'bar', label:'매출액', data:amounts, backgroundColor:'#2563eb99', yAxisID:'y', borderRadius:4 },
+        { type:'line', label:'이익률(%)', data:margins, borderColor:'#d97706', backgroundColor:'#d97706', yAxisID:'y1', tension:.3, pointRadius:3 },
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ position:'top', labels:{ boxWidth:12, font:{size:11.5} } },
+        tooltip:{ callbacks:{ label: ctx => ctx.dataset.yAxisID==='y1' ? `이익률: ${ctx.parsed.y.toFixed(1)}%` : `매출액: ${fmtInt(ctx.parsed.y)}원` } } },
+      scales:{
+        y:{ position:'left', ticks:{ callback:v=>fmtInt(v) } },
+        y1:{ position:'right', grid:{drawOnChartArea:false}, ticks:{ callback:v=>v+'%' } },
+      }
+    }
+  });
+}
+
+let breakdownChartInst = null;
+const breakdownSelect = document.getElementById('breakdownDim');
+breakdownSelect.innerHTML = FILTER_DEFS.filter(d=>!['year','month'].includes(d.key))
+  .map(d => `<option value="${d.key}">${d.label}</option>`).join('');
+breakdownSelect.value = 'customer';
+breakdownSelect.addEventListener('change', updateView);
+
+function renderBreakdown(dataRows){
+  const def = FILTER_DEFS.find(d => d.key === breakdownSelect.value);
+  const map = new Map();
+  dataRows.forEach(r=>{
+    const key = def.fmt ? def.fmt(def.get(r)) : def.get(r);
+    if (!map.has(key)) map.set(key, {amount:0, profit:0});
+    const v = map.get(key); v.amount += r.amount; v.profit += r.profit;
+  });
+  let entries = [...map.entries()].sort((a,b)=>b[1].amount-a[1].amount);
+  const totalAmount = entries.reduce((s,[,v])=>s+v.amount,0) || 1;
+
+  const TOP_N = 8;
+  let top = entries.slice(0, TOP_N);
+  const rest = entries.slice(TOP_N);
+  if (rest.length){
+    const restAgg = rest.reduce((acc,[,v])=>({amount:acc.amount+v.amount, profit:acc.profit+v.profit}), {amount:0,profit:0});
+    top = [...top, [`기타 ${rest.length}건`, restAgg]];
+  }
+
+  const palette = ['#1d4ed8','#2563eb','#3b82f6','#60a5fa','#93c5fd','#0f766e','#14b8a6','#5eead4','#94a3b8'];
+  const ctx = document.getElementById('breakdownChart');
+  if (breakdownChartInst) breakdownChartInst.destroy();
+  breakdownChartInst = new Chart(ctx, {
+    type:'doughnut',
+    data:{ labels: top.map(([k])=>k), datasets:[{ data: top.map(([,v])=>v.amount), backgroundColor: palette, borderWidth:1 }] },
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ position:'right', labels:{ boxWidth:11, font:{size:11} } },
+        tooltip:{ callbacks:{ label: ctx => `${ctx.label}: ${fmtInt(ctx.parsed)}원 (${(ctx.parsed/totalAmount*100).toFixed(1)}%)` } } } }
+  });
+
+  const tbody = document.getElementById('breakdownTbody');
+  tbody.innerHTML = entries.map(([k,v]) => `
+    <tr class="border-t border-slate-100">
+      <td class="px-3 py-1.5 text-slate-700">${escapeHtml(k)}</td>
+      <td class="px-3 py-1.5 text-right">${fmtInt(v.amount)}</td>
+      <td class="px-3 py-1.5 text-right">${fmtInt(v.profit)}</td>
+      <td class="px-3 py-1.5 text-right">${fmtPct(v.amount ? v.profit/v.amount : 0)}</td>
+      <td class="px-3 py-1.5 text-right">${(v.amount/totalAmount*100).toFixed(1)}%</td>
+    </tr>
+  `).join('') || '<tr><td colspan="5" class="text-center text-slate-400 py-6">데이터 없음</td></tr>';
+}
+
+/* ---- 상세 테이블 (페이지네이션) ---- */
+const DETAIL_COLS = [
+  { k:'date', label:'매출일자', fmt:r=>r.date.toISOString().slice(0,10) },
+  { k:'org', label:'조직' }, { k:'rep', label:'영업사원' }, { k:'accountType', label:'계정구분' },
+  { k:'customer', label:'고객사명' }, { k:'itemName', label:'품목명' },
+  { k:'qty', label:'수량', num:true }, { k:'amount', label:'매출액', num:true },
+  { k:'cost', label:'매출원가', num:true }, { k:'profit', label:'이익액', num:true },
+  { k:'margin', label:'이익률', fmt:r=> fmtPct(r.amount ? r.profit/r.amount : 0) },
+];
+let currentPage = 1;
+const PAGE_SIZE = 50;
+let sortCol = 'date', sortDir = -1;
+
+function renderDetailTable(dataRows){
+  document.getElementById('detailThead').innerHTML = '<tr>' + DETAIL_COLS.map(c =>
+    `<th data-col="${c.k}" class="detail-th text-left px-3 py-2 font-semibold text-slate-600 cursor-pointer select-none">${c.label}${sortCol===c.k ? (sortDir>0?' ▲':' ▼') : ''}</th>`
+  ).join('') + '</tr>';
+  document.querySelectorAll('.detail-th').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const k = th.dataset.col;
+      if (sortCol === k) sortDir *= -1; else { sortCol = k; sortDir = 1; }
+      currentPage = 1; updateView();
+    });
+  });
+
+  const sorted = [...dataRows].sort((a,b)=>{
+    let av = sortCol==='margin' ? (a.amount?a.profit/a.amount:0) : a[sortCol];
+    let bv = sortCol==='margin' ? (b.amount?b.profit/b.amount:0) : b[sortCol];
+    if (av instanceof Date) { av = av.getTime(); bv = bv.getTime(); }
+    if (typeof av === 'string') return av.localeCompare(bv, 'ko') * sortDir;
+    return (av - bv) * sortDir;
+  });
+
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  currentPage = Math.min(currentPage, totalPages);
+  const pageRows = sorted.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
+
+  document.getElementById('detailTbody').innerHTML = pageRows.map(r => '<tr class="border-t border-slate-100 hover:bg-slate-50">' +
+    DETAIL_COLS.map(c => {
+      const val = c.fmt ? c.fmt(r) : r[c.k];
+      return `<td class="px-3 py-1.5 ${c.num?'text-right':''} text-slate-700">${c.num ? fmtInt(val) : escapeHtml(String(val))}</td>`;
+    }).join('') + '</tr>').join('') || `<tr><td colspan="${DETAIL_COLS.length}" class="text-center text-slate-400 py-8">조건에 맞는 데이터가 없습니다.</td></tr>`;
+
+  document.getElementById('detailCount').textContent = `(${sorted.length.toLocaleString('ko-KR')}건 중 ${pageRows.length ? (currentPage-1)*PAGE_SIZE+1 : 0}~${(currentPage-1)*PAGE_SIZE+pageRows.length}건 표시)`;
+
+  const pager = document.getElementById('pager');
+  pager.innerHTML = `
+    <button id="pgPrev" class="text-[12px] px-2.5 py-1 border border-slate-200 rounded-md ${currentPage<=1?'text-slate-300':'text-slate-600 hover:bg-slate-50'}" ${currentPage<=1?'disabled':''}>이전</button>
+    <span class="text-[12px] text-slate-500">${currentPage} / ${totalPages}</span>
+    <button id="pgNext" class="text-[12px] px-2.5 py-1 border border-slate-200 rounded-md ${currentPage>=totalPages?'text-slate-300':'text-slate-600 hover:bg-slate-50'}" ${currentPage>=totalPages?'disabled':''}>다음</button>
+  `;
+  document.getElementById('pgPrev').addEventListener('click', ()=>{ currentPage--; updateView(); });
+  document.getElementById('pgNext').addEventListener('click', ()=>{ currentPage++; updateView(); });
+
+  return sorted;
+}
+
+document.getElementById('btnExportCsv').addEventListener('click', ()=>{
+  const filtered = applyFilters(rows);
+  const header = DETAIL_COLS.map(c=>c.label);
+  const lines = [header.join(',')];
+  filtered.forEach(r=>{
+    const vals = DETAIL_COLS.map(c=>{
+      const v = c.fmt ? c.fmt(r) : r[c.k];
+      const s = String(v).replace(/"/g,'""');
+      return /[",\n]/.test(s) ? `"${s}"` : s;
+    });
+    lines.push(vals.join(','));
+  });
+  const blob = new Blob(['﻿' + lines.join('\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `매출데이터_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+});
+
+/* ============================================================
+   화면 갱신 총괄
+============================================================ */
+function updateView(){
+  const hasData = rows.length > 0;
+  document.getElementById('emptyState').classList.toggle('hidden', hasData);
+  document.getElementById('dashboard').classList.toggle('hidden', !hasData);
+  if (!hasData){
+    document.getElementById('dataRangeInfo').textContent = '';
+    return;
+  }
+  const dates = rows.map(r=>r.date).sort((a,b)=>a-b);
+  const fmtD = d => `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}`;
+  document.getElementById('dataRangeInfo').textContent = `${fmtD(dates[0])} ~ ${fmtD(dates[dates.length-1])} · 총 ${rows.length.toLocaleString('ko-KR')}건`;
+
+  const filtered = applyFilters(rows);
+  const agg = aggregate(filtered);
+  renderKpis(agg);
+  renderTrendChart(filtered);
+  renderBreakdown(filtered);
+  renderDetailTable(filtered);
+  renderActiveChips();
+}
+function render(){ /* placeholder for future full re-render hooks */ }
+
+/* ============================================================
+   초기화
+============================================================ */
+if (rows.length) initFiltersFromData();
+updateView();
+</script>
+</body>
+</html>
