@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>폴더 트리 정리 도구</title>
+<style>
+  :root{
+    --bg:#F4F5F7; --panel:#FFFFFF; --ink:#1F2430; --sub:#6B7280;
+    --line:#E4E7EC; --accent:#0F766E; --accent-soft:#E6F2F1;
+    --move:#2563EB; --move-soft:#EAF1FE;
+    --del:#DC2626; --del-soft:#FDECEC;
+    --new:#16A34A; --new-soft:#E9F7EE;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"Segoe UI","Malgun Gothic","맑은 고딕",sans-serif;
+    background:var(--bg); color:var(--ink); font-size:14px; height:100vh;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  header{
+    background:var(--panel); border-bottom:1px solid var(--line);
+    padding:12px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  header h1{font-size:16px; font-weight:700; letter-spacing:-0.2px;}
+  header .hint{color:var(--sub); font-size:12px;}
+  .back-link{font-size:12px; color:var(--sub); text-decoration:none; flex:none;}
+  .back-link:hover{color:var(--accent);}
+  button{
+    font-family:inherit; font-size:13px; padding:7px 14px; border-radius:8px;
+    border:1px solid var(--line); background:#fff; color:var(--ink); cursor:pointer;
+  }
+  button:hover{background:#F8F9FA;}
+  button.primary{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
+  button.primary:hover{background:#0C5F58;}
+  button.danger-apply{background:var(--del); border-color:var(--del); color:#fff; font-weight:600;}
+  button:disabled{opacity:.45; cursor:not-allowed;}
+  main{flex:1; display:flex; min-height:0;}
+  /* 트리 영역 */
+  #treePane{flex:1.6; display:flex; flex-direction:column; min-width:0; border-right:1px solid var(--line);}
+  #treeToolbar{
+    background:var(--panel); border-bottom:1px solid var(--line);
+    padding:8px 16px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  }
+  #treeToolbar .path{font-size:12px; color:var(--sub); margin-left:auto; font-family:Consolas,monospace;}
+  #tree{flex:1; overflow:auto; padding:10px 16px 60px; background:var(--panel);}
+  ul.tree{list-style:none; padding-left:18px;}
+  ul.tree.root{padding-left:0;}
+  .node-row{
+    display:flex; align-items:center; gap:6px; padding:3px 8px; border-radius:6px;
+    cursor:pointer; user-select:none; line-height:1.5;
+  }
+  .node-row:hover{background:#F3F4F6;}
+  .node-row.selected{background:var(--accent-soft); outline:1px solid var(--accent);}
+  .node-row.dragover{background:var(--move-soft); outline:2px dashed var(--move);}
+  .node-row .icon{width:18px; text-align:center; flex:none;}
+  .node-row .name{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .node-row .meta{color:var(--sub); font-size:11px; flex:none; margin-left:4px;}
+  .node-row .caret{width:14px; flex:none; color:var(--sub); font-size:10px; transition:transform .1s;}
+  .node-row .caret.open{transform:rotate(90deg);}
+  .badge{font-size:10px; padding:1px 7px; border-radius:99px; font-weight:700; flex:none;}
+  .badge.move{background:var(--move-soft); color:var(--move);}
+  .badge.del{background:var(--del-soft); color:var(--del);}
+  .badge.new{background:var(--new-soft); color:var(--new);}
+  .is-deleted > .node-row .name{text-decoration:line-through; color:var(--del); opacity:.75;}
+  .is-moved > .node-row .name{color:var(--move);}
+  .is-new > .node-row .name{color:var(--new);}
+  /* 변경 계획 영역 */
+  #planPane{flex:1; display:flex; flex-direction:column; min-width:300px; max-width:440px; background:var(--bg);}
+  #planPane h2{font-size:13px; font-weight:700; padding:12px 16px 8px; color:var(--sub); text-transform:uppercase; letter-spacing:.4px;}
+  #planList{flex:1; overflow:auto; padding:0 12px;}
+  .op{
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    padding:8px 10px; margin-bottom:8px; font-size:12.5px; display:flex; gap:8px; align-items:flex-start;
+  }
+  .op .chip{font-size:10px; font-weight:700; padding:2px 8px; border-radius:99px; flex:none; margin-top:1px;}
+  .op.move .chip{background:var(--move-soft); color:var(--move);}
+  .op.delete .chip{background:var(--del-soft); color:var(--del);}
+  .op.mkdir .chip{background:var(--new-soft); color:var(--new);}
+  .op .desc{flex:1; word-break:break-all; line-height:1.45;}
+  .op .desc .p{color:var(--sub); font-size:11px;}
+  #planFooter{padding:12px 16px; border-top:1px solid var(--line); background:var(--panel);}
+  #planFooter .row{display:flex; gap:8px; margin-bottom:8px; align-items:center;}
+  #planFooter label{font-size:12px; color:var(--sub); display:flex; gap:6px; align-items:center; cursor:pointer;}
+  #log{
+    max-height:160px; overflow:auto; font-family:Consolas,monospace; font-size:11.5px;
+    background:#111827; color:#D1D5DB; border-radius:8px; padding:8px 10px; margin-top:8px; display:none;
+  }
+  #log .ok{color:#6EE7B7;} #log .err{color:#FCA5A5;}
+  .empty{color:var(--sub); text-align:center; padding:40px 20px; font-size:13px; line-height:1.8;}
+  #unsupported{
+    display:none; background:#FEF3C7; color:#92400E; padding:10px 20px; font-size:13px;
+    border-bottom:1px solid #FDE68A;
+  }
+  kbd{background:#EEF0F3; border:1px solid var(--line); border-radius:4px; padding:0 5px; font-size:11px; font-family:inherit;}
+</style>
+</head>
+<body>
+
+<div id="unsupported">
+  이 브라우저는 폴더 접근 기능을 지원하지 않습니다. <b>Microsoft Edge</b> 또는 <b>Chrome</b>에서 이 파일을 열어주세요.
+</div>
+
+<header>
+  <a href="../index.html" class="back-link">← 포털로</a>
+  <h1>📂 폴더 트리 정리 도구</h1>
+  <button class="primary" id="btnPick">폴더 열기</button>
+  <span class="hint">드래그 = 이동 표시 · <kbd>Del</kbd> = 삭제 표시 · <kbd>Ctrl</kbd>+<kbd>Z</kbd> = 되돌리기 — 화면 편집만으로는 실제 파일이 변하지 않으며, 오른쪽 아래 "실제 적용"을 눌러야 실행됩니다.</span>
+</header>
+
+<main>
+  <div id="treePane">
+    <div id="treeToolbar">
+      <button id="btnNewFolder" disabled>+ 새 폴더</button>
+      <button id="btnDelete" disabled>삭제 표시 (Del)</button>
+      <button id="btnUndo" disabled>↩ 되돌리기 (Ctrl+Z)</button>
+      <button id="btnExpandAll" disabled>모두 펼치기</button>
+      <button id="btnCollapseAll" disabled>모두 접기</button>
+      <span class="path" id="rootPath"></span>
+    </div>
+    <div id="tree">
+      <div class="empty">
+        "폴더 열기"를 눌러 정리할 폴더를 선택하세요.<br>
+        하위 폴더와 파일 전체를 스캔해 트리로 보여드립니다.<br><br>
+        ※ 브라우저가 권한을 물으면 "파일 보기" 및 "변경 내용 저장"을 허용해주세요.
+      </div>
+    </div>
+  </div>
+
+  <div id="planPane">
+    <h2>변경 계획 <span id="opCount"></span></h2>
+    <div id="planList"><div class="empty">아직 변경 사항이 없습니다.<br>왼쪽 트리에서 파일을 드래그하거나 Del 키로 삭제 표시를 해보세요.</div></div>
+    <div id="planFooter">
+      <div class="row">
+        <label><input type="checkbox" id="safeDelete" checked>
+          삭제 시 바로 지우지 않고 <b>_삭제예정</b> 폴더로 이동 (권장)</label>
+      </div>
+      <div class="row">
+        <button id="btnExport" disabled>계획 내보내기(.txt)</button>
+        <button class="danger-apply" id="btnApply" disabled style="margin-left:auto;">▶ 실제 적용</button>
+      </div>
+      <div id="log"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+"use strict";
+/* ===== 상태 ===== */
+let rootHandle = null;
+let nodes = new Map();      // id -> node
+let rootId = null;
+let selectedId = null;
+let ops = [];               // {type:'move'|'delete'|'mkdir', ...} 시간순
+let nextId = 1;
+const collapsed = new Set();
+
+const $ = s => document.querySelector(s);
+const treeEl = $("#tree"), planEl = $("#planList"), logEl = $("#log");
+
+if (!window.showDirectoryPicker) $("#unsupported").style.display = "block";
+
+/* ===== 노드 ===== */
+function makeNode(name, kind, parentId, handle, size, mtime){
+  const n = { id: nextId++, name, kind, parentId, origParentId: parentId,
+              handle, diskParentHandle: null, size, mtime,
+              children: [], deleted: false, isNew: false };
+  nodes.set(n.id, n);
+  return n;
+}
+const childrenOf = id => nodes.get(id).children.map(cid => nodes.get(cid));
+function isDescendant(maybeChildId, ancestorId){
+  let cur = nodes.get(maybeChildId);
+  while (cur){
+    if (cur.id === ancestorId) return true;
+    cur = cur.parentId != null ? nodes.get(cur.parentId) : null;
+  }
+  return false;
+}
+function pathOf(id){
+  const parts = [];
+  let cur = nodes.get(id);
+  while (cur){ parts.unshift(cur.name); cur = cur.parentId != null ? nodes.get(cur.parentId) : null; }
+  return parts.join("/");
+}
+
+/* ===== 스캔 ===== */
+const MAX_ENTRIES = 20000;
+let scanned = 0;
+
+async function scanDir(dirHandle, parentNode){
+  for await (const entry of dirHandle.values()){
+    if (scanned >= MAX_ENTRIES) return;
+    scanned++;
+    if (scanned % 200 === 0){
+      treeEl.innerHTML = `<div class="empty">스캔 중... ${scanned}개 항목</div>`;
+      await new Promise(r => setTimeout(r, 0));
+    }
+    if (entry.kind === "directory"){
+      const n = makeNode(entry.name, "dir", parentNode.id, entry, 0, null);
+      n.diskParentHandle = dirHandle;
+      parentNode.children.push(n.id);
+      await scanDir(entry, n);
+    } else {
+      let size = 0, mtime = null;
+      try { const f = await entry.getFile(); size = f.size; mtime = f.lastModified; } catch(e){}
+      const n = makeNode(entry.name, "file", parentNode.id, entry, size, mtime);
+      n.diskParentHandle = dirHandle;
+      parentNode.children.push(n.id);
+    }
+  }
+}
+
+$("#btnPick").addEventListener("click", async () => {
+  try {
+    const h = await showDirectoryPicker({ mode: "readwrite" });
+    rootHandle = h;
+    nodes = new Map(); ops = []; selectedId = null; nextId = 1; scanned = 0; collapsed.clear();
+    const root = makeNode(h.name, "dir", null, h, 0, null);
+    rootId = root.id;
+    treeEl.innerHTML = `<div class="empty">스캔 중...</div>`;
+    await scanDir(h, root);
+    $("#rootPath").textContent = "선택한 폴더: " + h.name + (scanned >= MAX_ENTRIES ? ` (항목이 많아 ${MAX_ENTRIES}개까지만 표시)` : ` · ${scanned}개 항목`);
+    ["#btnNewFolder","#btnExpandAll","#btnCollapseAll"].forEach(s => $(s).disabled = false);
+    render();
+  } catch(e){ /* 사용자가 취소 */ }
+});
+
+/* ===== 렌더링 ===== */
+function fmtSize(b){
+  if (b >= 1048576) return (b/1048576).toFixed(1) + "MB";
+  if (b >= 1024) return Math.round(b/1024) + "KB";
+  return b + "B";
+}
+function sortIds(ids){
+  return ids.slice().sort((a,b) => {
+    const A = nodes.get(a), B = nodes.get(b);
+    if (A.kind !== B.kind) return A.kind === "dir" ? -1 : 1;
+    return A.name.localeCompare(B.name, "ko");
+  });
+}
+function render(){
+  if (!rootId){ return; }
+  const frag = document.createDocumentFragment();
+  const rootUl = document.createElement("ul");
+  rootUl.className = "tree root";
+  rootUl.appendChild(renderNode(rootId));
+  frag.appendChild(rootUl);
+  treeEl.innerHTML = "";
+  treeEl.appendChild(frag);
+  renderPlan();
+}
+function renderNode(id){
+  const n = nodes.get(id);
+  const li = document.createElement("li");
+  if (n.deleted) li.classList.add("is-deleted");
+  else if (n.isNew) li.classList.add("is-new");
+  else if (n.parentId !== n.origParentId) li.classList.add("is-moved");
+
+  const row = document.createElement("div");
+  row.className = "node-row";
+  if (id === selectedId) row.classList.add("selected");
+  row.dataset.id = id;
+
+  const isDir = n.kind === "dir";
+  const isOpen = !collapsed.has(id);
+
+  const caret = document.createElement("span");
+  caret.className = "caret" + (isOpen ? " open" : "");
+  caret.textContent = isDir && n.children.length ? "▶" : "";
+  row.appendChild(caret);
+
+  const icon = document.createElement("span");
+  icon.className = "icon";
+  icon.textContent = isDir ? (isOpen ? "📂" : "📁") : fileIcon(n.name);
+  row.appendChild(icon);
+
+  const name = document.createElement("span");
+  name.className = "name";
+  name.textContent = n.name;
+  row.appendChild(name);
+
+  if (n.deleted){ row.appendChild(badge("del","삭제 예정")); }
+  else if (n.isNew){ row.appendChild(badge("new","새 폴더")); }
+  else if (n.parentId !== n.origParentId){ row.appendChild(badge("move","이동됨")); }
+
+  const meta = document.createElement("span");
+  meta.className = "meta";
+  if (isDir) meta.textContent = n.children.length + "개";
+  else meta.textContent = fmtSize(n.size) + (n.mtime ? " · " + new Date(n.mtime).toISOString().slice(0,10) : "");
+  row.appendChild(meta);
+
+  /* 이벤트 */
+  row.addEventListener("click", e => { e.stopPropagation(); select(id); });
+  if (isDir){
+    caret.addEventListener("click", e => {
+      e.stopPropagation();
+      collapsed.has(id) ? collapsed.delete(id) : collapsed.add(id);
+      render();
+    });
+    row.addEventListener("dblclick", e => {
+      e.stopPropagation();
+      collapsed.has(id) ? collapsed.delete(id) : collapsed.add(id);
+      render();
+    });
+  }
+  /* 드래그 (루트는 이동 불가) */
+  if (id !== rootId && !n.deleted){
+    row.draggable = true;
+    row.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("text/plain", String(id));
+      e.dataTransfer.effectAllowed = "move";
+    });
+  }
+  /* 드롭 대상: 삭제 표시 안 된 폴더 */
+  if (isDir && !n.deleted){
+    row.addEventListener("dragover", e => { e.preventDefault(); row.classList.add("dragover"); });
+    row.addEventListener("dragleave", () => row.classList.remove("dragover"));
+    row.addEventListener("drop", e => {
+      e.preventDefault(); e.stopPropagation(); row.classList.remove("dragover");
+      const srcId = parseInt(e.dataTransfer.getData("text/plain"), 10);
+      stageMove(srcId, id);
+    });
+  }
+
+  li.appendChild(row);
+  if (isDir && isOpen && n.children.length){
+    const ul = document.createElement("ul");
+    ul.className = "tree";
+    for (const cid of sortIds(n.children)) ul.appendChild(renderNode(cid));
+    li.appendChild(ul);
+  }
+  return li;
+}
+function badge(cls, text){
+  const b = document.createElement("span");
+  b.className = "badge " + cls; b.textContent = text; return b;
+}
+function fileIcon(name){
+  const ext = name.split(".").pop().toLowerCase();
+  if (["xlsx","xls","csv","xlsm"].includes(ext)) return "🟩";
+  if (["pptx","ppt"].includes(ext)) return "🟧";
+  if (["docx","doc","hwp","hwpx"].includes(ext)) return "🟦";
+  if (ext === "pdf") return "🟥";
+  if (["jpg","jpeg","png","gif","webp","bmp"].includes(ext)) return "🖼️";
+  if (["zip","7z","rar","egg","alz"].includes(ext)) return "🗜️";
+  return "📄";
+}
+function select(id){
+  selectedId = id;
+  const n = nodes.get(id);
+  $("#btnDelete").disabled = (id === rootId) || n.deleted;
+  $("#btnNewFolder").disabled = false;
+  render();
+}
+
+/* ===== 편집(스테이징) ===== */
+function stageMove(srcId, destId){
+  const src = nodes.get(srcId), dest = nodes.get(destId);
+  if (!src || !dest || srcId === destId) return;
+  if (src.deleted || dest.deleted) return;
+  if (src.kind === "dir" && isDescendant(destId, srcId)){
+    alert("폴더를 자기 자신의 하위 폴더로 옮길 수 없습니다."); return;
+  }
+  if (src.parentId === destId) return;
+  const oldParent = nodes.get(src.parentId);
+  oldParent.children = oldParent.children.filter(c => c !== srcId);
+  dest.children.push(srcId);
+  const prevParentId = src.parentId;
+  src.parentId = destId;
+  collapsed.delete(destId);
+  ops.push({ type:"move", nodeId:srcId, toParentNodeId:destId, prevParentId });
+  render();
+}
+function stageDelete(id){
+  const n = nodes.get(id);
+  if (!n || id === rootId || n.deleted) return;
+  n.deleted = true;
+  ops.push({ type:"delete", nodeId:id });
+  render();
+}
+function stageMkdir(){
+  const parentId = (selectedId && nodes.get(selectedId).kind === "dir" && !nodes.get(selectedId).deleted)
+    ? selectedId : rootId;
+  const name = prompt("새 폴더 이름:", "");
+  if (!name || !name.trim()) return;
+  const clean = name.trim();
+  if (/[\\/:*?"<>|]/.test(clean)){ alert('폴더 이름에 \\ / : * ? " < > | 문자는 사용할 수 없습니다.'); return; }
+  const parent = nodes.get(parentId);
+  if (parent.children.some(c => nodes.get(c).name === clean)){ alert("같은 이름의 항목이 이미 있습니다."); return; }
+  const n = makeNode(clean, "dir", parentId, null, 0, null);
+  n.isNew = true;
+  parent.children.push(n.id);
+  collapsed.delete(parentId);
+  ops.push({ type:"mkdir", nodeId:n.id, parentNodeId:parentId, name:clean });
+  render();
+}
+function undo(){
+  const op = ops.pop();
+  if (!op) return;
+  if (op.type === "move"){
+    const n = nodes.get(op.nodeId);
+    const cur = nodes.get(n.parentId);
+    cur.children = cur.children.filter(c => c !== n.id);
+    nodes.get(op.prevParentId).children.push(n.id);
+    n.parentId = op.prevParentId;
+  } else if (op.type === "delete"){
+    nodes.get(op.nodeId).deleted = false;
+  } else if (op.type === "mkdir"){
+    const n = nodes.get(op.nodeId);
+    if (n.children.length){
+      alert("이 새 폴더 안에 이동된 항목이 있어 되돌릴 수 없습니다. 안의 항목을 먼저 되돌려주세요.");
+      ops.push(op); return;
+    }
+    const p = nodes.get(op.parentNodeId);
+    p.children = p.children.filter(c => c !== n.id);
+    nodes.delete(n.id);
+    if (selectedId === op.nodeId) selectedId = null;
+  }
+  render();
+}
+
+$("#btnDelete").addEventListener("click", () => { if (selectedId) stageDelete(selectedId); });
+$("#btnNewFolder").addEventListener("click", stageMkdir);
+$("#btnUndo").addEventListener("click", undo);
+$("#btnExpandAll").addEventListener("click", () => { collapsed.clear(); render(); });
+$("#btnCollapseAll").addEventListener("click", () => {
+  for (const [id,n] of nodes) if (n.kind === "dir" && id !== rootId) collapsed.add(id);
+  render();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Delete" && selectedId && !e.target.matches("input,textarea")) stageDelete(selectedId);
+  if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase() === "z"){ e.preventDefault(); undo(); }
+});
+
+/* ===== 변경 계획 패널 ===== */
+function opDesc(op){
+  if (op.type === "move"){
+    const n = nodes.get(op.nodeId);
+    return `<b>${escapeHtml(n.name)}</b><div class="p">→ ${escapeHtml(pathOf(op.toParentNodeId))}/</div>`;
+  }
+  if (op.type === "delete"){
+    const n = nodes.get(op.nodeId);
+    return `<b>${escapeHtml(n.name)}</b>${n.kind==="dir" ? ' <span class="p">(폴더 전체)</span>' : ""}`;
+  }
+  return `<b>${escapeHtml(op.name)}</b><div class="p">위치: ${escapeHtml(pathOf(op.parentNodeId))}/</div>`;
+}
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function renderPlan(){
+  const label = { move:"이동", delete:"삭제", mkdir:"새 폴더" };
+  if (!ops.length){
+    planEl.innerHTML = `<div class="empty">아직 변경 사항이 없습니다.<br>왼쪽 트리에서 파일을 드래그하거나 Del 키로 삭제 표시를 해보세요.</div>`;
+  } else {
+    planEl.innerHTML = ops.map(op =>
+      `<div class="op ${op.type}"><span class="chip">${label[op.type]}</span><div class="desc">${opDesc(op)}</div></div>`
+    ).join("");
+    planEl.scrollTop = planEl.scrollHeight;
+  }
+  $("#opCount").textContent = ops.length ? `(${ops.length}건)` : "";
+  $("#btnApply").disabled = !ops.length;
+  $("#btnExport").disabled = !ops.length;
+  $("#btnUndo").disabled = !ops.length;
+}
+
+/* ===== 계획 내보내기 ===== */
+$("#btnExport").addEventListener("click", () => {
+  const label = { move:"이동", delete:"삭제", mkdir:"새폴더" };
+  const lines = ops.map((op,i) => {
+    if (op.type === "move") return `${i+1}. [이동] ${nodes.get(op.nodeId).name} → ${pathOf(op.toParentNodeId)}/`;
+    if (op.type === "delete") return `${i+1}. [삭제] ${pathOf(op.nodeId)}`;
+    return `${i+1}. [새폴더] ${pathOf(op.parentNodeId)}/${op.name}`;
+  });
+  const blob = new Blob(["폴더 정리 계획 - " + new Date().toLocaleString("ko-KR") + "\n루트: " + (rootHandle?rootHandle.name:"") + "\n\n" + lines.join("\n")], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "정리계획.txt";
+  a.click();
+});
+
+/* ===== 실제 적용 ===== */
+function log(msg, cls){
+  logEl.style.display = "block";
+  const d = document.createElement("div");
+  if (cls) d.className = cls;
+  d.textContent = msg;
+  logEl.appendChild(d);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+async function existsIn(dirHandle, name){
+  try { await dirHandle.getFileHandle(name); return true; } catch(e){}
+  try { await dirHandle.getDirectoryHandle(name); return true; } catch(e){}
+  return false;
+}
+async function uniqueName(dirHandle, name){
+  if (!await existsIn(dirHandle, name)) return name;
+  const dot = name.lastIndexOf(".");
+  const base = dot > 0 ? name.slice(0, dot) : name;
+  const ext  = dot > 0 ? name.slice(dot) : "";
+  let i = 1;
+  while (await existsIn(dirHandle, `${base}(${i})${ext}`)) i++;
+  return `${base}(${i})${ext}`;
+}
+async function copyFile(srcFileHandle, destDirHandle, name){
+  const file = await srcFileHandle.getFile();
+  const newH = await destDirHandle.getFileHandle(name, { create:true });
+  const w = await newH.createWritable();
+  await w.write(file);
+  await w.close();
+  return newH;
+}
+async function copyDirRecursive(srcDirHandle, destParentHandle, name){
+  const newDir = await destParentHandle.getDirectoryHandle(name, { create:true });
+  for await (const entry of srcDirHandle.values()){
+    if (entry.kind === "file") await copyFile(entry, newDir, entry.name);
+    else await copyDirRecursive(entry, newDir, entry.name);
+  }
+  return newDir;
+}
+async function rebindSubtree(node, newDirHandle){
+  node.handle = newDirHandle;
+  for (const cid of node.children){
+    const c = nodes.get(cid);
+    if (c.deleted && c.origParentId === c.parentId){ /* 아직 존재함 */ }
+    try {
+      if (c.kind === "file") c.handle = await newDirHandle.getFileHandle(c.name);
+      else {
+        const h = await newDirHandle.getDirectoryHandle(c.name);
+        await rebindSubtree(c, h);
+        continue;
+      }
+    } catch(e){}
+    c.diskParentHandle = newDirHandle;
+  }
+  for (const cid of node.children){
+    nodes.get(cid).diskParentHandle = newDirHandle;
+  }
+}
+async function getTrashDir(){
+  return await rootHandle.getDirectoryHandle("_삭제예정", { create:true });
+}
+
+$("#btnApply").addEventListener("click", async () => {
+  const nMove = ops.filter(o=>o.type==="move").length;
+  const nDel  = ops.filter(o=>o.type==="delete").length;
+  const nMk   = ops.filter(o=>o.type==="mkdir").length;
+  const safe = $("#safeDelete").checked;
+  const delMode = safe ? "'_삭제예정' 폴더로 이동" : "⚠ 즉시 삭제(복구 불가)";
+  if (!confirm(`실제 PC에 적용합니다.\n\n· 새 폴더 ${nMk}건\n· 이동 ${nMove}건\n· 삭제 ${nDel}건 (${delMode})\n\n진행할까요?`)) return;
+  if (!safe && nDel > 0 && !confirm("즉시 삭제는 휴지통을 거치지 않아 복구할 수 없습니다.\n정말 즉시 삭제할까요?")) return;
+
+  $("#btnApply").disabled = true; $("#btnUndo").disabled = true;
+  logEl.innerHTML = ""; log("적용 시작...");
+  let ok = 0, fail = 0;
+
+  for (const op of ops){
+    try {
+      if (op.type === "mkdir"){
+        const parent = nodes.get(op.parentNodeId);
+        const h = await parent.handle.getDirectoryHandle(op.name, { create:true });
+        const n = nodes.get(op.nodeId);
+        n.handle = h; n.diskParentHandle = parent.handle;
+        log(`[새폴더] ${op.name}`, "ok"); ok++;
+      }
+      else if (op.type === "move"){
+        const n = nodes.get(op.nodeId);
+        const dest = nodes.get(op.toParentNodeId);
+        const newName = await uniqueName(dest.handle, n.name);
+        if (n.kind === "file"){
+          let moved = false;
+          if (typeof n.handle.move === "function"){
+            try { await n.handle.move(dest.handle, newName); moved = true; } catch(e){}
+          }
+          if (!moved){
+            n.handle = await copyFile(n.handle, dest.handle, newName);
+            await n.diskParentHandle.removeEntry(n.name);
+          }
+        } else {
+          const newDir = await copyDirRecursive(n.handle, dest.handle, newName);
+          await n.diskParentHandle.removeEntry(n.name, { recursive:true });
+          await rebindSubtree(n, newDir);
+          n.handle = newDir;
+        }
+        n.name = newName;
+        n.diskParentHandle = dest.handle;
+        log(`[이동] ${n.name} → ${pathOf(dest.id)}/`, "ok"); ok++;
+      }
+      else if (op.type === "delete"){
+        const n = nodes.get(op.nodeId);
+        if (safe){
+          const trash = await getTrashDir();
+          const newName = await uniqueName(trash, n.name);
+          if (n.kind === "file"){
+            let moved = false;
+            if (typeof n.handle.move === "function"){
+              try { await n.handle.move(trash, newName); moved = true; } catch(e){}
+            }
+            if (!moved){
+              await copyFile(n.handle, trash, newName);
+              await n.diskParentHandle.removeEntry(n.name);
+            }
+          } else {
+            await copyDirRecursive(n.handle, trash, newName);
+            await n.diskParentHandle.removeEntry(n.name, { recursive:true });
+          }
+          log(`[삭제→_삭제예정] ${n.name}`, "ok");
+        } else {
+          await n.diskParentHandle.removeEntry(n.name, { recursive: n.kind === "dir" });
+          log(`[삭제] ${n.name}`, "ok");
+        }
+        ok++;
+      }
+    } catch(e){
+      fail++;
+      log(`[실패] ${op.type} - ${e.message || e}`, "err");
+    }
+  }
+
+  log(`완료: 성공 ${ok}건 / 실패 ${fail}건`);
+  if (safe && nDel) log("삭제 항목은 루트의 '_삭제예정' 폴더에 있습니다. 확인 후 직접 비우세요.");
+  ops = [];
+  renderPlan();
+  log("최신 상태를 보려면 '폴더 열기'로 다시 스캔하세요.");
+});
+</script>
+</body>
+</html>
