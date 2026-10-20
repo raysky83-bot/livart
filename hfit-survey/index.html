@@ -175,9 +175,9 @@ body{padding-bottom:170px}
   <section id="vote-view">
     <div class="intro">
       <div>
-        <p>H.FIT 기획 샘플 24종을 8개 카테고리로 나눴습니다. <strong>카테고리마다 가장 마음에 드는 상품 1개</strong>를 골라 주세요.</p>
+        <p>H.FIT 기획 샘플디자인 24종을 8개 카테고리로 나눴습니다. H.FIT 브랜드 이미지와 잘 어울리면서 많은 분이 입고 싶어 할 상품을 찾기 위한 조사이며, 결과는 실제 샘플 제작에 반영합니다. <strong>카테고리마다 가장 마음에 드는 상품 1개</strong>를 골라 주세요.</p>
         <ol>
-          <li>소속 팀을 입력합니다.</li>
+          <li>소속 파트를 입력합니다.</li>
           <li>사진을 눌러 카테고리별로 1개씩 선택합니다. 같은 카테고리에서 다른 사진을 누르면 선택이 바뀝니다.</li>
           <li>사진 왼쪽 위 돋보기를 누르면 크게 볼 수 있습니다.</li>
           <li>8개 카테고리를 모두 고른 뒤 ‘제출’을 누릅니다. 제출 후에도 수정할 수 있습니다.</li>
@@ -186,10 +186,10 @@ body{padding-bottom:170px}
       <div>
         <div id="notice"></div>
         <div class="field">
-          <label for="team">소속 팀</label>
+          <label for="team">소속 파트</label>
           <input id="team" list="team-list" autocomplete="off" placeholder="예: 생산기획파트" maxlength="30">
           <datalist id="team-list"></datalist>
-          <div class="hint">목록에 같은 팀이 보이면 그 이름을 골라 주세요.</div>
+          <div class="hint">목록에 같은 파트가 보이면 그 이름을 골라 주세요.</div>
         </div>
       </div>
     </div>
@@ -212,7 +212,7 @@ body{padding-bottom:170px}
     <div id="res-body" hidden>
       <div class="res-head">
         <div class="kpi"><div class="v" id="k-n">0</div><div class="l">응답자 수</div></div>
-        <div class="kpi"><div class="v" id="k-t">0</div><div class="l">참여 팀</div></div>
+        <div class="kpi"><div class="v" id="k-t">0</div><div class="l">참여 파트</div></div>
       </div>
       <div class="chips" id="chips"></div>
       <div id="rank"></div>
@@ -334,7 +334,7 @@ function render(){
   });
   const team = $("team").value.trim(), cnt = sel.filter(Boolean).length;
   let msg;
-  if(!team) msg = `<strong>${cnt} / ${NC}</strong> 선택 · 소속 팀을 먼저 입력하세요`;
+  if(!team) msg = `<strong>${cnt} / ${NC}</strong> 선택 · 소속 파트를 먼저 입력하세요`;
   else if(cnt<NC) msg = `<strong>${cnt} / ${NC}</strong> 선택 · 남은 카테고리를 골라 주세요`;
   else msg = `<strong>${NC} / ${NC}</strong> 선택 완료 · 제출을 눌러 주세요`;
   $("status").innerHTML = msg;
