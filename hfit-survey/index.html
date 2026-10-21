@@ -283,7 +283,7 @@ const code = n => "No." + String(n).padStart(2,"0");
 const $ = id => document.getElementById(id);
 const EN = {1:"Stretch Fleece Long-Sleeve T-Shirt",2:"Functional Long-Sleeved Top with Two Pockets",3:"Utility Pocket Brushed Fleece Sweatshirt",4:"High-Neck Half-Zip Sweatshirt",5:"Utility Strap Chore Jacket",6:"Heritage Work Jacket",7:"Dual-Tone Shell Jacket",8:"Dual-Tone Utility Hooded Jacket",9:"Block Quilted Padded Vest",10:"Hybrid Quilted Vest",11:"Core Quilted Vest",12:"Core Block Quilted Jacket",13:"Essential Round Quilted Jacket",14:"Ridge Block Quilted Jacket",15:"Cord Collar Quilted Jacket",16:"Heritage Sherpa Trucker Jacket",17:"Heritage Quilted Shirt Jacket",18:"Hybrid Quilted Work Jacket",19:"Curve Panel Fleece Jacket",20:"Dual Pocket Fleece Jacket",21:"Blue Point Utility Fleece Jacket",22:"Urban Sherpa Round Jacket",23:"Lumiguard Work Jacket",24:"Reflect Guard Parka"};
 const SHOTS = [["","대표"],["a","앞·뒤"],["b","디테일"],["c","상세 설명"]];
-const shot = (n,k,thumb) => k ? "img/detail/" + String(n).padStart(2,"0") + k + (thumb ? "_t" : "") + ".jpg" : img(n);
+const shot = (n,k,thumb) => k ? "img/detail/" + String(n).padStart(2,"0") + k + (thumb ? "_t" : "") + ".jpg?v=2" : img(n);
 const store = { get(k){ try{return localStorage.getItem(k);}catch(e){return null;} }, set(k,v){ try{localStorage.setItem(k,v);}catch(e){} } };
 const ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg>';
 
