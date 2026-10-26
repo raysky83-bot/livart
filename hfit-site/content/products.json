@@ -1,0 +1,824 @@
+{
+  "collections": [
+    {
+      "id": "fw27",
+      "title": "2027 F/W",
+      "subtitle": "샘플 디자인 24종",
+      "cover": "images/look/look-03.jpg",
+      "items": [
+        {
+          "code": "27FW-01",
+          "name": "카라 긴팔티",
+          "en": "Stretch Fleece Long-Sleeve T-Shirt",
+          "category": "TOPS",
+          "image": "images/products/fw27/01.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/01a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/01b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/01c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-02",
+          "name": "투포켓 긴팔티",
+          "en": "Functional Long-Sleeved Top with Two Pockets",
+          "category": "TOPS",
+          "image": "images/products/fw27/02.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/02a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/02b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/02c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-03",
+          "name": "유틸리티 포켓 맨투맨",
+          "en": "Utility Pocket Brushed Fleece Sweatshirt",
+          "category": "TOPS",
+          "image": "images/products/fw27/03.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/03a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/03b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/03c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-04",
+          "name": "하이넥 반집업 맨투맨",
+          "en": "High-Neck Half-Zip Sweatshirt",
+          "category": "TOPS",
+          "image": "images/products/fw27/04.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/04a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/04b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/04c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-05",
+          "name": "유틸리티 스트랩 초어 재킷",
+          "en": "Utility Strap Chore Jacket",
+          "category": "WORK JACKET",
+          "image": "images/products/fw27/05.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/05a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/05b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/05c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-06",
+          "name": "헤리티지 워크 재킷",
+          "en": "Heritage Work Jacket",
+          "category": "WORK JACKET",
+          "image": "images/products/fw27/06.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/06a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/06b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/06c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-07",
+          "name": "투톤 셸 재킷",
+          "en": "Dual-Tone Shell Jacket",
+          "category": "WINDBREAK",
+          "image": "images/products/fw27/07.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/07a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/07b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/07c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-08",
+          "name": "투톤 유틸리티 후드 재킷",
+          "en": "Dual-Tone Utility Hooded Jacket",
+          "category": "WINDBREAK",
+          "image": "images/products/fw27/08.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/08a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/08b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/08c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-09",
+          "name": "블록 퀼팅 패딩 조끼",
+          "en": "Block Quilted Padded Vest",
+          "category": "DOWN VEST",
+          "image": "images/products/fw27/09.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/09a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/09b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/09c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-10",
+          "name": "하이브리드 퀼팅 조끼",
+          "en": "Hybrid Quilted Vest",
+          "category": "DOWN VEST",
+          "image": "images/products/fw27/10.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/10a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/10b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/10c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-11",
+          "name": "코어 퀼팅 조끼",
+          "en": "Core Quilted Vest",
+          "category": "DOWN VEST",
+          "image": "images/products/fw27/11.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/11a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/11b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/11c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-12",
+          "name": "코어 블록 경량 다운",
+          "en": "Core Block Quilted Jacket",
+          "category": "DOWN JACKET",
+          "image": "images/products/fw27/12.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/12a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/12b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/12c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-13",
+          "name": "에센셜 노카라 경량 다운",
+          "en": "Essential Round Quilted Jacket",
+          "category": "DOWN JACKET",
+          "image": "images/products/fw27/13.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/13a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/13b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/13c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-14",
+          "name": "릿지 블록 경량 다운",
+          "en": "Ridge Block Quilted Jacket",
+          "category": "DOWN JACKET",
+          "image": "images/products/fw27/14.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/14a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/14b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/14c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-15",
+          "name": "코듀로이 칼라 퀼팅 재킷",
+          "en": "Cord Collar Quilted Jacket",
+          "category": "PADDED WORK JACKET",
+          "image": "images/products/fw27/15.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/15a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/15b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/15c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-16",
+          "name": "헤리티지 셰르파 트러커 재킷",
+          "en": "Heritage Sherpa Trucker Jacket",
+          "category": "PADDED WORK JACKET",
+          "image": "images/products/fw27/16.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/16a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/16b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/16c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-17",
+          "name": "헤리티지 퀼팅 셔츠 재킷",
+          "en": "Heritage Quilted Shirt Jacket",
+          "category": "PADDED WORK JACKET",
+          "image": "images/products/fw27/17.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/17a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/17b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/17c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-18",
+          "name": "하이브리드 퀼팅 워크 재킷",
+          "en": "Hybrid Quilted Work Jacket",
+          "category": "PADDED WORK JACKET",
+          "image": "images/products/fw27/18.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/18a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/18b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/18c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-19",
+          "name": "커브 패널 플리스",
+          "en": "Curve Panel Fleece Jacket",
+          "category": "FLEECE",
+          "image": "images/products/fw27/19.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/19a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/19b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/19c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-20",
+          "name": "듀얼 포켓 플리스",
+          "en": "Dual Pocket Fleece Jacket",
+          "category": "FLEECE",
+          "image": "images/products/fw27/20.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/20a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/20b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/20c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-21",
+          "name": "블루 포인트 유틸리티 플리스",
+          "en": "Blue Point Utility Fleece Jacket",
+          "category": "FLEECE",
+          "image": "images/products/fw27/21.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/21a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/21b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/21c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-22",
+          "name": "어반 셰르파 노카라 재킷",
+          "en": "Urban Sherpa Round Jacket",
+          "category": "FLEECE",
+          "image": "images/products/fw27/22.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/22a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/22b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/22c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-23",
+          "name": "루미가드 워크 재킷",
+          "en": "Lumiguard Work Jacket",
+          "category": "HI-VIS JACKET",
+          "image": "images/products/fw27/23.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/23a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/23b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/23c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27FW-24",
+          "name": "리플렉트 가드 파카",
+          "en": "Reflect Guard Parka",
+          "category": "HI-VIS JACKET",
+          "image": "images/products/fw27/24.jpg",
+          "gallery": [
+            {
+              "image": "images/products/fw27/24a.jpg",
+              "caption": "앞·뒤"
+            },
+            {
+              "image": "images/products/fw27/24b.jpg",
+              "caption": "디테일"
+            },
+            {
+              "image": "images/products/fw27/24c.jpg",
+              "caption": "상세 설명"
+            }
+          ],
+          "colors": "",
+          "description": "",
+          "show": true
+        }
+      ]
+    },
+    {
+      "id": "ss27",
+      "title": "2027 S/S",
+      "subtitle": "쿨링 웨어·여름 라인",
+      "cover": "images/look/ss27-fan-vest.jpg",
+      "items": [
+        {
+          "code": "27SS-01",
+          "name": "팬 쿨링 베스트 A",
+          "en": "Fan-Cooled Vest Design A",
+          "category": "FAN-COOLED VEST",
+          "image": "images/products/ss27-fan-vest-a.jpg",
+          "gallery": [],
+          "colors": "CHARCOAL, KHAKI, BLACK",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-02",
+          "name": "팬 쿨링 베스트 B",
+          "en": "Fan-Cooled Vest Design B",
+          "category": "FAN-COOLED VEST",
+          "image": "images/products/ss27-fan-vest-b.jpg",
+          "gallery": [],
+          "colors": "GRAY, NAVY, BEIGE",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-03",
+          "name": "팬 점퍼 A",
+          "en": "Fan Jumper Design A",
+          "category": "FAN JUMPER",
+          "image": "images/products/ss27-fan-jumper-a.jpg",
+          "gallery": [],
+          "colors": "NAVY, BLACK",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-04",
+          "name": "팬 점퍼 B",
+          "en": "Fan Jumper Design B",
+          "category": "FAN JUMPER",
+          "image": "images/products/ss27-fan-jumper-b.jpg",
+          "gallery": [],
+          "colors": "CHARCOAL, NAVY, BLACK, GRAY",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-05",
+          "name": "펠티어 냉각 베스트",
+          "en": "Peltier Vest",
+          "category": "ACC",
+          "image": "images/products/ss27-peltier-vest.jpg",
+          "gallery": [],
+          "colors": "GRAY, BLACK",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-06",
+          "name": "캡 A",
+          "en": "Cap Design A",
+          "category": "ACC",
+          "image": "images/products/ss27-cap-a.jpg",
+          "gallery": [],
+          "colors": "NAVY, SLATE BLUE",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-07",
+          "name": "캡 B",
+          "en": "Cap Design B",
+          "category": "ACC",
+          "image": "images/products/ss27-cap-b.jpg",
+          "gallery": [],
+          "colors": "SLATE BLUE, BEIGE",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-08",
+          "name": "선 마스크",
+          "en": "Sun Mask",
+          "category": "ACC",
+          "image": "images/products/ss27-sun-mask.jpg",
+          "gallery": [],
+          "colors": "SLATE BLUE, WHITE, BLACK",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-09",
+          "name": "반팔 카라 티셔츠",
+          "en": "Short-Sleeved Top Design A",
+          "category": "SHORT-SLEEVED TOP",
+          "image": "images/products/ss27-short-a.jpg",
+          "gallery": [],
+          "colors": "WHITE, BLACK, NAVY, CHARCOAL",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-10",
+          "name": "포켓 반팔 티셔츠",
+          "en": "Short-Sleeved Top Design B",
+          "category": "SHORT-SLEEVED TOP",
+          "image": "images/products/ss27-short-b.jpg",
+          "gallery": [],
+          "colors": "BLACK, NAVY, KHAKI",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "27SS-11",
+          "name": "반팔 셔츠",
+          "en": "Short-Sleeved Top Design C",
+          "category": "SHORT-SLEEVED TOP",
+          "image": "images/products/ss27-short-c.jpg",
+          "gallery": [],
+          "colors": "BEIGE, BLUE, OLIVE GREEN",
+          "description": "",
+          "show": true
+        }
+      ]
+    },
+    {
+      "id": "fw26",
+      "title": "2026 F/W",
+      "subtitle": "보온·발열 라인",
+      "cover": "images/look/fw26-down.jpg",
+      "items": [
+        {
+          "code": "26FW-01",
+          "name": "패딩 재킷 A",
+          "en": "Padded Jacket Design A",
+          "category": "PADDED JACKET",
+          "image": "images/products/fw26-padded-a.jpg",
+          "gallery": [],
+          "colors": "BEIGE, BLACK, NAVY",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-02",
+          "name": "패딩 재킷 B",
+          "en": "Padded Jacket Design B",
+          "category": "PADDED JACKET",
+          "image": "images/products/fw26-padded-b.jpg",
+          "gallery": [],
+          "colors": "CHARCOAL, GRAY, NAVY",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-03",
+          "name": "다운 재킷",
+          "en": "Down Jacket",
+          "category": "DOWN",
+          "image": "images/products/fw26-down-jacket.jpg",
+          "gallery": [],
+          "colors": "BEIGE, NAVY",
+          "description": "내부 발열 패드 적용",
+          "show": true
+        },
+        {
+          "code": "26FW-04",
+          "name": "다운 베스트",
+          "en": "Down Vest",
+          "category": "DOWN",
+          "image": "images/products/fw26-down-vest.jpg",
+          "gallery": [],
+          "colors": "KHAKI, BLACK, NAVY",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-05",
+          "name": "맨투맨",
+          "en": "Long-Sleeved Sweatshirt",
+          "category": "LONG-SLEEVED",
+          "image": "images/products/fw26-sweatshirt.jpg",
+          "gallery": [],
+          "colors": "MELANGE GRAY, MELANGE CHARCOAL, MELANGE BLACK",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-06",
+          "name": "긴팔 카라 티셔츠",
+          "en": "Long-Sleeved Collared Shirt",
+          "category": "LONG-SLEEVED",
+          "image": "images/products/fw26-collared.jpg",
+          "gallery": [],
+          "colors": "WHITE, BLACK, NAVY, MELANGE CHARCOAL",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-07",
+          "name": "긴팔 풀집업",
+          "en": "Long-Sleeve Full-Zip",
+          "category": "LONG-SLEEVED",
+          "image": "images/products/fw26-full-zip.jpg",
+          "gallery": [],
+          "colors": "BLACK, KHAKI, NAVY",
+          "description": "",
+          "show": true
+        },
+        {
+          "code": "26FW-08",
+          "name": "발열 베스트",
+          "en": "Heated Vest",
+          "category": "ACC",
+          "image": "images/products/fw26-heated-vest.jpg",
+          "gallery": [],
+          "colors": "BLACK",
+          "description": "3단 온도 조절(약 40~55도), 배터리 포켓 내장형·외장형",
+          "show": true
+        },
+        {
+          "code": "26FW-09",
+          "name": "트루퍼 햇",
+          "en": "Trooper Hat",
+          "category": "ACC",
+          "image": "images/products/fw26-trooper-hat.jpg",
+          "gallery": [],
+          "colors": "BLACK, NAVY, KHAKI",
+          "description": "",
+          "show": true
+        }
+      ]
+    }
+  ]
+}

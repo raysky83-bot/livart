@@ -1,0 +1,242 @@
+{
+  "brand": {
+    "name": "H.FIT",
+    "slogan": "Fit Your Work, Fit Your Life",
+    "tagline": "기능은 일에, 스타일은 일상에\n당신의 하루를 설계한 워크핏",
+    "company": "현대리바트"
+  },
+  "hero": {
+    "eyebrow": "2027 F/W COLLECTION",
+    "title": "Fit Your Work,\nFit Your Life",
+    "text": "현장의 기능과 일상의 스타일을 함께 설계한 기업 유니폼·근무복 브랜드",
+    "images": [
+      {
+        "image": "images/look/fw26-padded.jpg",
+        "alt": "패딩 재킷 착용 이미지"
+      },
+      {
+        "image": "images/look/fw26-down.jpg",
+        "alt": "다운 재킷 착용 이미지"
+      },
+      {
+        "image": "images/look/fw26-sweat.jpg",
+        "alt": "맨투맨 착용 이미지"
+      },
+      {
+        "image": "images/look/fw26-heated.jpg",
+        "alt": "발열 베스트 착용 이미지"
+      }
+    ]
+  },
+  "values": [
+    {
+      "key": "H.ARMONY",
+      "title": "일과 일상의 조화",
+      "text": "현장에서도, 퇴근 후 일상에서도 어색하지 않은 디자인"
+    },
+    {
+      "key": "F.UNCTION",
+      "title": "기능성·실용성·퍼포먼스",
+      "text": "업무 환경에 맞춘 소재와 구조 중심 설계"
+    },
+    {
+      "key": "I.DENTITY",
+      "title": "개성을 담은 핏과 디자인",
+      "text": "기업의 CI와 착용자의 개성을 함께 표현"
+    },
+    {
+      "key": "T.RUST",
+      "title": "신뢰할 수 있는 품질과 합리적 가격",
+      "text": "공장 직접 관리로 품질과 가격을 함께 지킴"
+    }
+  ],
+  "about": {
+    "title": "근무복의 패러다임 변화",
+    "text": "단순 소모품이자 작업복으로 여겨지던 현장직 유니폼을, 기업의 브랜드 아이덴티티(CI)를 표현하고 근로자의 자부심을 높이는 ‘기능성 테크웨어’로 바꿉니다.",
+    "pillars": [
+      {
+        "title": "프리미엄 테크웨어",
+        "text": "안전과 내구성이 필수인 건설·산업 현장을 위해 분야에 맞는 원단을 적용하고, 기업의 신뢰감과 무게감을 담은 프리미엄 워크웨어를 제안합니다."
+      },
+      {
+        "title": "완벽한 퍼포먼스",
+        "text": "인체공학적 입체 패턴으로 활동성과 현장 업무를 고려해 기능적으로 설계한 세련된 디자인입니다."
+      },
+      {
+        "title": "토탈 솔루션",
+        "text": "엄격한 품질 관리는 물론 C/S와 납품을 넘어선 토탈 솔루션을 제공합니다."
+      }
+    ]
+  },
+  "factory": {
+    "title": "DIRECT TO FACTORY SYSTEM",
+    "text": "중간 유통 단계 없이 생산 공장을 직접 관리해 근무자에게 필요한 품질을 유지합니다.",
+    "features": [
+      {
+        "title": "다양한 디자인 제안",
+        "text": "단순 작업복을 넘어 기업의 정체성을 담아내는 디자인 라인업을 구축합니다.",
+        "points": [
+          "업종·직무 특성에 최적화된 라인업",
+          "고프코어·아웃도어 스타일로 일상 착용 만족도 강화",
+          "다양한 체형과 연령대를 고려한 패턴 세분화"
+        ]
+      },
+      {
+        "title": "기능성 섬유 & 친환경 소재",
+        "text": "최첨단 소재 기술과 글로벌 친환경 인증 소재로 고객사의 ESG 경영을 실질적으로 지원합니다.",
+        "points": [
+          "내마모성·방오·정전기 방지·난연 기능",
+          "스트레치·흡한속건·UV 차단·체온 조절 섬유",
+          "오가닉 코튼·무독성 염색 공법"
+        ]
+      },
+      {
+        "title": "고객사 맞춤 커스텀 디자인",
+        "text": "고객사의 CI/BI와 현장 작업자의 요구사항을 반영하는 원스톱 커스텀 프로세스를 제공합니다.",
+        "points": [
+          "현장 피드백 기반 직무별 특수 디테일",
+          "3D 샘플링으로 리드타임 단축과 빠른 의사결정"
+        ]
+      }
+    ]
+  },
+  "process": [
+    {
+      "en": "PLANNING & DESIGN",
+      "title": "시즌 컬렉션 기획 및 프로토타입 개발",
+      "points": [
+        "시즌 트렌드를 반영한 디자인 시안 기획",
+        "초기 프로토타입(샘플) 제작 및 품질 확인"
+      ]
+    },
+    {
+      "en": "PROPOSAL",
+      "title": "맞춤형 디자인 제안",
+      "points": [
+        "기업별 맞춤형 시각화 제안서 제작",
+        "파트너사 대상 제안서 배포"
+      ]
+    },
+    {
+      "en": "CLIENT MEETING",
+      "title": "1:1 샘플 리뷰 미팅",
+      "points": [
+        "파트너사 1:1 커스텀 샘플 미팅",
+        "소재·컬러·핏 리뷰 및 피드백 수렴"
+      ]
+    },
+    {
+      "en": "CUSTOMIZATION",
+      "title": "디자인 디벨롭 및 최종 샘플링",
+      "points": [
+        "고객 니즈 기반 디자인 고도화",
+        "최종 컨펌용 샘플 제작 및 납품 준비"
+      ]
+    }
+  ],
+  "scm": [
+    {
+      "en": "MATERIAL SOURCING",
+      "title": "원부자재 소싱 및 발주",
+      "text": "최종 컨펌된 스펙에 맞춰 품질 기준에 맞는 공급망으로 원단과 부자재를 발주합니다."
+    },
+    {
+      "en": "PRE-PRODUCTION",
+      "title": "메인 생산 준비",
+      "text": "생산 투입 전 최종 PP샘플을 확인하고 작업 지시서와 공장 라인 일정을 확정합니다."
+    },
+    {
+      "en": "PRODUCTION & QC",
+      "title": "메인 생산 및 품질 관리",
+      "text": "공정별 진척도를 관리하고 인라인(생산 중)과 파이널(포장 전) 2단계 품질 검수를 진행합니다."
+    },
+    {
+      "en": "PACKAGING & LOGISTICS",
+      "title": "패키징 및 물류 납품",
+      "text": "고객 가이드에 맞춘 개별 패키징 후 지정 창고와 납품처로 안전하게 배송합니다."
+    }
+  ],
+  "branding": {
+    "title": "브랜드 디테일",
+    "text": "메인 라벨, 행택, 패키지까지 H.FIT의 아이덴티티를 일관되게 적용합니다.",
+    "images": [
+      {
+        "image": "images/brand/label-01.jpg",
+        "caption": "메인 라벨"
+      },
+      {
+        "image": "images/brand/label-02.jpg",
+        "caption": "자수 라벨"
+      },
+      {
+        "image": "images/brand/tag-photo.jpg",
+        "caption": "행택 적용"
+      },
+      {
+        "image": "images/brand/tag-02.jpg",
+        "caption": "행택"
+      },
+      {
+        "image": "images/brand/package-04.jpg",
+        "caption": "프리미엄 패키지"
+      },
+      {
+        "image": "images/brand/logo-emboss.jpg",
+        "caption": "로고 엠보싱"
+      }
+    ]
+  },
+  "group": {
+    "eyebrow": "GROUP SALES",
+    "title": "단체 구매 문의",
+    "text": "기업·기관 단체 유니폼과 근무복 제작을 상담해 드립니다. 업종, 인원, 희망 납기를 알려 주시면 맞춤 제안을 준비합니다.",
+    "image": "images/look/group-sales.jpg"
+  },
+  "contact": {
+    "company": "현대리바트 H.FIT",
+    "department": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "note": "연락처는 정식 오픈 전 등록 예정입니다."
+  },
+  "notice": "테스트용 홈페이지입니다. 제품 이미지는 기획 시안이며 실제 제품과 다를 수 있습니다.",
+  "lookbook": [
+    {
+      "image": "images/look/look-03.jpg",
+      "caption": "2027 F/W"
+    },
+    {
+      "image": "images/look/fw26-down.jpg",
+      "caption": "Down Jacket"
+    },
+    {
+      "image": "images/look/ss27-fan-vest.jpg",
+      "caption": "Fan-Cooled Vest"
+    },
+    {
+      "image": "images/look/fw26-sweat.jpg",
+      "caption": "Sweatshirt"
+    },
+    {
+      "image": "images/look/ss27-short-sleeve.jpg",
+      "caption": "Short-Sleeved Top"
+    },
+    {
+      "image": "images/look/fw26-heated.jpg",
+      "caption": "Heated Vest"
+    },
+    {
+      "image": "images/look/ss27-fan-jumper.jpg",
+      "caption": "Fan Jumper"
+    },
+    {
+      "image": "images/look/look-04.jpg",
+      "caption": "Down Jacket"
+    },
+    {
+      "image": "images/look/ss27-peltier.jpg",
+      "caption": "Peltier Vest"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+# Pages CMS 설정 (https://pagescms.org) — H.FIT 테스트 홈페이지(hfit-site) 관리 화면
+media:
+  input: hfit-site/images/uploads
+  output: images/uploads
+
+content:
+  - name: products
+    label: 제품·컬렉션
+    type: file
+    path: hfit-site/content/products.json
+    fields:
+      - name: collections
+        label: 컬렉션
+        type: object
+        list: true
+        fields:
+          - { name: id, label: "ID (영문, 변경 금지)", type: string }
+          - { name: title, label: "탭 제목 (예: 2027 F/W)", type: string }
+          - { name: subtitle, label: 탭 설명, type: string }
+          - { name: cover, label: 대표 이미지, type: image }
+          - name: items
+            label: 제품 목록
+            type: object
+            list: true
+            fields:
+              - { name: show, label: 홈페이지에 표시, type: boolean, default: true }
+              - { name: code, label: 품번, type: string }
+              - { name: name, label: 제품명, type: string }
+              - { name: en, label: 영문명, type: string }
+              - { name: category, label: "카테고리 (필터 버튼 이름)", type: string }
+              - { name: image, label: 대표 사진, type: image }
+              - name: gallery
+                label: 상세 사진
+                type: object
+                list: true
+                fields:
+                  - { name: image, label: 사진, type: image }
+                  - { name: caption, label: "설명 (예: 앞·뒤)", type: string }
+              - { name: colors, label: "컬러 (쉼표로 구분)", type: string }
+              - { name: description, label: 특징, type: text }
+
+  - name: site
+    label: 홈페이지 문구·이미지
+    type: file
+    path: hfit-site/content/site.json
+    fields:
+      - { name: notice, label: "상단 안내 띠 (비우면 숨김)", type: string }
+      - name: brand
+        label: 브랜드
+        type: object
+        fields:
+          - { name: name, label: 브랜드명, type: string }
+          - { name: slogan, label: 슬로건, type: string }
+          - { name: tagline, label: 태그라인, type: text }
+          - { name: company, label: 회사명, type: string }
+      - name: hero
+        label: 첫 화면
+        type: object
+        fields:
+          - { name: eyebrow, label: 작은 제목, type: string }
+          - { name: title, label: 큰 제목, type: text }
+          - { name: text, label: 설명, type: text }
+          - name: images
+            label: "화보 사진 (4장 권장, 세로 사진)"
+            type: object
+            list: true
+            fields:
+              - { name: image, label: 사진, type: image }
+              - { name: alt, label: 사진 설명, type: string }
+      - name: values
+        label: 브랜드 가치 (H·F·I·T)
+        type: object
+        list: true
+        fields:
+          - { name: key, label: "키워드 (예: H.ARMONY)", type: string }
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+      - name: about
+        label: 브랜드 소개
+        type: object
+        fields:
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+          - name: pillars
+            label: 핵심 가치
+            type: object
+            list: true
+            fields:
+              - { name: title, label: 제목, type: string }
+              - { name: text, label: 설명, type: text }
+      - name: lookbook
+        label: 룩북 사진
+        type: object
+        list: true
+        fields:
+          - { name: image, label: 사진, type: image }
+          - { name: caption, label: 캡션, type: string }
+      - name: factory
+        label: 생산 방식
+        type: object
+        fields:
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+          - name: features
+            label: 특징
+            type: object
+            list: true
+            fields:
+              - { name: title, label: 제목, type: string }
+              - { name: text, label: 설명, type: text }
+              - { name: points, label: 세부 항목, type: string, list: true }
+      - name: process
+        label: B2B 프로세스
+        type: object
+        list: true
+        fields:
+          - { name: en, label: 영문 단계명, type: string }
+          - { name: title, label: 제목, type: string }
+          - { name: points, label: 세부 항목, type: string, list: true }
+      - name: scm
+        label: 생산 공정(SCM)
+        type: object
+        list: true
+        fields:
+          - { name: en, label: 영문 단계명, type: string }
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+      - name: branding
+        label: 브랜드 디테일
+        type: object
+        fields:
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+          - name: images
+            label: 사진
+            type: object
+            list: true
+            fields:
+              - { name: image, label: 사진, type: image }
+              - { name: caption, label: 캡션, type: string }
+      - name: group
+        label: 단체 구매 문의
+        type: object
+        fields:
+          - { name: eyebrow, label: 작은 제목, type: string }
+          - { name: title, label: 제목, type: string }
+          - { name: text, label: 설명, type: text }
+          - { name: image, label: 배경 사진, type: image }
+      - name: contact
+        label: 연락처
+        type: object
+        fields:
+          - { name: company, label: 회사, type: string }
+          - { name: department, label: 담당 부서, type: string }
+          - { name: email, label: 이메일, type: string }
+          - { name: phone, label: 전화, type: string }
+          - { name: address, label: 주소, type: string }
+          - { name: note, label: 안내 문구, type: string }
