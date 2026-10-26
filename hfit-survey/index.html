@@ -412,7 +412,9 @@ $("submit").addEventListener("click", async ()=>{
     // 서버가 도메인 저장을 지원하지 않으면(구버전) 도메인은 기기에 남기지 않아 다음 방문 때 다시 묻게 함
     store.set("hfit_vote2", JSON.stringify({team, picks:sel, domain: saved ? dom : ""}));
     submitted = true; showDone(team);
-  }catch(e){ toast("저장하지 못했습니다. 인터넷 연결을 확인하고 다시 제출해 주세요."); }
+  }catch(e){
+    if(e.message==="domain_required"){ toast("마지막 질문(도메인)을 선택해야 제출됩니다."); $("domq").scrollIntoView({behavior:"smooth"}); }
+    else toast("저장하지 못했습니다. 인터넷 연결을 확인하고 다시 제출해 주세요."); }
   finally{ $("submit").textContent="제출"; render(); }
 });
 function showDone(team){
