@@ -223,6 +223,6 @@ function support(){
 
 /* ---------- boot ---------- */
 Promise.all([fetch("content/site.json"+V).then(r=>r.json()), fetch("content/products.json"+V).then(r=>r.json())])
-.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=4"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
+.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=5"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
 .catch(()=>{ $("#main").innerHTML='<p class="wrap" style="padding:80px 0">내용을 불러오지 못했습니다. 새로고침해 주세요.</p>'; });
 })();
