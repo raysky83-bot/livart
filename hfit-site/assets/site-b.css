@@ -75,8 +75,10 @@ body.over-hero .notice{position:relative;z-index:41}
 .link-inq{color:var(--muted)}
 
 /* product list */
-.plist-head{padding-block:120px 36px;border-bottom:1px solid var(--ink);margin-bottom:40px}
-.plist-head h1{font:600 clamp(44px,6vw,84px)/1 var(--en);letter-spacing:0}
+.plist-head{padding-block:72px 22px;border-bottom:1px solid var(--ink);margin-bottom:36px}
+.plist-head h1{font-family:var(--ko,inherit);font-size:clamp(24px,2.2vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.plist-head h1::before{content:"PRODUCT";display:block;margin-bottom:10px;font:600 13px var(--en);letter-spacing:.24em;color:var(--muted)}
+@media (max-width:640px){.plist-head{padding-block:40px 16px}}
 .filters button{color:var(--muted);font:600 15px var(--en);letter-spacing:.08em;border-bottom-width:1px}
 .filters button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink);font-weight:600}
 .pgrid{gap:64px 20px}
