@@ -118,3 +118,47 @@ footer.site .fbody::before{content:"";display:block;max-width:var(--wrap);margin
 .fab-cta{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ink);color:#fff;font-weight:600;font-size:14px;padding:14px 20px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .fab-cta::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--signal);margin-right:10px;vertical-align:1px}
 .fab-cta:hover{background:var(--navy)}
+
+/* ---- 2차: 화보 크로스페이드 ---- */
+.look-fade{padding-top:120px}
+.lf-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 40px;margin-bottom:28px}
+.lf-head .eyebrow{font:600 clamp(36px,4.6vw,64px)/1 var(--en);letter-spacing:.02em}
+.lf-head p{margin:0;color:var(--muted);font-size:16px}
+.lf-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.lf-col{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--stone)}
+.lf-col figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.6s ease,transform 7s ease;transform:scale(1.04)}
+.lf-col figure.on{opacity:1;transform:scale(1)}
+.lf-col img{width:100%;height:100%;object-fit:cover}
+.lf-col + .lf-col figure{transition-delay:.4s,0s}
+.lf-bar{display:flex;align-items:center;gap:18px;margin-top:18px;font:600 14px var(--en);letter-spacing:.14em;font-variant-numeric:tabular-nums}
+.lf-prog{flex:1;height:1px;background:var(--line);position:relative;overflow:hidden}
+.lf-prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink)}
+@media (max-width:640px){.lf-grid{grid-template-columns:1fr}.lf-col + .lf-col{display:none}.look-fade{padding-top:72px}}
+
+/* ---- 2차: 기능 아이콘 (SVG) ---- */
+.icon-set{list-style:none;margin:0 0 22px;padding:16px 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.icon-set li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.icon-set svg{width:34px;height:34px;color:var(--ink);margin-bottom:4px}
+.icon-set b{font:600 10.5px/1.15 var(--en);letter-spacing:.06em}
+.icon-set span{font-size:11px;color:var(--muted);line-height:1.2}
+@media (max-width:420px){.icon-set{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ---- 2차: H 심볼 활용 ---- */
+.season-title .eyebrow{display:flex;align-items:center;gap:8px}
+.season-title .eyebrow::before,.story .eyebrow::before{content:"";width:11px;height:13px;background:url("../images/brand/symbol-color.png") center/contain no-repeat;filter:grayscale(1) brightness(.4)}
+.b-intro{position:relative;overflow:hidden}
+.b-intro img{height:56px;width:auto}
+.b-intro p{white-space:pre-line}
+.b-intro::after{content:none}
+footer.site .fbody{position:relative;overflow:hidden}
+footer.site .fbody::after{content:"";position:absolute;right:-30px;top:50%;width:220px;height:260px;transform:translateY(-50%);background:url("../images/brand/symbol-white.png") center/contain no-repeat;opacity:.06;pointer-events:none}
+
+/* ---- 2차: 브랜드 스토리 문구 ---- */
+.story .txt .eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--en);letter-spacing:.24em;color:var(--muted)}
+.story.rev .txt .eyebrow{flex-direction:row}
+.story .txt h2{margin:14px 0 18px;font-size:clamp(26px,2.6vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.25}
+.story .txt p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;white-space:normal;max-width:30em}
+.story.rev .txt p{margin-left:auto}
+.story .txt small{max-width:36em}
+.story.rev .txt small{margin-left:auto}
+.closing{font-weight:600;letter-spacing:-.02em}

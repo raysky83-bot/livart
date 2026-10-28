@@ -67,14 +67,18 @@ const narrow = () => matchMedia("(max-width:820px)").matches;
 /* ---------- pages ---------- */
 function home(){
   const h = SITE.home;
+  const CB = THEME_B ? (SITE.copyB||{}) : {};
+  const lookB = THEME_B ? `<section class="look-fade"><div class="lf-head wrap"><span class="eyebrow">${esc(CB.lookTitle||"LOOKBOOK")}</span><p>${esc(CB.lookText||"")}</p></div>
+    <div class="lf-grid"><div class="lf-col" id="lfA"></div><div class="lf-col" id="lfB"></div></div><div class="lf-bar wrap"><span id="lfCount"></span><span class="lf-prog"><i id="lfProg"></i></span></div></section>` : "";
   $("#main").innerHTML = `
-  <section class="hero" style="background-image:url('${esc(h.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(SITE.brand.quote)}</p></div></section>
-  <section class="slider" id="slider" aria-label="화보"><div class="track">${h.slides.map(s=>`<div class="slide"><img src="${esc(s.image)}" alt="${esc(s.alt)}"></div>`).join("")}</div>
+  <section class="hero" style="background-image:url('${esc(h.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.heroSub ? CB.heroSub : SITE.brand.quote)}</p></div></section>
+  ${lookB}<section class="slider"${THEME_B?" hidden":""} id="slider" aria-label="화보"><div class="track">${h.slides.map(s=>`<div class="slide"><img src="${esc(s.image)}" alt="${esc(s.alt)}"></div>`).join("")}</div>
     <button class="arrow prev" aria-label="이전">${ICON.prev}</button><button class="arrow next" aria-label="다음">${ICON.next}</button><div class="count" id="count"></div></section>
   ${h.sections.map((s,k)=>{ const list=visible().filter(i=>i.season===s.season && i.featured!==false); return `
   <section class="season"><div class="season-title"><span class="eyebrow">COLLECTION</span><h2>${esc(s.title)}</h2><a class="see-all" href="${PFX}product.html">전체 보기</a></div>
     <div class="band"><div class="wrap"><div class="carousel" id="car${k}"><div class="viewport"><div class="track">${list.map(it=>`<div class="cell">${card(it)}</div>`).join("")}</div></div>
     <button class="arrow prev" aria-label="이전 제품">${ICON.prev}</button><button class="arrow next" aria-label="다음 제품">${ICON.next}</button></div></div></div></section>`; }).join("")}`;
+  if(THEME_B){ lookFade(h.slides); h.sections.forEach((s,k)=>carousel($("#car"+k), () => narrow()?2:5)); return; }
   const sl = $("#slider"), total = h.slides.length;
   const c = carousel(sl, () => narrow()?2:4);
   const upd = () => $("#count").textContent = `${c.i+1} / ${total}`;
@@ -83,14 +87,28 @@ function home(){
   h.sections.forEach((s,k)=>carousel($("#car"+k), () => narrow()?2:5));
 }
 
+function lookFade(slides){
+  const half = Math.ceil(slides.length/2), A = slides.slice(0,half), B = slides.slice(half);
+  const fill = (el,list) => el.innerHTML = list.map((s,k)=>`<figure class="${k===0?'on':''}"><img ${k<2?'':'loading="lazy"'} src="${esc(s.image)}" alt="${esc(s.alt)}"></figure>`).join("");
+  fill($("#lfA"),A); fill($("#lfB"),B.length?B:A);
+  let i = 0; const n = half, DUR = 6000;
+  const show = () => { [$("#lfA"),$("#lfB")].forEach(col => col.querySelectorAll("figure").forEach((f,k)=>f.classList.toggle("on", k===i % col.children.length)));
+    $("#lfCount").textContent = `${String(i+1).padStart(2,"0")} / ${String(n).padStart(2,"0")}`;
+    const p=$("#lfProg"); p.style.transition="none"; p.style.width="0"; requestAnimationFrame(()=>requestAnimationFrame(()=>{ p.style.transition=`width ${DUR}ms linear`; p.style.width="100%"; })); };
+  show();
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce) setInterval(()=>{ if(!document.hidden){ i=(i+1)%n; show(); } }, DUR);
+}
+
 function brand(){
   const b = SITE.brandPage;
+  const CB = THEME_B ? (SITE.copyB||{}) : {};
   $("#main").innerHTML = `
-  <section class="hero light" style="background-image:url('${esc(b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(SITE.brand.quote)}</p></div></section>
-  <section class="b-intro wrap"><img src="images/brand/logo-color.png" alt="H.FIT"><p>${esc(b.intro)}</p></section>
-  ${b.stories.map((s,k)=>`<section class="story${k%2?' rev':''}"><div class="img"><img loading="lazy" src="${esc(s.image)}" alt=""></div><div class="txt"><p>${esc(s.text)}</p>${s.en?`<small>${esc(s.en)}</small>`:""}</div></section>`).join("")}
+  <section class="hero light" style="background-image:url('${esc(b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.brandHeroSub ? CB.brandHeroSub : SITE.brand.quote)}</p></div></section>
+  <section class="b-intro wrap"><img src="images/brand/${THEME_B?"symbol-color":"logo-color"}.png" alt="H.FIT"><p>${esc(THEME_B && CB.brandIntro ? CB.brandIntro : b.intro)}</p></section>
+  ${b.stories.map((s,k)=>{ const c = THEME_B && CB.stories && CB.stories[k]; return `<section class="story${k%2?' rev':''}"><div class="img"><img loading="lazy" src="${esc(s.image)}" alt=""></div><div class="txt">${c?`<span class="eyebrow">${esc(c.eyebrow)}</span><h2>${esc(c.title)}</h2><p>${esc(c.text)}</p>`:`<p>${esc(s.text)}</p>`}${s.en?`<small>${esc(s.en)}</small>`:""}</div></section>`; }).join("")}
   <section class="mosaic">${b.mosaic.map(m=> /^LOGO/.test(m.image) ? `<div class="logo"><img src="images/brand/logo-color.png" alt="H.FIT"></div>` : `<div class="${/products\//.test(m.image)?'prod':''}"><img loading="lazy" src="${esc(m.image)}" alt=""></div>`).join("")}</section>
-  <p class="closing wrap">${esc(b.closing)}</p>`;
+  <p class="closing wrap">${esc(THEME_B && CB.closing ? CB.closing : b.closing)}</p>`;
 }
 
 function product(){
@@ -127,7 +145,7 @@ function detail(){
       <img class="brandmark" src="images/brand/logo-color.png" alt="H.FIT">
       <h1>${esc(it.name)}</h1><div class="code">${esc(it.code)} · ${esc(it.season)}</div>
       <a class="btn-line cta" href="${inqUrl(it)}">상담신청</a>
-      ${it.iconImage?`<img class="icons" src="${esc(it.iconImage)}" alt="${esc((it.icons||[]).join(", "))}">`:""}
+      ${THEME_B && window.HFIT_ICONS && (it.icons||[]).length ? `<ul class="icon-set">${it.icons.map(n=>{ const ic=HFIT_ICONS.get(n); return ic?`<li>${ic.svg}<b>${esc(n)}</b><span>${esc(ic.ko)}</span></li>`:""; }).join("")}</ul>` : (it.iconImage?`<img class="icons" src="${esc(it.iconImage)}" alt="${esc((it.icons||[]).join(", "))}">`:"")}
       ${(it.badges||[]).length?`<div class="badges">${it.badges.map(b=>`<span>${esc(b)}</span>`).join("")}</div>`:""}
       ${(it.fabrics||[]).map(f=>`<div class="fab"><div class="sw">${f.image?`<img src="${esc(f.image)}" alt="">`:""}</div><div><h3>FABRIC</h3><div class="ty">${esc(f.type)}</div><ul>${(f.points||[]).map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div><div class="mc">MATERIAL : ${esc(f.material)}<br>COLOR : ${esc(f.color)}</div></div>`).join("")}
       ${!(it.fabrics||[]).length && it.colors?`<div class="colors">COLOR : ${esc(it.colors)}</div>`:""}

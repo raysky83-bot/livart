@@ -179,5 +179,25 @@
   "bizNo": "135-81-32239",
   "ecommerce": "2014-용인처인-00049",
   "copyright": "Copyright© HYUNDAI LIVART Corporation. All Rights Reserved."
+ },
+ "copyB": {
+  "heroSub": "현장에서 검증된 기능, 일상에 어울리는 핏.\n기업 유니폼·근무복 브랜드 H.FIT",
+  "lookTitle": "WORK / LIFE",
+  "lookText": "일하는 순간과 일상의 순간을 함께 설계합니다.",
+  "brandHeroSub": "일하는 사람의 편안함,\n기업의 전문적인 이미지.",
+  "brandIntro": "실용성과 디자인의 균형으로\n현장과 일상을 함께 설계하는 워크웨어.",
+  "stories": [
+   {
+    "eyebrow": "FOR THE WORKER",
+    "title": "현장을 위한 기능",
+    "text": "활동성, 착용감, 내구성, 관리의 편의성을 제품 개발의 기준으로 삼습니다. 절제된 실루엣과 실용적인 디테일로 일하는 순간에 맞는 옷을 만듭니다."
+   },
+   {
+    "eyebrow": "FOR THE COMPANY",
+    "title": "기업을 위한 통일감",
+    "text": "입는 사람에게는 편안함과 자신감을, 기업에는 통일감 있는 전문적인 이미지를 전합니다. 현장에 자연스럽게 어우러지면서도 브랜드의 개성이 드러나는 워크웨어입니다."
+   }
+  ],
+  "closing": "실용성과 디자인의 균형.\n구성원과 기업이 함께 만족하는 워크웨어."
  }
 }
