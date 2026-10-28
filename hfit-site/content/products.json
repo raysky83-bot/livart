@@ -1,824 +1,2979 @@
 {
-  "collections": [
+ "categories": [
+  "아우터",
+  "상의",
+  "하의",
+  "악세사리"
+ ],
+ "items": [
+  {
+   "id": "27fw-01",
+   "code": "27FW-01",
+   "season": "2027 F/W",
+   "name": "카라 긴팔티",
+   "en": "Stretch Fleece Long-Sleeve T-Shirt",
+   "type": "TOPS",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/27fw-01-front.jpg",
+   "images": [
     {
-      "id": "fw27",
-      "title": "2027 F/W",
-      "subtitle": "샘플 디자인 24종",
-      "cover": "images/look/look-03.jpg",
-      "items": [
-        {
-          "code": "27FW-01",
-          "name": "카라 긴팔티",
-          "en": "Stretch Fleece Long-Sleeve T-Shirt",
-          "category": "TOPS",
-          "image": "images/products/fw27/01.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/01a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/01b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/01c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-02",
-          "name": "투포켓 긴팔티",
-          "en": "Functional Long-Sleeved Top with Two Pockets",
-          "category": "TOPS",
-          "image": "images/products/fw27/02.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/02a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/02b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/02c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-03",
-          "name": "유틸리티 포켓 맨투맨",
-          "en": "Utility Pocket Brushed Fleece Sweatshirt",
-          "category": "TOPS",
-          "image": "images/products/fw27/03.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/03a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/03b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/03c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-04",
-          "name": "하이넥 반집업 맨투맨",
-          "en": "High-Neck Half-Zip Sweatshirt",
-          "category": "TOPS",
-          "image": "images/products/fw27/04.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/04a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/04b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/04c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-05",
-          "name": "유틸리티 스트랩 초어 재킷",
-          "en": "Utility Strap Chore Jacket",
-          "category": "WORK JACKET",
-          "image": "images/products/fw27/05.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/05a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/05b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/05c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-06",
-          "name": "헤리티지 워크 재킷",
-          "en": "Heritage Work Jacket",
-          "category": "WORK JACKET",
-          "image": "images/products/fw27/06.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/06a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/06b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/06c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-07",
-          "name": "투톤 셸 재킷",
-          "en": "Dual-Tone Shell Jacket",
-          "category": "WINDBREAK",
-          "image": "images/products/fw27/07.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/07a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/07b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/07c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-08",
-          "name": "투톤 유틸리티 후드 재킷",
-          "en": "Dual-Tone Utility Hooded Jacket",
-          "category": "WINDBREAK",
-          "image": "images/products/fw27/08.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/08a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/08b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/08c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-09",
-          "name": "블록 퀼팅 패딩 조끼",
-          "en": "Block Quilted Padded Vest",
-          "category": "DOWN VEST",
-          "image": "images/products/fw27/09.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/09a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/09b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/09c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-10",
-          "name": "하이브리드 퀼팅 조끼",
-          "en": "Hybrid Quilted Vest",
-          "category": "DOWN VEST",
-          "image": "images/products/fw27/10.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/10a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/10b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/10c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-11",
-          "name": "코어 퀼팅 조끼",
-          "en": "Core Quilted Vest",
-          "category": "DOWN VEST",
-          "image": "images/products/fw27/11.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/11a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/11b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/11c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-12",
-          "name": "코어 블록 경량 다운",
-          "en": "Core Block Quilted Jacket",
-          "category": "DOWN JACKET",
-          "image": "images/products/fw27/12.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/12a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/12b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/12c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-13",
-          "name": "에센셜 노카라 경량 다운",
-          "en": "Essential Round Quilted Jacket",
-          "category": "DOWN JACKET",
-          "image": "images/products/fw27/13.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/13a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/13b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/13c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-14",
-          "name": "릿지 블록 경량 다운",
-          "en": "Ridge Block Quilted Jacket",
-          "category": "DOWN JACKET",
-          "image": "images/products/fw27/14.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/14a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/14b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/14c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-15",
-          "name": "코듀로이 칼라 퀼팅 재킷",
-          "en": "Cord Collar Quilted Jacket",
-          "category": "PADDED WORK JACKET",
-          "image": "images/products/fw27/15.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/15a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/15b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/15c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-16",
-          "name": "헤리티지 셰르파 트러커 재킷",
-          "en": "Heritage Sherpa Trucker Jacket",
-          "category": "PADDED WORK JACKET",
-          "image": "images/products/fw27/16.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/16a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/16b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/16c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-17",
-          "name": "헤리티지 퀼팅 셔츠 재킷",
-          "en": "Heritage Quilted Shirt Jacket",
-          "category": "PADDED WORK JACKET",
-          "image": "images/products/fw27/17.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/17a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/17b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/17c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-18",
-          "name": "하이브리드 퀼팅 워크 재킷",
-          "en": "Hybrid Quilted Work Jacket",
-          "category": "PADDED WORK JACKET",
-          "image": "images/products/fw27/18.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/18a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/18b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/18c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-19",
-          "name": "커브 패널 플리스",
-          "en": "Curve Panel Fleece Jacket",
-          "category": "FLEECE",
-          "image": "images/products/fw27/19.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/19a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/19b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/19c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-20",
-          "name": "듀얼 포켓 플리스",
-          "en": "Dual Pocket Fleece Jacket",
-          "category": "FLEECE",
-          "image": "images/products/fw27/20.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/20a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/20b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/20c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-21",
-          "name": "블루 포인트 유틸리티 플리스",
-          "en": "Blue Point Utility Fleece Jacket",
-          "category": "FLEECE",
-          "image": "images/products/fw27/21.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/21a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/21b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/21c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-22",
-          "name": "어반 셰르파 노카라 재킷",
-          "en": "Urban Sherpa Round Jacket",
-          "category": "FLEECE",
-          "image": "images/products/fw27/22.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/22a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/22b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/22c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-23",
-          "name": "루미가드 워크 재킷",
-          "en": "Lumiguard Work Jacket",
-          "category": "HI-VIS JACKET",
-          "image": "images/products/fw27/23.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/23a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/23b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/23c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27FW-24",
-          "name": "리플렉트 가드 파카",
-          "en": "Reflect Guard Parka",
-          "category": "HI-VIS JACKET",
-          "image": "images/products/fw27/24.jpg",
-          "gallery": [
-            {
-              "image": "images/products/fw27/24a.jpg",
-              "caption": "앞·뒤"
-            },
-            {
-              "image": "images/products/fw27/24b.jpg",
-              "caption": "디테일"
-            },
-            {
-              "image": "images/products/fw27/24c.jpg",
-              "caption": "상세 설명"
-            }
-          ],
-          "colors": "",
-          "description": "",
-          "show": true
-        }
-      ]
+     "image": "images/products/views/27fw-01-front.jpg",
+     "caption": "앞면"
     },
     {
-      "id": "ss27",
-      "title": "2027 S/S",
-      "subtitle": "쿨링 웨어·여름 라인",
-      "cover": "images/look/ss27-fan-vest.jpg",
-      "items": [
-        {
-          "code": "27SS-01",
-          "name": "팬 쿨링 베스트 A",
-          "en": "Fan-Cooled Vest Design A",
-          "category": "FAN-COOLED VEST",
-          "image": "images/products/ss27-fan-vest-a.jpg",
-          "gallery": [],
-          "colors": "CHARCOAL, KHAKI, BLACK",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-02",
-          "name": "팬 쿨링 베스트 B",
-          "en": "Fan-Cooled Vest Design B",
-          "category": "FAN-COOLED VEST",
-          "image": "images/products/ss27-fan-vest-b.jpg",
-          "gallery": [],
-          "colors": "GRAY, NAVY, BEIGE",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-03",
-          "name": "팬 점퍼 A",
-          "en": "Fan Jumper Design A",
-          "category": "FAN JUMPER",
-          "image": "images/products/ss27-fan-jumper-a.jpg",
-          "gallery": [],
-          "colors": "NAVY, BLACK",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-04",
-          "name": "팬 점퍼 B",
-          "en": "Fan Jumper Design B",
-          "category": "FAN JUMPER",
-          "image": "images/products/ss27-fan-jumper-b.jpg",
-          "gallery": [],
-          "colors": "CHARCOAL, NAVY, BLACK, GRAY",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-05",
-          "name": "펠티어 냉각 베스트",
-          "en": "Peltier Vest",
-          "category": "ACC",
-          "image": "images/products/ss27-peltier-vest.jpg",
-          "gallery": [],
-          "colors": "GRAY, BLACK",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-06",
-          "name": "캡 A",
-          "en": "Cap Design A",
-          "category": "ACC",
-          "image": "images/products/ss27-cap-a.jpg",
-          "gallery": [],
-          "colors": "NAVY, SLATE BLUE",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-07",
-          "name": "캡 B",
-          "en": "Cap Design B",
-          "category": "ACC",
-          "image": "images/products/ss27-cap-b.jpg",
-          "gallery": [],
-          "colors": "SLATE BLUE, BEIGE",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-08",
-          "name": "선 마스크",
-          "en": "Sun Mask",
-          "category": "ACC",
-          "image": "images/products/ss27-sun-mask.jpg",
-          "gallery": [],
-          "colors": "SLATE BLUE, WHITE, BLACK",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-09",
-          "name": "반팔 카라 티셔츠",
-          "en": "Short-Sleeved Top Design A",
-          "category": "SHORT-SLEEVED TOP",
-          "image": "images/products/ss27-short-a.jpg",
-          "gallery": [],
-          "colors": "WHITE, BLACK, NAVY, CHARCOAL",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-10",
-          "name": "포켓 반팔 티셔츠",
-          "en": "Short-Sleeved Top Design B",
-          "category": "SHORT-SLEEVED TOP",
-          "image": "images/products/ss27-short-b.jpg",
-          "gallery": [],
-          "colors": "BLACK, NAVY, KHAKI",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "27SS-11",
-          "name": "반팔 셔츠",
-          "en": "Short-Sleeved Top Design C",
-          "category": "SHORT-SLEEVED TOP",
-          "image": "images/products/ss27-short-c.jpg",
-          "gallery": [],
-          "colors": "BEIGE, BLUE, OLIVE GREEN",
-          "description": "",
-          "show": true
-        }
-      ]
+     "image": "images/products/views/27fw-01-back.jpg",
+     "caption": "뒷면"
     },
     {
-      "id": "fw26",
-      "title": "2026 F/W",
-      "subtitle": "보온·발열 라인",
-      "cover": "images/look/fw26-down.jpg",
-      "items": [
-        {
-          "code": "26FW-01",
-          "name": "패딩 재킷 A",
-          "en": "Padded Jacket Design A",
-          "category": "PADDED JACKET",
-          "image": "images/products/fw26-padded-a.jpg",
-          "gallery": [],
-          "colors": "BEIGE, BLACK, NAVY",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-02",
-          "name": "패딩 재킷 B",
-          "en": "Padded Jacket Design B",
-          "category": "PADDED JACKET",
-          "image": "images/products/fw26-padded-b.jpg",
-          "gallery": [],
-          "colors": "CHARCOAL, GRAY, NAVY",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-03",
-          "name": "다운 재킷",
-          "en": "Down Jacket",
-          "category": "DOWN",
-          "image": "images/products/fw26-down-jacket.jpg",
-          "gallery": [],
-          "colors": "BEIGE, NAVY",
-          "description": "내부 발열 패드 적용",
-          "show": true
-        },
-        {
-          "code": "26FW-04",
-          "name": "다운 베스트",
-          "en": "Down Vest",
-          "category": "DOWN",
-          "image": "images/products/fw26-down-vest.jpg",
-          "gallery": [],
-          "colors": "KHAKI, BLACK, NAVY",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-05",
-          "name": "맨투맨",
-          "en": "Long-Sleeved Sweatshirt",
-          "category": "LONG-SLEEVED",
-          "image": "images/products/fw26-sweatshirt.jpg",
-          "gallery": [],
-          "colors": "MELANGE GRAY, MELANGE CHARCOAL, MELANGE BLACK",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-06",
-          "name": "긴팔 카라 티셔츠",
-          "en": "Long-Sleeved Collared Shirt",
-          "category": "LONG-SLEEVED",
-          "image": "images/products/fw26-collared.jpg",
-          "gallery": [],
-          "colors": "WHITE, BLACK, NAVY, MELANGE CHARCOAL",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-07",
-          "name": "긴팔 풀집업",
-          "en": "Long-Sleeve Full-Zip",
-          "category": "LONG-SLEEVED",
-          "image": "images/products/fw26-full-zip.jpg",
-          "gallery": [],
-          "colors": "BLACK, KHAKI, NAVY",
-          "description": "",
-          "show": true
-        },
-        {
-          "code": "26FW-08",
-          "name": "발열 베스트",
-          "en": "Heated Vest",
-          "category": "ACC",
-          "image": "images/products/fw26-heated-vest.jpg",
-          "gallery": [],
-          "colors": "BLACK",
-          "description": "3단 온도 조절(약 40~55도), 배터리 포켓 내장형·외장형",
-          "show": true
-        },
-        {
-          "code": "26FW-09",
-          "name": "트루퍼 햇",
-          "en": "Trooper Hat",
-          "category": "ACC",
-          "image": "images/products/fw26-trooper-hat.jpg",
-          "gallery": [],
-          "colors": "BLACK, NAVY, KHAKI",
-          "description": "",
-          "show": true
-        }
-      ]
+     "image": "images/products/fw27/01b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/01.jpg",
+     "caption": "대표"
     }
-  ]
+   ],
+   "description": "본 제품은 단정하고 클래식한 스탠다드 핏을 바탕으로 립 조직의 폴로 칼라와 2버튼 플래킷, 소매 시보리를 적용해 깔끔하고 안정적인 실루엣을 형성합니다. 좌측 가슴의 선명한 화이트 'H.FIT' 자수 디테일로 절제된 포인트를 살렸습니다. 원단 측면에서는 입체적인 요철이 돋보이는 PK(피케) 조직을 채택하여 피부 접촉 면적을 줄이고 공기 순환을 원활하게 만들어 장시간 쾌적한 착용감을 선사합니다.",
+   "icons": [
+    "4-WAY STRETCH",
+    "SYNTHETIC FABRIC",
+    "BREATHABLE",
+    "UV PROTECTION",
+    "WRINKLE FREE"
+   ],
+   "iconImage": "images/products/spec/27fw-01-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "PK 원단",
+     "points": [
+      "우수한 통기성과 쾌적성",
+      "뛰어난 형태 안정성 및 구김 방지",
+      "강한 내구성과 실용성",
+      "고급스러운 입체감과 텍스처"
+     ],
+     "material": "COTTON 60% + POLYESTER 40%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-01-fabric1.jpg"
+    },
+    {
+     "type": "RIB 1X1",
+     "points": [
+      "뛰어난 신축성과 회복력",
+      "편안한 착용감과 밀착성",
+      "우수한 형태 유지력"
+     ],
+     "material": "COTTON 96% + SPANDEX 4%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-01-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/01b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/01c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-02",
+   "code": "27FW-02",
+   "season": "2027 F/W",
+   "name": "투포켓 긴팔티",
+   "en": "Functional Long-Sleeved Top with Two Pockets",
+   "type": "TOPS",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/27fw-02-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-02-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-02-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/02b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/02.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "네이비 컬러를 바탕으로 차콜 그레이 등판 배색을 적용한 라운드넥 긴팔 티셔츠입니다. 몸의 라인을 따라 이어지는 곡선 절개와 정교한 봉제선으로 활동적인 실루엣을 완성했습니다. 가슴의 화이트 H 로고가 간결한 포인트를 주며, 등판에는 어깨부터 등 중앙까지 이어지는 입체적인 배색 패널을 배치했습니다. 등 상단과 허리 부분의 지퍼 포켓은 수납 편의성을 더하고, 어깨와 등 양옆의 리플렉티브 디테일은 기능적인 디자인을 강조합니다.",
+   "icons": [
+    "4-WAY STRETCH",
+    "SYNTHETIC FABRIC",
+    "BREATHABLE",
+    "UV PROTECTION",
+    "WRINKLE FREE"
+   ],
+   "iconImage": "images/products/spec/27fw-02-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "POLY-SPANDEX PONTE",
+     "points": [
+      "우수한 통기성과 쾌적성",
+      "뛰어난 형태 안정성 및 구김 방지",
+      "우수한 스판성",
+      "부드러운 텍스처"
+     ],
+     "material": "POLYESTER 90% + SPANDEX 10%",
+     "color": "NAVY + CHARCOAL",
+     "image": "images/products/spec/27fw-02-fabric1.jpg"
+    }
+   ],
+   "colors": "CHARCOAL, NAVY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/02b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/02c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-03",
+   "code": "27FW-03",
+   "season": "2027 F/W",
+   "name": "유틸리티 포켓 맨투맨",
+   "en": "Utility Pocket Brushed Fleece Sweatshirt",
+   "type": "TOPS",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/27fw-03-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-03-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-03-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/03b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/03.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "멜란지 그레이 몸판에 네이비 배색 패널을 더한 유틸리티 맨투맨입니다. 한쪽 어깨에서 가슴으로 이어지는 비대칭 패널과 세로형 지퍼 포켓이 실용적이면서도 세련된 인상을 줍니다. 화이트 H.FIT 로고는 선명한 포인트가 됩니다. 라운드 넥과 소매, 밑단은 시보리로 마감해 안정감 있는 실루엣을 완성했으며, 뒷면은 배색 없이 깔끔하게 정리해 일상복과 기업 유니폼으로 두루 활용할 수 있도록 구성했습니다.",
+   "icons": [
+    "COMFORTABLE STRETCH",
+    "COTTON",
+    "BREATHABLE",
+    "UV PROTECTION",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-03-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "COTTON-POLYESTER BRUSHED FRENCH TERRY",
+     "points": [
+      "기모가공 부드러운 터치감",
+      "뛰어난 보온성",
+      "우수한 형태 안정성",
+      "부드러운 텍스처"
+     ],
+     "material": "COTTON 70% + POLYESTER 30%",
+     "color": "MELANGE GRAY",
+     "image": "images/products/spec/27fw-03-fabric1.jpg"
+    },
+    {
+     "type": "RIB 1X1",
+     "points": [
+      "뛰어난 신축성과 회복력",
+      "편안한 착용감과 밀착성",
+      "우수한 형태 유지력"
+     ],
+     "material": "COTTON 96% + SPANDEX 4%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-03-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK, MELANGE GRAY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/03b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/03c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-04",
+   "code": "27FW-04",
+   "season": "2027 F/W",
+   "name": "하이넥 반집업 맨투맨",
+   "en": "High-Neck Half-Zip Sweatshirt",
+   "type": "TOPS",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/27fw-04-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-04-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-04-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/04b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/04.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "간결한 실루엣과 하이넥 디테일을 강조한 반집업 풀오버입니다. 전면의 실버 지퍼는 블랙 바탕과 대비되어 절제된 포인트를 더합니다. 소매와 밑단의 시보리가 전체적인 형태를 안정감 있게 잡아줍니다. 장식을 최소화하면서 칼라와 지퍼, 골지 조직의 조화로 완성도를 높인 디자인입니다.",
+   "icons": [
+    "COMFORTABLE STRETCH",
+    "COTTON",
+    "BREATHABLE",
+    "UV PROTECTION",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-04-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "COTTON-POLYESTER BRUSHED FRENCH TERRY",
+     "points": [
+      "기모가공 부드러운 터치감",
+      "뛰어난 보온성",
+      "우수한 형태 안정성",
+      "부드러운 텍스처"
+     ],
+     "material": "COTTON 70% + POLYESTER 30%",
+     "color": "MELANGE GRAY",
+     "image": "images/products/spec/27fw-04-fabric1.jpg"
+    },
+    {
+     "type": "RIB 1X1",
+     "points": [
+      "뛰어난 신축성과 회복력",
+      "편안한 착용감과 밀착성",
+      "우수한 형태 유지력"
+     ],
+     "material": "COTTON 96% + SPANDEX 4%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-04-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK, MELANGE GRAY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/04b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/04c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": [
+     {
+      "label": "어깨너비",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "소매길이",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "암홀",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "총길이",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "가슴둘레",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "밑단둘레",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "목둘레",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "화장",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "소매통너비",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "label": "소매밑단너비",
+      "values": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "27fw-05",
+   "code": "27FW-05",
+   "season": "2027 F/W",
+   "name": "유틸리티 스트랩 초어 재킷",
+   "en": "Utility Strap Chore Jacket",
+   "type": "WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-05-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-05-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-05-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/05b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/05.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "유틸리티 스트랩 초어 재킷은 차분한 올리브 컬러와 간결한 실루엣에 개성 있는 디테일을 더한 워크웨어입니다. 골드 톤 스냅이 클래식한 분위기를 연출하며, 가슴 포켓 위로 연결되는 웨빙 스트랩과 짙은 컬러의 버클이 디자인의 중심을 이룹니다. 전면 하단에는 큼직한 패치 포켓을 배치하고, 소매 끝의 스냅 여밈과 팔꿈치 부분의 절개는 워크웨어 특유의 구조적인 느낌을 강조합니다. 뒷면은 완만한 V자 형태의 요크 라인과 중앙 스냅으로 포인트를 주어, 앞뒤 어디서나 절제된 디테일이 돋보이도록 구성했습니다.",
+   "icons": [
+    "WRINKLE FREE",
+    "UV PROTECTION",
+    "POCKETS FOR EASY CARE HANDLING",
+    "COTTON",
+    "BREATHABILITY"
+   ],
+   "iconImage": "images/products/spec/27fw-05-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "TWILL",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "형태 안정성",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "COTTON 65% + POLYESTER 35%",
+     "color": "KHAKI",
+     "image": "images/products/spec/27fw-05-fabric1.jpg"
+    }
+   ],
+   "colors": "KHAKI",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/05b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/05c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-06",
+   "code": "27FW-06",
+   "season": "2027 F/W",
+   "name": "헤리티지 워크 재킷",
+   "en": "Heritage Work Jacket",
+   "type": "WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-06-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-06-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-06-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/06b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/06.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "헤리티지 워크 재킷은 클래식한 워크웨어에 절제된 디테일을 더한 디자인입니다. 은은하게 바랜 듯한 차콜 컬러와 코듀로이 칼라가 어우러져 빈티지하면서도 차분한 분위기를 연출합니다. 전면의 메탈 지퍼와 가슴 지퍼 포켓은 간결한 포인트를 이루며, 하단의 큼직한 사선 패치 포켓은 실용성과 디자인적 개성을 동시에 살렸습니다. 소매의 조절 단추와 밑단 스트링은 착용에 따라 실루엣을 조절할 수 있도록 구성했으며, 뒤판의 가로 절개선은 뒷모습을 단정하게 정리합니다. 여유로운 품과 깔끔한 기장으로 작업 현장부터 일상까지 자연스럽게 어울리는 워크 재킷입니다.",
+   "icons": [
+    "WRINKLE FREE",
+    "UV PROTECTION",
+    "POCKETS FOR EASY CARE HANDLING",
+    "COTTON",
+    "BREATHABILITY"
+   ],
+   "iconImage": "images/products/spec/27fw-06-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "TWILL",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "형태 안정성",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "COTTON 65% + POLYESTER 35%",
+     "color": "CHARCOAL",
+     "image": "images/products/spec/27fw-06-fabric1.jpg"
+    }
+   ],
+   "colors": "CHARCOAL",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/06b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/06c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-07",
+   "code": "27FW-07",
+   "season": "2027 F/W",
+   "name": "투톤 셸 재킷",
+   "en": "Dual-Tone Shell Jacket",
+   "type": "WINDBREAK",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-07-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-07-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-07-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/07b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/07.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "목을 감싸는 하이넥과 일체형 후드에는 조절 스트링을 더했으며, 허리의 사선 지퍼 포켓과 소매의 세로 지퍼 포켓으로 실용적인 디테일을 구성했습니다. 소매단은 벨크로 탭으로 여밈을 조절할 수 있도록 디자인했습니다. 등판에는 넓은 배색 면과 작은 H.FIT 로고를 배치해 절제된 브랜드 포인트를 더했습니다. 워크웨어의 실용성과 아웃도어 감각을 조화롭게 담아낸 디자인입니다.",
+   "icons": [
+    "BREATHABILITY",
+    "WATER RESISTANT",
+    "WINDPROOF",
+    "UV PROTECTION",
+    "MEMBRANE"
+   ],
+   "iconImage": "images/products/spec/27fw-07-icons.jpg",
+   "badges": [
+    "GORE-TEX"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "우수한 방수성",
+      "뛰어난 땀배출",
+      "강한 바람 차단",
+      "우수한 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "KHAKI",
+     "image": "images/products/spec/27fw-07-fabric1.jpg"
+    }
+   ],
+   "colors": "KHAKI",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/07b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/07c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-08",
+   "code": "27FW-08",
+   "season": "2027 F/W",
+   "name": "투톤 유틸리티 후드 재킷",
+   "en": "Dual-Tone Utility Hooded Jacket",
+   "type": "WINDBREAK",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-08-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-08-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-08-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/08b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/08.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "차분한 블루 그레이 몸판과 라이트 그레이 소매의 배색이 돋보이는 워크웨어입니다. 어깨에서 소매로 이어지는 래글런 절개가 스포티한 인상을 더하며, 간결한 실루엣과 선명한 배색으로 세련된 분위기를 완성했습니다. 목을 감싸는 하이넥과 일체형 후드에는 조절끈을 적용했으며, 소매 끝은 벨크로 탭으로 여밈을 조절할 수 있도록 구성했습니다. 가슴의 H.FIT 로고로 브랜드 정체성을 담아, 작업 현장과 일상에 두루 어울리는 실용적인 디자인을 제안합니다.",
+   "icons": [
+    "BREATHABILITY",
+    "WATER RESISTANT",
+    "WINDPROOF",
+    "UV PROTECTION",
+    "MEMBRANE"
+   ],
+   "iconImage": "images/products/spec/27fw-08-icons.jpg",
+   "badges": [
+    "GORE-TEX"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "우수한 방수성",
+      "뛰어난 땀배출",
+      "강한 바람 차단",
+      "우수한 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE + GRAY",
+     "image": "images/products/spec/27fw-08-fabric1.jpg"
+    }
+   ],
+   "colors": "GRAY, STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/08b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/08c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-09",
+   "code": "27FW-09",
+   "season": "2027 F/W",
+   "name": "블록 퀼팅 패딩 조끼",
+   "en": "Block Quilted Padded Vest",
+   "type": "DOWN VEST",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-09-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-09-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-09-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/09b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/09.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "카키 컬러의 몸판에 네이비 가슴 배색을 더해 차분하면서도 활동적인 인상을 주는 패딩 베스트입니다. 일정한 간격의 가로 퀼팅이 입체적인 볼륨감과 정돈된 실루엣을 만들며, 목을 감싸는 스탠드 칼라가 디자인의 완성도를 높여줍니다. 양쪽 하단에는 사선 지퍼 포켓을 적용해 실용성을 더했습니다. 몸판과 같은 컬러의 전면 지퍼는 깔끔한 인상을 주고, 워크웨어와 일상복에 두루 어울립니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-09-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "KHAKI, NAVY",
+     "image": "images/products/spec/27fw-09-fabric1.jpg"
+    }
+   ],
+   "colors": "KHAKI, NAVY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/09b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/09c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-10",
+   "code": "27FW-10",
+   "season": "2027 F/W",
+   "name": "하이브리드 퀼팅 조끼",
+   "en": "Hybrid Quilted Vest",
+   "type": "DOWN VEST",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-10-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-10-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-10-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/10b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/10.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "가로 퀼팅 패널과 골지 니트 조직을 조합한 패딩 베스트입니다. 몸판의 균일한 퀼팅이 단정한 실루엣을 만들고, 하이넥 칼라와 옆선, 밑단에 적용한 골지 조직이 부드러운 질감과 안정감 있는 마무리를 더합니다. 전면 풀 지퍼로 착용이 간편하며, 양옆 지퍼 포켓으로 실용성을 높였습니다. 블랙 몸판에 같은 색상의 가슴 로고를 배치해 절제된 고급스러움을 표현했으며, 셔츠나 티셔츠 위에 겹쳐 입기 좋은 워크웨어 스타일입니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-10-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-10-fabric1.jpg"
+    },
+    {
+     "type": "RIB 2X2",
+     "points": [
+      "뛰어난 신축성과 회복력",
+      "편안한 착용감과 밀착성",
+      "우수한 형태 유지력"
+     ],
+     "material": "POLYESTER 96% + SPANDEX 4%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-10-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/10b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/10c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-11",
+   "code": "27FW-11",
+   "season": "2027 F/W",
+   "name": "코어 퀼팅 조끼",
+   "en": "Core Quilted Vest",
+   "type": "DOWN VEST",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-11-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-11-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-11-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/11b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/11.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "매트한 블랙 컬러와 넓은 간격의 가로 퀼팅이 어우러진 패딩 베스트입니다. 볼륨감 있는 스탠드 칼라가 목선을 감싸며, 전면 지퍼 위를 덮는 스냅 플래킷이 단정하고 견고한 인상을 더합니다. 가슴에는 세로형 지퍼 포켓을, 허리 양쪽에는 사선 지퍼 포켓을 배치해 실용성과 입체적인 디자인을 살렸습니다. 셔츠나 스웨트셔츠와 자연스럽게 어우러져 작업 현장과 일상에서 두루 활용하기 좋은 디자인입니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-11-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-11-fabric1.jpg"
+    }
+   ],
+   "colors": "BLACK",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/11b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/11c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-12",
+   "code": "27FW-12",
+   "season": "2027 F/W",
+   "name": "코어 블록 경량 다운",
+   "en": "Core Block Quilted Jacket",
+   "type": "DOWN JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-12-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-12-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-12-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/12b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/12.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "블랙 컬러에 규칙적인 가로 퀼팅을 적용해 깔끔하고 균형감 있는 볼륨을 살린 패딩 재킷입니다. 은은한 광택의 몸판과 어깨부터 등 상단까지 이어지는 차콜 컬러의 매끈한 배색 패널이 조화를 이루며, 세련된 워크웨어 스타일을 완성합니다. 목을 감싸는 스탠드 칼라와 전면 지퍼 여밈으로 단정한 인상을 주고, 양옆 지퍼 포켓으로 수납의 실용성을 더했습니다. 소매 끝과 밑단의 밴딩은 실루엣을 안정감 있게 잡아주며, 등 상단에 배치한 톤온톤 로고가 절제된 포인트를 더합니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-12-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK + CHARCOAL",
+     "image": "images/products/spec/27fw-12-fabric1.jpg"
+    }
+   ],
+   "colors": "BLACK, CHARCOAL",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/12b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/12c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-13",
+   "code": "27FW-13",
+   "season": "2027 F/W",
+   "name": "에센셜 노카라 경량 다운",
+   "en": "Essential Round Quilted Jacket",
+   "type": "DOWN JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-13-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-13-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-13-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/13b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/13.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "몸판과 소매에 일정하게 이어지는 가로 퀼팅이 단정한 인상을 주며, 과하지 않은 볼륨으로 깔끔한 실루엣을 완성합니다. 칼라를 생략한 간결한 네크라인과 앞중심 지퍼 여밈으로 다양한 상의와 자연스럽게 매치할 수 있습니다. 양옆의 세로형 포켓은 실용성을 더하고, 가슴의 작은 로고는 절제된 포인트가 됩니다. 소맷단과 밑단은 밴딩으로 정돈해 안정감 있게 마무리했으며, 단독 아우터부터 외투 안에 겹쳐 입는 이너 재킷까지 폭넓게 활용하기 좋은 디자인입니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-13-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "NAVY",
+     "image": "images/products/spec/27fw-13-fabric1.jpg"
+    }
+   ],
+   "colors": "NAVY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/13b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/13c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-14",
+   "code": "27FW-14",
+   "season": "2027 F/W",
+   "name": "릿지 블록 경량 다운",
+   "en": "Ridge Block Quilted Jacket",
+   "type": "DOWN JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-14-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-14-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-14-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/14b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/14.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "차분한 딥 틸 컬러에 어깨와 등 상단의 네이비 배색을 더해 세련되고 견고한 인상을 담은 패딩 재킷입니다. 목을 감싸는 스탠드 칼라와 전면 지퍼로 깔끔하게 마감했으며, 소매 끝과 밑단에는 밴딩을 적용해 안정적인 착용감을 고려했습니다. 양옆의 사선 지퍼 포켓은 절개선과 자연스럽게 연결되어 실용성을 더하고, 등 상단의 로고는 절제된 포인트가 됩니다. 워크웨어와 일상복에 두루 어울리는 단정하고 스포티한 디자인입니다.",
+   "icons": [
+    "FEATHER FILLING",
+    "LESS WEIGHT",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "HEAT"
+   ],
+   "iconImage": "images/products/spec/27fw-14-icons.jpg",
+   "badges": [
+    "DUCK DOWN 80:20"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE + NAVY",
+     "image": "images/products/spec/27fw-14-fabric1.jpg"
+    }
+   ],
+   "colors": "NAVY, STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/14b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/14c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-15",
+   "code": "27FW-15",
+   "season": "2027 F/W",
+   "name": "코듀로이 칼라 퀼팅 재킷",
+   "en": "Cord Collar Quilted Jacket",
+   "type": "PADDED WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-15-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-15-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-15-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/15b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/15.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "클래식한 다이아몬드 퀼팅에 블랙 코듀로이 배색을 더한 재킷입니다. 몸판과 소매에 이어지는 규칙적인 퀼팅이 입체적인 표면감을 만들고, 카라와 소매 끝단에 적용한 코듀로이 원단이 차분한 포인트를 완성합니다. 하단의 큼직한 플랩 포켓은 워크웨어 특유의 실용적인 분위기를 더합니다. 가슴에는 몸판과 같은 블랙 컬러의 H-FIT 로고 자수를 배치해 은은하게 브랜드를 표현했습니다. 단정한 실루엣과 절제된 디테일이 어우러져 작업 현장부터 일상까지 자연스럽게 활용할 수 있는 디자인입니다.",
+   "icons": [
+    "WINDPROOF",
+    "POCKETS FOR EASY CARE HANDLING",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "NON BREATHABLE"
+   ],
+   "iconImage": "images/products/spec/27fw-15-icons.jpg",
+   "badges": [
+    "3M THINSULATE"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-15-fabric1.jpg"
+    },
+    {
+     "type": "CORDUROY",
+     "points": [
+      "뛰어난 보온성",
+      "탄탄한 내구성",
+      "부드러운 촉감"
+     ],
+     "material": "COTTON 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-15-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/15b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/15c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-16",
+   "code": "27FW-16",
+   "season": "2027 F/W",
+   "name": "헤리티지 셰르파 트러커 재킷",
+   "en": "Heritage Sherpa Trucker Jacket",
+   "type": "PADDED WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-16-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-16-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-16-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/16b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/16.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "차분한 올리브 카키 컬러에 포근한 보아 칼라를 더해 클래식한 워크웨어 감성을 담은 트러커 재킷입니다. 양쪽 가슴의 스냅 플랩 포켓과 하단의 넉넉한 사선 포켓은 실용성을 높이고, 전면의 짙은 스냅 버튼은 은은한 포인트가 됩니다. 뒷판의 가로·세로 절개선으로 구조적인 실루엣을 완성했으며, 밑단 조절 탭과 소매 스냅으로 세심한 디테일을 더했습니다. 가슴의 간결한 H-FIT 로고가 어우러져 작업 현장부터 일상까지 자연스럽게 활용하기 좋은 디자인입니다.",
+   "icons": [
+    "WINDPROOF",
+    "POCKETS FOR EASY CARE HANDLING",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "NON BREATHABLE"
+   ],
+   "iconImage": "images/products/spec/27fw-16-icons.jpg",
+   "badges": [
+    "3M THINSULATE"
+   ],
+   "fabrics": [
+    {
+     "type": "TWILL",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "형태 안정성",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "COTTON 65% + POLYESTER 35%",
+     "color": "KHAKI",
+     "image": "images/products/spec/27fw-16-fabric1.jpg"
+    },
+    {
+     "type": "BOA(FAKE FUR)",
+     "points": [
+      "뛰어난 보온성",
+      "부드러운 촉감",
+      "가벼운 무게감",
+      "우수한 내구성"
+     ],
+     "material": "ACRYL 60% + POLYESTER 40%",
+     "color": "KHAKI",
+     "image": "images/products/spec/27fw-16-fabric2.jpg"
+    }
+   ],
+   "colors": "KHAKI",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/16b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/16c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-17",
+   "code": "27FW-17",
+   "season": "2027 F/W",
+   "name": "헤리티지 퀼팅 셔츠 재킷",
+   "en": "Heritage Quilted Shirt Jacket",
+   "type": "PADDED WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-17-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-17-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-17-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/17b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/17.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "차분한 블랙 컬러에 다이아몬드 퀼팅을 적용해 클래식한 분위기를 담은 셔츠형 재킷입니다. 몸판부터 소매까지 이어지는 퀼팅 패턴이 은은한 입체감을 만들며, 단정한 셔츠 칼라가 전체적인 실루엣을 깔끔하게 정돈합니다. 전면의 스냅 여밈과 좌우 대칭의 가슴 플랩 포켓은 워크웨어 특유의 실용적인 감각을 더하고, 하단의 사이드 포켓은 자연스럽게 어우러져 수납 편의성을 높였습니다. 부드럽게 굴려진 밑단과 스냅 커프스로 셔츠의 디테일을 살렸으며, 뒷칼라의 H-FIT 로고로 절제된 브랜드 포인트를 완성했습니다.",
+   "icons": [
+    "WINDPROOF",
+    "POCKETS FOR EASY CARE HANDLING",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "NON BREATHABLE"
+   ],
+   "iconImage": "images/products/spec/27fw-17-icons.jpg",
+   "badges": [
+    "3M THINSULATE"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-17-fabric1.jpg"
+    }
+   ],
+   "colors": "BLACK",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/17b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/17c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-18",
+   "code": "27FW-18",
+   "season": "2027 F/W",
+   "name": "하이브리드 퀼팅 워크 재킷",
+   "en": "Hybrid Quilted Work Jacket",
+   "type": "PADDED WORK JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-18-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-18-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-18-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/18b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/18.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "클래식한 다이아몬드 퀼팅에 블랙 코듀로이 배색을 더한 재킷입니다. 몸판과 소매에 이어지는 규칙적인 퀼팅이 입체적인 표면감을 만들고, 카라와 소매 끝단에 적용한 코듀로이 원단이 차분한 포인트를 완성합니다. 하단의 큼직한 플랩 포켓은 워크웨어 특유의 실용적인 분위기를 더합니다. 가슴에는 몸판과 같은 블랙 컬러의 H-FIT 로고 자수를 배치해 은은하게 브랜드를 표현했습니다. 단정한 실루엣과 절제된 디테일이 어우러져 작업 현장부터 일상까지 자연스럽게 활용할 수 있는 디자인입니다.",
+   "icons": [
+    "WINDPROOF",
+    "POCKETS FOR EASY CARE HANDLING",
+    "HEAT RETENTION",
+    "WRINKLE FREE",
+    "NON BREATHABLE"
+   ],
+   "iconImage": "images/products/spec/27fw-18-icons.jpg",
+   "badges": [
+    "3M THINSULATE"
+   ],
+   "fabrics": [
+    {
+     "type": "BRUSHED FLEECE",
+     "points": [
+      "탁월한 보온성",
+      "부드러운 촉감",
+      "우수한 활동성"
+     ],
+     "material": "COTTON 100%",
+     "color": "GRAY + NAVY",
+     "image": "images/products/spec/27fw-18-fabric1.jpg"
+    },
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "CHARCOAL",
+     "image": "images/products/spec/27fw-18-fabric2.jpg"
+    }
+   ],
+   "colors": "CHARCOAL, GRAY, NAVY",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/18b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/18c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-19",
+   "code": "27FW-19",
+   "season": "2027 F/W",
+   "name": "커브 패널 플리스",
+   "en": "Curve Panel Fleece Jacket",
+   "type": "FLEECE",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-19-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-19-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-19-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/19b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/19.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "아이보리 컬러의 포근한 보아 플리스에 배색을 더해 세련된 인상을 완성한 집업 재킷입니다. 전면 양옆을 따라 부드럽게 이어지는 배색 패널이 시각적인 포인트를 만들며, 패널 안에 배치한 지퍼 포켓은 간결한 디자인에 실용성을 더합니다. 목을 감싸는 스탠드 칼라와 전면 풀 지퍼로 단정한 형태를 갖추고, 여유 있는 실루엣으로 다양한 이너와 자연스럽게 어우러지도록 구성했습니다. 가슴의 작은 H 로고와 깔끔하게 정리한 뒷면이 균형을 이루어, 워크웨어부터 일상복까지 폭넓게 활용하기 좋은 디자인입니다.",
+   "icons": [
+    "SYNTHETIC FABRIC",
+    "UV PROTECTION",
+    "HEAT RETENTION",
+    "ANTI BACTERIAL",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-19-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "FLEECE",
+     "points": [
+      "우수한 보온성",
+      "가벼운 무게",
+      "뛰어난 속건성과 통기성",
+      "부드러운 촉감과 편안함",
+      "높은 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "IVORY",
+     "image": "images/products/spec/27fw-19-fabric1.jpg"
+    },
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE",
+     "image": "images/products/spec/27fw-19-fabric2.jpg"
+    }
+   ],
+   "colors": "IVORY, STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/19b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/19c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-20",
+   "code": "27FW-20",
+   "season": "2027 F/W",
+   "name": "듀얼 포켓 플리스",
+   "en": "Dual Pocket Fleece Jacket",
+   "type": "FLEECE",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-20-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-20-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-20-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/20b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/20.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "플리스 집업 재킷입니다. 목을 감싸는 스탠드칼라와 전면 지퍼 여밈으로 단정한 실루엣을 완성했으며, 가슴 양쪽에 세로형 지퍼 포켓을 배치해 실용적이면서도 균형감 있는 디자인을 구현했습니다. 가슴을 가로지르는 절개선은 상체의 구조적인 느낌을 강조하고, 양옆의 핸드 포켓은 전체 디자인에 자연스럽게 연결됩니다. 뒷면 상단에는 몸판보다 짙은 톤의 대형 H 로고를 더해 절제된 포인트를 주었습니다. 간결한 외관에 워크웨어 특유의 실용적인 디테일을 담아 업무 환경과 일상에서 두루 활용하기 좋은 디자인입니다.",
+   "icons": [
+    "SYNTHETIC FABRIC",
+    "UV PROTECTION",
+    "HEAT RETENTION",
+    "ANTI BACTERIAL",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-20-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "FLEECE",
+     "points": [
+      "우수한 보온성",
+      "가벼운 무게",
+      "뛰어난 속건성과 통기성",
+      "부드러운 촉감과 편안함",
+      "높은 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE",
+     "image": "images/products/spec/27fw-20-fabric1.jpg"
+    }
+   ],
+   "colors": "STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/20b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/20c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-21",
+   "code": "27FW-21",
+   "season": "2027 F/W",
+   "name": "블루 포인트 유틸리티 플리스",
+   "en": "Blue Point Utility Fleece Jacket",
+   "type": "FLEECE",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-21-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-21-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-21-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/21b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/21.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "블랙 플리스 바탕에 블루 컬러의 칼라 배색과 가슴 포켓을 더해 깔끔하면서도 활동적인 분위기를 살린 재킷입니다. 앞판의 가로 절개선과 어깨 라인이 단정한 실루엣을 잡아주며, 가슴의 입체적인 H 로고가 브랜드 포인트를 더합니다. 오각형 배색 가슴 포켓과 양쪽 세로 지퍼 포켓은 실용적인 수납공간이자 디자인 요소로 활용됩니다. 목을 감싸는 스탠드칼라에는 뒤쪽 스트링과 스토퍼를 적용해 둘레를 조절할 수 있도록 했으며, 소매 끝 밴딩으로 안정적인 착용감을 고려했습니다. 차분한 블랙과 선명한 블루의 조화가 돋보여 워크웨어부터 일상복까지 자연스럽게 활용할 수 있는 디자인입니다.",
+   "icons": [
+    "SYNTHETIC FABRIC",
+    "UV PROTECTION",
+    "HEAT RETENTION",
+    "ANTI BACTERIAL",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-21-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "FLEECE",
+     "points": [
+      "우수한 보온성",
+      "가벼운 무게",
+      "뛰어난 속건성과 통기성",
+      "부드러운 촉감과 편안함",
+      "높은 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-21-fabric1.jpg"
+    },
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE",
+     "image": "images/products/spec/27fw-21-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK, STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/21b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/21c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-22",
+   "code": "27FW-22",
+   "season": "2027 F/W",
+   "name": "어반 셰르파 노카라 재킷",
+   "en": "Urban Sherpa Round Jacket",
+   "type": "FLEECE",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-22-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-22-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-22-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/22b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/22.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "풍성한 보아 플리스의 입체적인 질감과 차분한 블랙 컬러가 어우러진 라운드넥 재킷입니다. 칼라를 생략한 간결한 네크라인과 어깨에서 자연스럽게 이어지는 래글런 소매가 부드럽고 여유로운 실루엣을 완성합니다. 블루 로고로 은은한 포인트를 더했습니다. 양쪽 포켓 입구에 와 가슴 포켓 은같은 질감의 원단을 적용해 디자인의 통일감을 높였습니다. 목둘레와 앞여밈, 소맷단, 밑단을 감싼 블랙 바인딩이 전체 윤곽을 깔끔하게 정돈해, 포근한 분위기와 실용적인 워크웨어 감성을 함께 담았습니다.",
+   "icons": [
+    "SYNTHETIC FABRIC",
+    "UV PROTECTION",
+    "HEAT RETENTION",
+    "ANTI BACTERIAL",
+    "SOFT TO THE TOUCH"
+   ],
+   "iconImage": "images/products/spec/27fw-22-icons.jpg",
+   "badges": [],
+   "fabrics": [
+    {
+     "type": "FLEECE",
+     "points": [
+      "우수한 보온성",
+      "가벼운 무게",
+      "뛰어난 속건성과 통기성",
+      "부드러운 촉감과 편안함",
+      "높은 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "BLACK",
+     "image": "images/products/spec/27fw-22-fabric1.jpg"
+    },
+    {
+     "type": "POLYESTER",
+     "points": [
+      "뛰어난 내구성과 강도",
+      "우수한 구김 방지",
+      "가벼운 무게와 부드러운 촉감",
+      "빠른 건조와 쾌적함"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "STEEL BLUE",
+     "image": "images/products/spec/27fw-22-fabric2.jpg"
+    }
+   ],
+   "colors": "BLACK, STEEL BLUE",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/22b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/22c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-23",
+   "code": "27FW-23",
+   "season": "2027 F/W",
+   "name": "루미가드 워크 재킷",
+   "en": "Lumiguard Work Jacket",
+   "type": "HI-VIS JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-23-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-23-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-23-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/23b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/23.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "선명한 옐로와 깊이감 있는 네이비 배색이 조화를 이루는 워크 재킷입니다. 어깨와 몸판 하단에 적용한 네이비 패널이 전체적인 실루엣에 안정감을 주며, 전면에 V자 흐름으로 배치한 분절형 반사 디테일이 역동적인 인상을 더합니다. 몸판과 소매를 가로지르는 실버 반사 밴드와 등 상단의 사선형 분절 패턴은 여러 방향에서의 시인성을 고려한 디자인 요소입니다. 단정한 칼라와 전면 스냅 여밈으로 깔끔하게 마무리했으며, 가슴 지퍼 포켓으로 수납의 실용성을 더했습니다. 소매단에는 조절용 스냅을 적용해 손목 둘레에 맞춰 착용할 수 있도록 구성했습니다. 현장 작업복에 어울리는 기능적인 이미지를 완성합니다.",
+   "icons": [
+    "BREATHABILITY",
+    "WATER RESISTANT",
+    "WINDPROOF",
+    "UV PROTECTION",
+    "MEMBRANE"
+   ],
+   "iconImage": "images/products/spec/27fw-23-icons.jpg",
+   "badges": [
+    "GORE-TEX",
+    "3M REFLECTIVE"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "우수한 방수성",
+      "뛰어난 땀배출",
+      "강한 바람 차단",
+      "우수한 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "YELLOW + NAVY",
+     "image": "images/products/spec/27fw-23-fabric1.jpg"
+    }
+   ],
+   "colors": "NAVY, YELLOW",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/23b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/23c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27fw-24",
+   "code": "27FW-24",
+   "season": "2027 F/W",
+   "name": "리플렉트 가드 파카",
+   "en": "Reflect Guard Parka",
+   "type": "HI-VIS JACKET",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/27fw-24-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/27fw-24-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/27fw-24-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw27/24b.jpg",
+     "caption": "디테일"
+    },
+    {
+     "image": "images/products/fw27/24.jpg",
+     "caption": "대표"
+    }
+   ],
+   "description": "밝은 라임 옐로와 깊이감 있는 네이비 배색이 돋보이는 후드형 방한 파카입니다. 어깨와 상단, 소매 끝, 밑단에 네이비 컬러를 배치해 안정감 있는 외관을 완성하고, 몸판의 밝은 컬러로 현장용 워크웨어 특유의 선명한 인상을 살렸습니다. 가슴과 등판을 가로지르는 실버 반사 디테일은 소매와 밑단까지 이어지며, 후드의 세로 라인과 함께 시인성을 고려한 디자인 포인트를 형성합니다. 목을 감싸는 하이넥과 입체적인 후드, 전면 지퍼를 덮는 스냅 여밈이 몸을 감싸는 구조를 이룹니다. 양쪽 가슴의 세로형 지퍼 포켓과 하단의 넉넉한 플랩 포켓으로 수납의 실용성을 더했으며, 소매 끝 조절 탭으로 손목 둘레에 맞게 여밈을 조절할 수 있습니다. 절개와 기능적인 디테일을 조화시켜 견고하면서도 정돈된 이미지를 완성했습니다.",
+   "icons": [
+    "BREATHABILITY",
+    "WATER RESISTANT",
+    "WINDPROOF",
+    "UV PROTECTION",
+    "MEMBRANE"
+   ],
+   "iconImage": "images/products/spec/27fw-24-icons.jpg",
+   "badges": [
+    "GORE-TEX",
+    "3M REFLECTIVE"
+   ],
+   "fabrics": [
+    {
+     "type": "POLYESTER",
+     "points": [
+      "우수한 방수성",
+      "뛰어난 땀배출",
+      "강한 바람 차단",
+      "우수한 내구성"
+     ],
+     "material": "POLYESTER 100%",
+     "color": "YELLOW + NAVY",
+     "image": "images/products/spec/27fw-24-fabric1.jpg"
+    }
+   ],
+   "colors": "NAVY, YELLOW",
+   "detailImages": [
+    {
+     "image": "images/products/fw27/24b.jpg",
+     "caption": "디테일"
+    }
+   ],
+   "specSheet": "images/products/fw27/24c.jpg",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-01",
+   "code": "27SS-01",
+   "season": "2027 S/S",
+   "name": "팬 쿨링 베스트 A",
+   "en": "Fan-Cooled Vest Design A",
+   "type": "FAN-COOLED VEST",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/ss27-fan-vest-a-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-fan-vest-a-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-fan-vest-a-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-fan-vest-a.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "CHARCOAL, KHAKI, BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-02",
+   "code": "27SS-02",
+   "season": "2027 S/S",
+   "name": "팬 쿨링 베스트 B",
+   "en": "Fan-Cooled Vest Design B",
+   "type": "FAN-COOLED VEST",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/ss27-fan-vest-b-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-fan-vest-b-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-fan-vest-b-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/views/ss27-fan-vest-b-side.jpg",
+     "caption": "측면"
+    },
+    {
+     "image": "images/products/ss27-fan-vest-b.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "GRAY, NAVY, BEIGE",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-03",
+   "code": "27SS-03",
+   "season": "2027 S/S",
+   "name": "팬 점퍼 A",
+   "en": "Fan Jumper Design A",
+   "type": "FAN JUMPER",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/ss27-fan-jumper-a-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-fan-jumper-a-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-fan-jumper-a-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-fan-jumper-a.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "NAVY, BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-04",
+   "code": "27SS-04",
+   "season": "2027 S/S",
+   "name": "팬 점퍼 B",
+   "en": "Fan Jumper Design B",
+   "type": "FAN JUMPER",
+   "show": true,
+   "featured": true,
+   "category": "아우터",
+   "thumb": "images/products/views/ss27-fan-jumper-b-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-fan-jumper-b-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-fan-jumper-b-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-fan-jumper-b.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "CHARCOAL, NAVY, BLACK, GRAY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-05",
+   "code": "27SS-05",
+   "season": "2027 S/S",
+   "name": "펠티어 냉각 베스트",
+   "en": "Peltier Vest",
+   "type": "ACC",
+   "show": true,
+   "featured": true,
+   "category": "악세사리",
+   "thumb": "images/products/views/ss27-peltier-vest-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-peltier-vest-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-peltier-vest-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-peltier-vest.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "GRAY, BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-06",
+   "code": "27SS-06",
+   "season": "2027 S/S",
+   "name": "캡 A",
+   "en": "Cap Design A",
+   "type": "ACC",
+   "show": true,
+   "featured": true,
+   "category": "악세사리",
+   "thumb": "images/products/views/ss27-cap-a-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-cap-a-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-cap-a-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/views/ss27-cap-a-side.jpg",
+     "caption": "측면"
+    },
+    {
+     "image": "images/products/ss27-cap-a.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "NAVY, SLATE BLUE",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-07",
+   "code": "27SS-07",
+   "season": "2027 S/S",
+   "name": "캡 B",
+   "en": "Cap Design B",
+   "type": "ACC",
+   "show": true,
+   "featured": true,
+   "category": "악세사리",
+   "thumb": "images/products/views/ss27-cap-b-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-cap-b-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-cap-b-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/views/ss27-cap-b-side.jpg",
+     "caption": "측면"
+    },
+    {
+     "image": "images/products/ss27-cap-b.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "SLATE BLUE, BEIGE",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-08",
+   "code": "27SS-08",
+   "season": "2027 S/S",
+   "name": "선 마스크",
+   "en": "Sun Mask",
+   "type": "ACC",
+   "show": true,
+   "featured": true,
+   "category": "악세사리",
+   "thumb": "images/products/views/ss27-sun-mask-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-sun-mask-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/ss27-sun-mask.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "SLATE BLUE, WHITE, BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-09",
+   "code": "27SS-09",
+   "season": "2027 S/S",
+   "name": "반팔 카라 티셔츠",
+   "en": "Short-Sleeved Top Design A",
+   "type": "SHORT-SLEEVED TOP",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/ss27-short-a-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-short-a-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-short-a-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-short-a.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "WHITE, BLACK, NAVY, CHARCOAL",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-10",
+   "code": "27SS-10",
+   "season": "2027 S/S",
+   "name": "포켓 반팔 티셔츠",
+   "en": "Short-Sleeved Top Design B",
+   "type": "SHORT-SLEEVED TOP",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/ss27-short-b-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-short-b-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-short-b-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-short-b.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BLACK, NAVY, KHAKI",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "27ss-11",
+   "code": "27SS-11",
+   "season": "2027 S/S",
+   "name": "반팔 셔츠",
+   "en": "Short-Sleeved Top Design C",
+   "type": "SHORT-SLEEVED TOP",
+   "show": true,
+   "featured": true,
+   "category": "상의",
+   "thumb": "images/products/views/ss27-short-c-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/ss27-short-c-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/ss27-short-c-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/ss27-short-c.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BEIGE, BLUE, OLIVE GREEN",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-01",
+   "code": "26FW-01",
+   "season": "2026 F/W",
+   "name": "패딩 재킷 A",
+   "en": "Padded Jacket Design A",
+   "type": "PADDED JACKET",
+   "show": true,
+   "featured": false,
+   "category": "아우터",
+   "thumb": "images/products/views/fw26-padded-a-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-padded-a-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-padded-a-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-padded-a.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BEIGE, BLACK, NAVY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-02",
+   "code": "26FW-02",
+   "season": "2026 F/W",
+   "name": "패딩 재킷 B",
+   "en": "Padded Jacket Design B",
+   "type": "PADDED JACKET",
+   "show": true,
+   "featured": false,
+   "category": "아우터",
+   "thumb": "images/products/views/fw26-padded-b-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-padded-b-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-padded-b-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-padded-b.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "CHARCOAL, GRAY, NAVY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-03",
+   "code": "26FW-03",
+   "season": "2026 F/W",
+   "name": "다운 재킷",
+   "en": "Down Jacket",
+   "type": "DOWN",
+   "show": true,
+   "featured": false,
+   "category": "아우터",
+   "thumb": "images/products/views/fw26-down-jacket-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-down-jacket-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-down-jacket-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-down-jacket.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "내부 발열 패드 적용",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BEIGE, NAVY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-04",
+   "code": "26FW-04",
+   "season": "2026 F/W",
+   "name": "다운 베스트",
+   "en": "Down Vest",
+   "type": "DOWN",
+   "show": true,
+   "featured": false,
+   "category": "아우터",
+   "thumb": "images/products/views/fw26-down-vest-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-down-vest-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-down-vest-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-down-vest.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "KHAKI, BLACK, NAVY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-05",
+   "code": "26FW-05",
+   "season": "2026 F/W",
+   "name": "맨투맨",
+   "en": "Long-Sleeved Sweatshirt",
+   "type": "LONG-SLEEVED",
+   "show": true,
+   "featured": false,
+   "category": "상의",
+   "thumb": "images/products/views/fw26-sweatshirt-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-sweatshirt-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-sweatshirt-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-sweatshirt.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "MELANGE GRAY, MELANGE CHARCOAL, MELANGE BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-06",
+   "code": "26FW-06",
+   "season": "2026 F/W",
+   "name": "긴팔 카라 티셔츠",
+   "en": "Long-Sleeved Collared Shirt",
+   "type": "LONG-SLEEVED",
+   "show": true,
+   "featured": false,
+   "category": "상의",
+   "thumb": "images/products/views/fw26-collared-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-collared-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-collared-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-collared.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "WHITE, BLACK, NAVY, MELANGE CHARCOAL",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-07",
+   "code": "26FW-07",
+   "season": "2026 F/W",
+   "name": "긴팔 풀집업",
+   "en": "Long-Sleeve Full-Zip",
+   "type": "LONG-SLEEVED",
+   "show": true,
+   "featured": false,
+   "category": "상의",
+   "thumb": "images/products/views/fw26-full-zip-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-full-zip-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-full-zip-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-full-zip.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BLACK, KHAKI, NAVY",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-08",
+   "code": "26FW-08",
+   "season": "2026 F/W",
+   "name": "발열 베스트",
+   "en": "Heated Vest",
+   "type": "ACC",
+   "show": true,
+   "featured": false,
+   "category": "악세사리",
+   "thumb": "images/products/views/fw26-heated-vest-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-heated-vest-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/fw26-heated-vest.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "3단 온도 조절(약 40~55도), 배터리 포켓 내장형·외장형",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BLACK",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  },
+  {
+   "id": "26fw-09",
+   "code": "26FW-09",
+   "season": "2026 F/W",
+   "name": "트루퍼 햇",
+   "en": "Trooper Hat",
+   "type": "ACC",
+   "show": true,
+   "featured": false,
+   "category": "악세사리",
+   "thumb": "images/products/views/fw26-trooper-hat-front.jpg",
+   "images": [
+    {
+     "image": "images/products/views/fw26-trooper-hat-front.jpg",
+     "caption": "앞면"
+    },
+    {
+     "image": "images/products/views/fw26-trooper-hat-back.jpg",
+     "caption": "뒷면"
+    },
+    {
+     "image": "images/products/fw26-trooper-hat.jpg",
+     "caption": "전체"
+    }
+   ],
+   "description": "",
+   "icons": [],
+   "iconImage": "",
+   "badges": [],
+   "fabrics": [],
+   "colors": "BLACK, NAVY, KHAKI",
+   "detailImages": [],
+   "specSheet": "",
+   "sizes": {
+    "columns": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "rows": []
+   }
+  }
+ ]
 }

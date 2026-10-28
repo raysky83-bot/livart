@@ -5,154 +5,151 @@ media:
 
 content:
   - name: products
-    label: 제품·컬렉션
+    label: 제품
     type: file
     path: hfit-site/content/products.json
     fields:
-      - name: collections
-        label: 컬렉션
+      - { name: categories, label: "제품 분류 (PRODUCT 메뉴 필터)", type: string, list: true }
+      - name: items
+        label: 제품 목록
         type: object
         list: true
         fields:
-          - { name: id, label: "ID (영문, 변경 금지)", type: string }
-          - { name: title, label: "탭 제목 (예: 2027 F/W)", type: string }
-          - { name: subtitle, label: 탭 설명, type: string }
-          - { name: cover, label: 대표 이미지, type: image }
-          - name: items
-            label: 제품 목록
+          - { name: show, label: 홈페이지에 표시, type: boolean, default: true }
+          - { name: featured, label: 메인 화면 시즌 목록에 표시, type: boolean, default: true }
+          - { name: id, label: "ID (영문 소문자, 주소에 사용 · 변경 금지)", type: string }
+          - { name: code, label: 품번, type: string }
+          - { name: season, label: "시즌 (예: 2027 F/W)", type: string }
+          - { name: category, label: "분류 (아우터/상의/하의/악세사리)", type: string }
+          - { name: type, label: "세부 품목 (예: DOWN VEST)", type: string }
+          - { name: name, label: 제품명, type: string }
+          - { name: en, label: 영문명, type: string }
+          - { name: thumb, label: 목록 사진, type: image }
+          - name: images
+            label: "상세 사진 (첫 두 장이 큰 사진: 앞면·뒷면)"
             type: object
             list: true
             fields:
-              - { name: show, label: 홈페이지에 표시, type: boolean, default: true }
-              - { name: code, label: 품번, type: string }
-              - { name: name, label: 제품명, type: string }
-              - { name: en, label: 영문명, type: string }
-              - { name: category, label: "카테고리 (필터 버튼 이름)", type: string }
-              - { name: image, label: 대표 사진, type: image }
-              - name: gallery
-                label: 상세 사진
+              - { name: image, label: 사진, type: image }
+              - { name: caption, label: "설명 (예: 앞면)", type: string }
+          - { name: description, label: 제품 설명, type: text }
+          - { name: iconImage, label: 기능 아이콘 이미지, type: image }
+          - { name: icons, label: "기능 (아이콘 설명용)", type: string, list: true }
+          - { name: badges, label: "소재 인증 (예: GORE-TEX)", type: string, list: true }
+          - name: fabrics
+            label: 원단
+            type: object
+            list: true
+            fields:
+              - { name: image, label: 원단 사진, type: image }
+              - { name: type, label: "원단명 (예: RIB 1X1)", type: string }
+              - { name: points, label: 특징, type: string, list: true }
+              - { name: material, label: "혼용률 (예: COTTON 70% + POLYESTER 30%)", type: string }
+              - { name: color, label: 컬러, type: string }
+          - { name: colors, label: "컬러 (원단 정보가 없을 때 표시)", type: string }
+          - name: detailImages
+            label: 하단 디테일 사진
+            type: object
+            list: true
+            fields:
+              - { name: image, label: 사진, type: image }
+              - { name: caption, label: 설명, type: string }
+          - { name: specSheet, label: "상세 설명 원본 이미지 (보관용)", type: image }
+          - name: sizes
+            label: 사이즈표
+            type: object
+            fields:
+              - { name: columns, label: "사이즈 (예: S, M, L)", type: string, list: true }
+              - name: rows
+                label: 측정 항목
                 type: object
                 list: true
                 fields:
-                  - { name: image, label: 사진, type: image }
-                  - { name: caption, label: "설명 (예: 앞·뒤)", type: string }
-              - { name: colors, label: "컬러 (쉼표로 구분)", type: string }
-              - { name: description, label: 특징, type: text }
+                  - { name: label, label: "항목 (예: 어깨너비)", type: string }
+                  - { name: values, label: "치수 (사이즈 순서대로)", type: string, list: true }
 
   - name: site
-    label: 홈페이지 문구·이미지
+    label: 페이지 문구·이미지
     type: file
     path: hfit-site/content/site.json
     fields:
       - { name: notice, label: "상단 안내 띠 (비우면 숨김)", type: string }
       - name: brand
-        label: 브랜드
+        label: 브랜드 공통
         type: object
         fields:
           - { name: name, label: 브랜드명, type: string }
           - { name: slogan, label: 슬로건, type: string }
-          - { name: tagline, label: 태그라인, type: text }
-          - { name: company, label: 회사명, type: string }
-      - name: hero
-        label: 첫 화면
+          - { name: quote, label: 슬로건 아래 문구, type: text }
+          - { name: instagram, label: "인스타그램 주소 (비우면 아이콘 숨김)", type: string }
+      - name: home
+        label: 메인 화면
         type: object
         fields:
-          - { name: eyebrow, label: 작은 제목, type: string }
-          - { name: title, label: 큰 제목, type: text }
-          - { name: text, label: 설명, type: text }
-          - name: images
-            label: "화보 사진 (4장 권장, 세로 사진)"
+          - { name: heroImage, label: 첫 화면 사진 (가로형), type: image }
+          - name: slides
+            label: "화보 슬라이드 (세로형)"
             type: object
             list: true
             fields:
               - { name: image, label: 사진, type: image }
               - { name: alt, label: 사진 설명, type: string }
-      - name: values
-        label: 브랜드 가치 (H·F·I·T)
-        type: object
-        list: true
-        fields:
-          - { name: key, label: "키워드 (예: H.ARMONY)", type: string }
-          - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-      - name: about
-        label: 브랜드 소개
-        type: object
-        fields:
-          - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-          - name: pillars
-            label: 핵심 가치
+          - name: sections
+            label: 시즌 제품 목록
             type: object
             list: true
             fields:
               - { name: title, label: 제목, type: string }
-              - { name: text, label: 설명, type: text }
-      - name: lookbook
-        label: 룩북 사진
-        type: object
-        list: true
-        fields:
-          - { name: image, label: 사진, type: image }
-          - { name: caption, label: 캡션, type: string }
-      - name: factory
-        label: 생산 방식
+              - { name: season, label: "표시할 시즌 (제품의 시즌과 같게)", type: string }
+      - name: brandPage
+        label: BRAND 페이지
         type: object
         fields:
-          - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-          - name: features
-            label: 특징
-            type: object
-            list: true
-            fields:
-              - { name: title, label: 제목, type: string }
-              - { name: text, label: 설명, type: text }
-              - { name: points, label: 세부 항목, type: string, list: true }
-      - name: process
-        label: B2B 프로세스
-        type: object
-        list: true
-        fields:
-          - { name: en, label: 영문 단계명, type: string }
-          - { name: title, label: 제목, type: string }
-          - { name: points, label: 세부 항목, type: string, list: true }
-      - name: scm
-        label: 생산 공정(SCM)
-        type: object
-        list: true
-        fields:
-          - { name: en, label: 영문 단계명, type: string }
-          - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-      - name: branding
-        label: 브랜드 디테일
-        type: object
-        fields:
-          - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-          - name: images
-            label: 사진
+          - { name: heroImage, label: 첫 화면 사진, type: image }
+          - { name: intro, label: 소개 문구, type: text }
+          - name: stories
+            label: 사진·글 블록
             type: object
             list: true
             fields:
               - { name: image, label: 사진, type: image }
-              - { name: caption, label: 캡션, type: string }
-      - name: group
-        label: 단체 구매 문의
+              - { name: text, label: 문구, type: text }
+              - { name: en, label: 영문, type: text }
+          - name: mosaic
+            label: "사진 모음 (10칸, 로고 칸은 LOGO 입력)"
+            type: object
+            list: true
+            fields:
+              - { name: image, label: 사진, type: image }
+          - { name: closing, label: 마무리 문구, type: text }
+      - name: lookbook
+        label: LOOKBOOK 카탈로그
         type: object
+        list: true
         fields:
-          - { name: eyebrow, label: 작은 제목, type: string }
           - { name: title, label: 제목, type: string }
-          - { name: text, label: 설명, type: text }
-          - { name: image, label: 배경 사진, type: image }
-      - name: contact
-        label: 연락처
+          - { name: en, label: 영문 제목, type: string }
+          - { name: cover, label: 표지 사진, type: image }
+          - { name: pdf, label: "카탈로그 PDF", type: file }
+          - { name: images, label: VIEW 사진, type: image, list: true }
+      - name: support
+        label: 상담신청
         type: object
         fields:
-          - { name: company, label: 회사, type: string }
-          - { name: department, label: 담당 부서, type: string }
+          - { name: endpoint, label: "접수 주소 (구글 앱스 스크립트 웹 앱 URL)", type: string }
+          - { name: types, label: 고객 구분, type: string, list: true }
+          - { name: placeholder, label: 문의사항 안내 문구, type: text }
+          - { name: privacy, label: 개인정보 수집 안내, type: text }
+      - name: footer
+        label: 하단 회사 정보
+        type: object
+        fields:
           - { name: email, label: 이메일, type: string }
-          - { name: phone, label: 전화, type: string }
-          - { name: address, label: 주소, type: string }
-          - { name: note, label: 안내 문구, type: string }
+          - { name: company, label: 회사명, type: string }
+          - { name: ceo, label: 대표이사, type: string }
+          - { name: hq, label: 본사, type: string }
+          - { name: seoul, label: 서울사무소, type: string }
+          - { name: privacyOfficer, label: 개인정보관리 책임자, type: string }
+          - { name: bizNo, label: 사업자등록번호, type: string }
+          - { name: ecommerce, label: 통신판매업신고, type: string }
+          - { name: copyright, label: 저작권 표기, type: string }
