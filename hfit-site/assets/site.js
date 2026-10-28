@@ -4,6 +4,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const V = "?v=" + Math.floor(Date.now()/60000);
 const PAGE = document.body.dataset.page;
+const PFX = document.body.dataset.prefix || "";   // B안 페이지는 "b-" 접두어
+const THEME_B = PFX === "b-";
 const params = new URLSearchParams(location.search);
 const ICON = {
   prev:'<svg viewBox="0 0 20 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2L3 20l14 18"/></svg>',
@@ -14,8 +16,8 @@ const ICON = {
 };
 let SITE = null, PROD = null;
 function toast(t){ let el=$(".toast"); if(!el){ el=document.createElement("div"); el.className="toast"; document.body.appendChild(el); } el.textContent=t; el.hidden=false; clearTimeout(el._t); el._t=setTimeout(()=>el.hidden=true,2600); }
-const detailUrl = it => `detail.html?id=${encodeURIComponent(it.id)}`;
-const inqUrl = it => `support.html?product=${encodeURIComponent(it.code)}`;
+const detailUrl = it => `${PFX}detail.html?id=${encodeURIComponent(it.id)}`;
+const inqUrl = it => `${PFX}support.html?product=${encodeURIComponent(it.code)}`;
 const visible = () => PROD.items.filter(i => i.show !== false);
 
 /* ---------- header / footer ---------- */
@@ -25,10 +27,12 @@ function chrome(){
   const insta = SITE.brand.instagram ? `<a class="insta" href="${esc(SITE.brand.instagram)}" target="_blank" rel="noopener" aria-label="인스타그램">${ICON.insta}</a>` : "";
   $("#chrome-top").innerHTML = (SITE.notice?`<div class="notice">${esc(SITE.notice)}</div>`:"") + `<div class="topbar"></div>
   <header class="site"><div class="wrap">
-    <a class="logo" href="index.html" aria-label="H.FIT 홈"><img src="images/brand/logo-color.png" alt="H.FIT"></a>
-    <nav class="gnb" id="gnb">${nav.map(([h,t,k])=>`<a href="${h}"${k===cur?' aria-current="page"':''}>${t}</a>`).join("")}</nav>
+    <a class="logo" href="${PFX}index.html" aria-label="H.FIT 홈"><img src="images/brand/logo-color.png" alt="H.FIT"></a>
+    <nav class="gnb" id="gnb">${nav.map(([h,t,k])=>`<a href="${PFX}${h}"${k===cur?' aria-current="page"':''}>${t}</a>`).join("")}</nav>
     ${insta}<button class="menu-btn" id="menu" aria-label="메뉴 열기" aria-expanded="false">${ICON.menu}</button>
   </div></header>`;
+  if(THEME_B){ const fab=document.createElement("a"); fab.className="fab-cta"; fab.href=`${PFX}support.html`; fab.textContent="단체 구매 문의"; if(PAGE!=="support") document.body.appendChild(fab);
+    if(PAGE==="home"){ document.body.classList.add("over-hero"); const hd=$("header.site"), nt=$(".notice"); const onS=()=>{ hd.classList.toggle("solid", scrollY>60); hd.style.setProperty("--hd-top", Math.max(0,(nt?nt.offsetHeight:0)-scrollY)+"px"); }; addEventListener("scroll",onS,{passive:true}); onS(); } }
   $("#menu").onclick = () => { const o=$("#gnb").classList.toggle("open"); $("#menu").setAttribute("aria-expanded",String(o)); };
   const f = SITE.footer||{};
   const kv = (k,v) => v ? `<span><b>${esc(k)}</b>${esc(v)}</span>` : "";
@@ -42,7 +46,7 @@ function chrome(){
 }
 
 /* ---------- product card ---------- */
-const card = it => `<div class="pcard"><a href="${detailUrl(it)}" class="ph"><img loading="lazy" src="${esc(it.thumb)}" alt="${esc(it.name)}"></a>
+const card = it => `<div class="pcard"><a href="${detailUrl(it)}" class="ph"><img loading="lazy" src="${esc(it.thumb)}" alt="${esc(it.name)}">${it.images && it.images[1] && it.images[1].image!==it.thumb ? `<img class="alt" loading="lazy" src="${esc(it.images[1].image)}" alt="">` : ""}</a>
   <a href="${detailUrl(it)}" class="nm">${esc(it.name)}</a><br><a class="link-inq inq" href="${inqUrl(it)}">제품문의</a></div>`;
 
 /* ---------- generic carousel (index-based) ---------- */
@@ -68,7 +72,7 @@ function home(){
   <section class="slider" id="slider" aria-label="화보"><div class="track">${h.slides.map(s=>`<div class="slide"><img src="${esc(s.image)}" alt="${esc(s.alt)}"></div>`).join("")}</div>
     <button class="arrow prev" aria-label="이전">${ICON.prev}</button><button class="arrow next" aria-label="다음">${ICON.next}</button><div class="count" id="count"></div></section>
   ${h.sections.map((s,k)=>{ const list=visible().filter(i=>i.season===s.season && i.featured!==false); return `
-  <section class="season"><div class="season-title"><h2>${esc(s.title)}</h2></div>
+  <section class="season"><div class="season-title"><span class="eyebrow">COLLECTION</span><h2>${esc(s.title)}</h2><a class="see-all" href="${PFX}product.html">전체 보기</a></div>
     <div class="band"><div class="wrap"><div class="carousel" id="car${k}"><div class="viewport"><div class="track">${list.map(it=>`<div class="cell">${card(it)}</div>`).join("")}</div></div>
     <button class="arrow prev" aria-label="이전 제품">${ICON.prev}</button><button class="arrow next" aria-label="다음 제품">${ICON.next}</button></div></div></div></section>`; }).join("")}`;
   const sl = $("#slider"), total = h.slides.length;
@@ -101,7 +105,7 @@ function product(){
     const list = visible().filter(i => (cat==="전체"||i.category===cat) && true);
     $("#pgrid").innerHTML = list.slice(0,shown).map(card).join("") || `<div class="empty">${cat==="하의"?"하의 제품은 준비 중입니다.":"등록된 제품이 없습니다."}</div>`;
     $("#more").hidden = list.length <= shown;
-    document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{ cat=b.dataset.c; shown=16; history.replaceState(null,"",cat==="전체"?"product.html":`product.html?cat=${encodeURIComponent(cat)}`); render(); });
+    document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{ cat=b.dataset.c; shown=16; history.replaceState(null,"",cat==="전체"?`${PFX}product.html`:`${PFX}product.html?cat=${encodeURIComponent(cat)}`); render(); });
   };
   $("#more").onclick = () => { shown += 16; render(); };
   render();
