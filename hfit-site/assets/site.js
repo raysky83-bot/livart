@@ -85,7 +85,7 @@ function brand(){
   <section class="hero light" style="background-image:url('${esc(b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(SITE.brand.quote)}</p></div></section>
   <section class="b-intro wrap"><img src="images/brand/logo-color.png" alt="H.FIT"><p>${esc(b.intro)}</p></section>
   ${b.stories.map((s,k)=>`<section class="story${k%2?' rev':''}"><div class="img"><img loading="lazy" src="${esc(s.image)}" alt=""></div><div class="txt"><p>${esc(s.text)}</p>${s.en?`<small>${esc(s.en)}</small>`:""}</div></section>`).join("")}
-  <section class="mosaic">${b.mosaic.map(m=> m.image==="LOGO" ? `<div class="logo"><img src="images/brand/logo-color.png" alt="H.FIT"></div>` : `<div class="${/products\//.test(m.image)?'prod':''}"><img loading="lazy" src="${esc(m.image)}" alt=""></div>`).join("")}</section>
+  <section class="mosaic">${b.mosaic.map(m=> /^LOGO/.test(m.image) ? `<div class="logo"><img src="images/brand/logo-color.png" alt="H.FIT"></div>` : `<div class="${/products\//.test(m.image)?'prod':''}"><img loading="lazy" src="${esc(m.image)}" alt=""></div>`).join("")}</section>
   <p class="closing wrap">${esc(b.closing)}</p>`;
 }
 
@@ -204,6 +204,6 @@ function support(){
 
 /* ---------- boot ---------- */
 Promise.all([fetch("content/site.json"+V).then(r=>r.json()), fetch("content/products.json"+V).then(r=>r.json())])
-.then(([s,p])=>{ SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
+.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=3"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
 .catch(()=>{ $("#main").innerHTML='<p class="wrap" style="padding:80px 0">내용을 불러오지 못했습니다. 새로고침해 주세요.</p>'; });
 })();

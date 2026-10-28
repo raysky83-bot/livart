@@ -7,31 +7,35 @@
   "instagram": ""
  },
  "home": {
-  "heroImage": "images/look/group-sales.jpg",
+  "heroImage": "images/look/hero-main.jpg",
   "slides": [
    {
-    "image": "images/look/look-03.jpg",
+    "image": "images/look/fw26-padded.jpg",
     "alt": "퀼팅 재킷 착용"
    },
    {
-    "image": "images/look/look-04.jpg",
+    "image": "images/look/slide-down.jpg",
     "alt": "다운 재킷 착용"
    },
    {
-    "image": "images/look/look-05.jpg",
+    "image": "images/look/fw26-sweat.jpg",
     "alt": "맨투맨 착용"
    },
    {
-    "image": "images/look/ss27-fan-jumper.jpg",
-    "alt": "팬 점퍼 착용"
+    "image": "images/look/slide-navy-jacket.jpg",
+    "alt": "후드 재킷 착용"
    },
    {
-    "image": "images/look/look-01.jpg",
+    "image": "images/look/slide-quilted.jpg",
     "alt": "퀼팅 재킷 착용"
    },
    {
-    "image": "images/look/look-02.jpg",
+    "image": "images/look/fw26-down.jpg",
     "alt": "다운 재킷 착용"
+   },
+   {
+    "image": "images/look/slide-sweat.jpg",
+    "alt": "맨투맨 착용"
    },
    {
     "image": "images/look/fw26-heated.jpg",
@@ -42,20 +46,16 @@
     "alt": "팬 쿨링 베스트 착용"
    },
    {
-    "image": "images/look/ss27-short-sleeve.jpg",
-    "alt": "반팔 착용"
-   },
-   {
-    "image": "images/look/look-06.jpg",
-    "alt": "발열 베스트 착용"
+    "image": "images/look/ss27-fan-jumper.jpg",
+    "alt": "팬 점퍼 착용"
    },
    {
     "image": "images/look/ss27-peltier.jpg",
     "alt": "펠티어 베스트 착용"
    },
    {
-    "image": "images/look/fw26-sweat.jpg",
-    "alt": "맨투맨 착용"
+    "image": "images/look/ss27-short-sleeve.jpg",
+    "alt": "반팔 착용"
    }
   ],
   "sections": [
@@ -70,16 +70,16 @@
   ]
  },
  "brandPage": {
-  "heroImage": "images/look/group-sales.jpg",
+  "heroImage": "images/look/hero-brand.jpg",
   "intro": "일하는 사람의 편안함과 기업의 전문적인 이미지를 함께 생각하는 프리미엄 워크웨어 브랜드입니다.",
   "stories": [
    {
-    "image": "images/look/fw26-padded.jpg",
+    "image": "images/look/brand-story-1.jpg",
     "text": "우리는 다양한 업무 환경에 필요한 실용성과 세련된 디자인의\n균형을 추구합니다. 활동성과 착용감, 내구성과 관리의 편의성을\n제품 개발의 기준으로 삼고, 절제된 실루엣과 실용적인 디테일로\n일하는 순간에 어울리는 옷을 제안합니다.",
     "en": "We strive to strike a balance between practicality and sophisticated design to meet the demands of diverse work environments. Throughout our product development process, we prioritize mobility, comfort, durability, and ease of care through understated silhouettes and functional details, we offer apparel that fits perfectly into every moment of the workday."
    },
    {
-    "image": "images/look/fw26-heated.jpg",
+    "image": "images/look/brand-story-2.jpg",
     "text": "입는 사람에게는 편안함과 자신감을,\n기업에는 통일감 있는 전문적인 이미지를 전하고자 합니다.\n현장에 자연스럽게 어우러지면서도 브랜드의 개성이 드러나는\n워크웨어를 통해, 구성원과 기업이 함께 공감할 수 있는\n가치를 만들어갑니다.",
     "en": "We aim to provide comfort and confidence to those who wear our apparel, while fostering a cohesive, professional image for the organization. Through workwear that blends naturally into the workplace while highlighting the brand’s unique identity, we create shared value for both the individuals and the company."
    }
@@ -92,7 +92,7 @@
     "image": "images/products/views/27fw-24-front.jpg"
    },
    {
-    "image": "images/look/look-04.jpg"
+    "image": "images/look/fw26-down.jpg"
    },
    {
     "image": "images/products/views/27fw-06-front.jpg"
@@ -135,14 +135,14 @@
   {
    "title": "케주얼 웨어 카탈로그",
    "en": "CASUAL WEAR CATALOG",
-   "cover": "images/look/catalog-fw.jpg",
+   "cover": "images/look/cover-casual.jpg",
    "pdf": "",
    "images": [
-    "images/look/catalog-fw.jpg",
-    "images/look/look-05.jpg",
+    "images/look/cover-casual.jpg",
     "images/look/fw26-sweat.jpg",
-    "images/look/look-01.jpg",
-    "images/look/look-03.jpg"
+    "images/look/slide-sweat.jpg",
+    "images/look/slide-navy-jacket.jpg",
+    "images/look/slide-quilted.jpg"
    ]
   },
   {
@@ -152,10 +152,9 @@
    "pdf": "",
    "images": [
     "images/look/fw26-heated.jpg",
-    "images/look/look-06.jpg",
-    "images/look/look-04.jpg",
-    "images/look/look-02.jpg",
+    "images/look/brand-story-2.jpg",
     "images/look/fw26-down.jpg",
+    "images/look/slide-down.jpg",
     "images/look/fw26-padded.jpg"
    ]
   }
