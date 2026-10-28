@@ -50,7 +50,7 @@ function carousel(root, perView){
   const track = root.querySelector(".track"), cells = track.children, n = cells.length;
   let i = 0;
   const pv = () => typeof perView==="function" ? perView() : perView;
-  const go = k => { const max=Math.max(0,n-pv()); i = k<0 ? max : (k>max ? 0 : k); track.style.transform=`translateX(-${i*100/pv()}%)`; root.dispatchEvent(new CustomEvent("moved",{detail:i})); };
+  const go = k => { const max=Math.max(0,n-pv()); i = k<0 ? max : (k>max ? 0 : k); const vp=root.querySelector('.viewport'); if(vp){ vp.scrollTo({left:i*cells[0].getBoundingClientRect().width,behavior:'smooth'}); } else { track.style.transform=`translateX(-${i*100/pv()}%)`; } root.dispatchEvent(new CustomEvent("moved",{detail:i})); };
   root.querySelector(".prev").onclick = () => go(i-1);
   root.querySelector(".next").onclick = () => go(i+1);
   let sx=0; root.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
@@ -204,6 +204,6 @@ function support(){
 
 /* ---------- boot ---------- */
 Promise.all([fetch("content/site.json"+V).then(r=>r.json()), fetch("content/products.json"+V).then(r=>r.json())])
-.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=3"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
+.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=4"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
 .catch(()=>{ $("#main").innerHTML='<p class="wrap" style="padding:80px 0">내용을 불러오지 못했습니다. 새로고침해 주세요.</p>'; });
 })();
