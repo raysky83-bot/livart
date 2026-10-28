@@ -91,20 +91,17 @@ function brand(){
 
 function product(){
   const cats = ["전체", ...(PROD.categories||[])];
-  const seasons = ["전체 시즌", ...new Set(visible().map(i=>i.season))];
   let cat = params.get("cat") && cats.includes(params.get("cat")) ? params.get("cat") : "전체";
-  let season = "전체 시즌", shown = 16;
+  let shown = 16;
   $("#main").innerHTML = `<div class="wrap"><div class="plist-head"><h1 id="ptitle"></h1><div class="filters" id="filters"></div></div>
-    <div class="seasons" id="seasons"></div><div class="pgrid" id="pgrid"></div><button class="more" id="more" aria-label="더 보기">${ICON.down}</button></div>`;
+    <div class="pgrid" id="pgrid"></div><button class="more" id="more" aria-label="더 보기">${ICON.down}</button></div>`;
   const render = () => {
     $("#ptitle").textContent = cat;
     $("#filters").innerHTML = cats.map(c=>`<button aria-pressed="${c===cat}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
-    $("#seasons").innerHTML = seasons.map(s=>`<button aria-pressed="${s===season}" data-s="${esc(s)}">${esc(s)}</button>`).join("");
-    const list = visible().filter(i => (cat==="전체"||i.category===cat) && (season==="전체 시즌"||i.season===season));
+    const list = visible().filter(i => (cat==="전체"||i.category===cat) && true);
     $("#pgrid").innerHTML = list.slice(0,shown).map(card).join("") || `<div class="empty">${cat==="하의"?"하의 제품은 준비 중입니다.":"등록된 제품이 없습니다."}</div>`;
     $("#more").hidden = list.length <= shown;
     document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{ cat=b.dataset.c; shown=16; history.replaceState(null,"",cat==="전체"?"product.html":`product.html?cat=${encodeURIComponent(cat)}`); render(); });
-    document.querySelectorAll("#seasons button").forEach(b=>b.onclick=()=>{ season=b.dataset.s; shown=16; render(); });
   };
   $("#more").onclick = () => { shown += 16; render(); };
   render();
