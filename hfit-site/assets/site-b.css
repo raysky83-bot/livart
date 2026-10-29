@@ -164,3 +164,6 @@ footer.site .fbody::after{content:"";position:absolute;right:-30px;top:50%;width
 .story .txt small{max-width:36em}
 .story.rev .txt small{margin-left:auto}
 .closing{font-weight:600;letter-spacing:-.02em}
+
+/* 브랜드 배너(B안) 모바일 구도 */
+@media (max-width:640px){body.theme-b[data-page="brand"] .hero{background-position:58% center}}

@@ -104,7 +104,7 @@ function brand(){
   const b = SITE.brandPage;
   const CB = THEME_B ? (SITE.copyB||{}) : {};
   $("#main").innerHTML = `
-  <section class="hero light" style="background-image:url('${esc(b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.brandHeroSub ? CB.brandHeroSub : SITE.brand.quote)}</p></div></section>
+  <section class="hero light" style="background-image:url('${esc(THEME_B && CB.brandHeroImage ? CB.brandHeroImage : b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.brandHeroSub ? CB.brandHeroSub : SITE.brand.quote)}</p></div></section>
   <section class="b-intro wrap"><img src="images/brand/${THEME_B?"symbol-color":"logo-color"}.png" alt="H.FIT"><p>${esc(THEME_B && CB.brandIntro ? CB.brandIntro : b.intro)}</p></section>
   ${b.stories.map((s,k)=>{ const c = THEME_B && CB.stories && CB.stories[k]; return `<section class="story${k%2?' rev':''}"><div class="img"><img loading="lazy" src="${esc(s.image)}" alt=""></div><div class="txt">${c?`<span class="eyebrow">${esc(c.eyebrow)}</span><h2>${esc(c.title)}</h2><p>${esc(c.text)}</p>`:`<p>${esc(s.text)}</p>`}${s.en?`<small>${esc(s.en)}</small>`:""}</div></section>`; }).join("")}
   <section class="mosaic">${b.mosaic.map(m=> /^LOGO/.test(m.image) ? `<div class="logo"><img src="images/brand/logo-color.png" alt="H.FIT"></div>` : `<div class="${/products\//.test(m.image)?'prod':''}"><img loading="lazy" src="${esc(m.image)}" alt=""></div>`).join("")}</section>
