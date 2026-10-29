@@ -118,7 +118,7 @@ function reference(){
         <ul class="kw">${c.keywords.map(k=>`<li>${esc(k)}</li>`).join("")}</ul>
         <div class="ch-sub">${c.sub.map(sv=>`<div class="${/products\//.test(sv)?"prod":""}"><img loading="lazy" src="${esc(sv)}${V}" alt=""></div>`).join("")}</div></div>
     </div>
-    <div class="rail-head"><strong>${esc(c.ko)} 제작 아이템 <em>${its.length}</em></strong><div class="rail-nav"><button class="rp" aria-label="이전">‹</button><button class="rn" aria-label="다음">›</button></div></div>
+    <div class="rail-head"><strong>${esc(c.ko)} 제작 아이템 <em>${its.length}</em></strong><div class="rail-nav"><button class="rp" aria-label="이전">‹</button><button class="rn" aria-label="다음">›</button><button class="more rall" aria-expanded="false">전체 보기</button></div></div>
     <div class="rail" data-sp="${c.id}">${its.map((x,k)=>`<button data-k="${k}"><span class="im"><img loading="lazy" src="${esc(x.image)}${V}" alt="${esc(x.item)}"></span><span class="rcap">${esc(x.season)} · ${esc(x.item)}</span></button>`).join("")}</div>
   </div></section>`;}).join("")}
   <section class="fb"><div class="fb-img" style="background-image:url('${esc(FB.image)}${V}')"></div><div class="fb-txt"><span class="eyebrow">${esc(FB.en)}</span><h2>${esc(FB.title)}</h2>
@@ -132,6 +132,9 @@ function reference(){
     sec.querySelector(".rp").onclick=()=>r.scrollBy({left:-step(),behavior:"smooth"});
     sec.querySelector(".rn").onclick=()=>r.scrollBy({left:step(),behavior:"smooth"});
   });
+  document.querySelectorAll(".rall").forEach(btn=>btn.onclick=()=>{const sec=btn.closest(".ch"), r=sec.querySelector(".rail"), open=r.classList.toggle("open");
+    btn.setAttribute("aria-expanded",open); btn.textContent=open?"접기":"전체 보기"; sec.querySelectorAll(".rp,.rn").forEach(x=>x.hidden=open);
+    if(!open){r.scrollLeft=0; sec.querySelector(".rail-head").scrollIntoView({block:"center",behavior:"smooth"});}});
   if(q.get("space")) setTimeout(()=>{const t=document.getElementById("sp-"+q.get("space")); t&&t.scrollIntoView();},60);
 }
 
