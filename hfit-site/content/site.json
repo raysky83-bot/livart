@@ -38,20 +38,20 @@
     "alt": "블랙 다운 재킷"
    },
    {
-    "image": "images/look/slide-down.jpg",
-    "alt": "다운 재킷 착용"
+    "image": "images/look/fw27-sherpa-trucker.jpg",
+    "alt": "보아 칼라 캔버스 트러커 재킷"
    },
    {
-    "image": "images/look/slide-navy-jacket.jpg",
-    "alt": "후드 재킷 착용"
+    "image": "images/look/fw27-canvas-zip.jpg",
+    "alt": "캔버스 집업 워크 재킷"
    },
    {
-    "image": "images/look/slide-quilted.jpg",
-    "alt": "퀼팅 재킷 착용"
+    "image": "images/look/fw27-shell-jacket.jpg",
+    "alt": "배색 방수 셸 재킷"
    },
    {
-    "image": "images/look/slide-sweat.jpg",
-    "alt": "맨투맨 착용"
+    "image": "images/look/fw27-boa-fleece.jpg",
+    "alt": "배색 보아 플리스 재킷"
    },
    {
     "image": "images/look/ss27-fan-jumper.jpg",
@@ -99,13 +99,13 @@
     "image": "images/look/fw27-hivis-rain.jpg"
    },
    {
-    "image": "images/products/views/27fw-06-front.jpg"
+    "image": "images/look/fw27-canvas-zip.jpg"
    },
    {
     "image": "images/look/fw27-down-ice.jpg"
    },
    {
-    "image": "images/products/views/27fw-09-front.jpg"
+    "image": "images/look/fw27-shell-jacket.jpg"
    },
    {
     "image": "images/look/fw27-vest-splash.jpg"
@@ -137,16 +137,16 @@
    ]
   },
   {
-   "title": "케주얼 웨어 카탈로그",
+   "title": "캐주얼 웨어 카탈로그",
    "en": "CASUAL WEAR CATALOG",
-   "cover": "images/look/cover-casual.jpg",
+   "cover": "images/look/fw27-sherpa-trucker.jpg",
    "pdf": "",
    "images": [
-    "images/look/cover-casual.jpg",
+    "images/look/fw27-sherpa-trucker.jpg",
     "images/look/fw26-sweat.jpg",
-    "images/look/slide-sweat.jpg",
-    "images/look/slide-navy-jacket.jpg",
-    "images/look/slide-quilted.jpg"
+    "images/look/fw27-boa-fleece.jpg",
+    "images/look/fw27-canvas-zip.jpg",
+    "images/look/fw27-shell-jacket.jpg"
    ]
   },
   {
@@ -158,7 +158,7 @@
     "images/look/fw26-heated.jpg",
     "images/look/brand-story-2.jpg",
     "images/look/fw26-down.jpg",
-    "images/look/slide-down.jpg",
+    "images/look/fw27-down-ice.jpg",
     "images/look/fw26-padded.jpg"
    ]
   }
