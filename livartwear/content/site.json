@@ -31,124 +31,6 @@
    "text": "고객사 가이드에 맞춘 개별 패키징과 지정 납품처 입고까지 책임집니다."
   }
  ],
- "categories": [
-  {
-   "id": "workwear-ss",
-   "en": "SEASONAL WORKWEAR",
-   "season": "S/S",
-   "ko": "근무복 S/S",
-   "desc": "기업 아이덴티티를 반영한 간절기 근무복",
-   "items": [
-    "images/products/p1_00.jpg",
-    "images/products/p1_01.jpg",
-    "images/products/p1_02.jpg",
-    "images/products/p1_03.jpg",
-    "images/products/p1_04.jpg",
-    "images/products/p1_05.jpg",
-    "images/products/p1_06.jpg"
-   ]
-  },
-  {
-   "id": "workwear-fw",
-   "en": "SEASONAL WORKWEAR",
-   "season": "F/W",
-   "ko": "근무복 F/W",
-   "desc": "보온성과 활동성을 함께 고려한 동절기 근무복",
-   "items": [
-    "images/products/p2_00.jpg",
-    "images/products/p2_01.jpg",
-    "images/products/p2_02.jpg",
-    "images/products/p2_03.jpg",
-    "images/products/p2_04.jpg",
-    "images/products/p2_05.jpg",
-    "images/products/p2_06.jpg",
-    "images/products/p2_07.jpg",
-    "images/products/p2_08.jpg",
-    "images/products/p2_09.jpg",
-    "images/products/p2_10.jpg",
-    "images/products/p2_11.jpg"
-   ]
-  },
-  {
-   "id": "work-ss",
-   "en": "DESIGNED FOR REAL WORK",
-   "season": "S/S",
-   "ko": "작업복 S/S",
-   "desc": "현장의 움직임을 고려한 하계 작업복",
-   "items": [
-    "images/products/p3_00.jpg",
-    "images/products/p3_01.jpg",
-    "images/products/p3_02.jpg",
-    "images/products/p3_03.jpg",
-    "images/products/p3_04.jpg"
-   ]
-  },
-  {
-   "id": "safety",
-   "en": "SAFETY WORKWEAR",
-   "season": "ALL SEASON",
-   "ko": "안전복",
-   "desc": "고시인성 컬러와 반사 소재로 안전을 우선한 현장복",
-   "items": [
-    "images/products/p4_00.jpg",
-    "images/products/p4_01.jpg",
-    "images/products/p4_02.jpg",
-    "images/products/p4_03.jpg",
-    "images/products/p4_04.jpg",
-    "images/products/p4_05.jpg",
-    "images/products/p4_06.jpg",
-    "images/products/p4_07.jpg",
-    "images/products/p4_08.jpg",
-    "images/products/p4_09.jpg"
-   ]
-  },
-  {
-   "id": "tshirt",
-   "en": "COOLING PERFORMANCE",
-   "season": "S/S",
-   "ko": "티셔츠 S/S",
-   "desc": "입는 순간 느껴지는 시원한 냉감 티셔츠",
-   "items": [
-    "images/products/p5_00.jpg",
-    "images/products/p5_01.jpg",
-    "images/products/p5_02.jpg",
-    "images/products/p5_03.jpg",
-    "images/products/p5_04.jpg",
-    "images/products/p5_05.jpg",
-    "images/products/p5_06.jpg"
-   ]
-  },
-  {
-   "id": "vest",
-   "en": "ALL SEASON PERFORMANCE",
-   "season": "ALL SEASON",
-   "ko": "조끼",
-   "desc": "계절에 맞춰 쾌적한 작업 환경을 위한 기능성 조끼",
-   "items": [
-    "images/products/p6_00.jpg",
-    "images/products/p6_01.jpg",
-    "images/products/p6_02.jpg",
-    "images/products/p6_03.jpg",
-    "images/products/p6_04.jpg",
-    "images/products/p6_05.jpg",
-    "images/products/p6_06.jpg"
-   ]
-  },
-  {
-   "id": "biz",
-   "en": "BUSINESS CASUAL",
-   "season": "ALL SEASON",
-   "ko": "비즈니스 캐주얼",
-   "desc": "일하는 모든 순간, 편안함과 스타일을 함께",
-   "items": [
-    "images/products/p7_00.jpg",
-    "images/products/p7_01.jpg",
-    "images/products/p7_02.jpg",
-    "images/products/p7_03.jpg",
-    "images/products/p7_04.jpg"
-   ]
-  }
- ],
  "projects": [
   {
    "no": "01",
@@ -324,5 +206,485 @@
   "privacyOfficer": "민병호",
   "bizNo": "135-81-32239",
   "copyright": "Copyright© HYUNDAI LIVART Corporation. All Rights Reserved."
+ },
+ "items": [
+  {
+   "image": "images/products/p1_00.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_01.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_02.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_03.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_04.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_05.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p1_06.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p2_00.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "F/W",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p2_01.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p2_02.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "F/W",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p2_03.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "F/W",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p2_04.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_05.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_06.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_07.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_08.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_09.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_10.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p2_11.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p3_00.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p3_01.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p3_02.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p3_03.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p3_04.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p4_00.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "F/W",
+   "item": "패딩"
+  },
+  {
+   "image": "images/products/p4_01.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p4_02.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "세트"
+  },
+  {
+   "image": "images/products/p4_03.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p4_04.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p4_05.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p4_06.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "세트"
+  },
+  {
+   "image": "images/products/p4_07.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "세트"
+  },
+  {
+   "image": "images/products/p4_08.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "세트"
+  },
+  {
+   "image": "images/products/p4_09.jpg",
+   "spaces": [
+    "safety"
+   ],
+   "season": "사계절",
+   "item": "세트"
+  },
+  {
+   "image": "images/products/p5_00.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_01.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_02.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_03.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "사계절",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_04.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "사계절",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_05.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "S/S",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p5_06.jpg",
+   "spaces": [
+    "office",
+    "field"
+   ],
+   "season": "사계절",
+   "item": "티셔츠"
+  },
+  {
+   "image": "images/products/p6_00.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_01.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_02.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_03.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "S/S",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_04.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_05.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p6_06.jpg",
+   "spaces": [
+    "field"
+   ],
+   "season": "사계절",
+   "item": "조끼"
+  },
+  {
+   "image": "images/products/p7_00.jpg",
+   "spaces": [
+    "office"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p7_01.jpg",
+   "spaces": [
+    "office"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p7_02.jpg",
+   "spaces": [
+    "office"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p7_03.jpg",
+   "spaces": [
+    "office"
+   ],
+   "season": "사계절",
+   "item": "점퍼·자켓"
+  },
+  {
+   "image": "images/products/p7_04.jpg",
+   "spaces": [
+    "office"
+   ],
+   "season": "F/W",
+   "item": "조끼"
+  }
+ ],
+ "spaces": [
+  {
+   "id": "office",
+   "en": "OFFICE",
+   "ko": "사무·서비스 공간",
+   "desc": "사무실, 매장, 고객 응대 현장을 위한 단정한 근무복과 비즈니스 캐주얼",
+   "image": "images/refs/P06_12.jpg",
+   "sample": "images/products/p7_01.jpg"
+  },
+  {
+   "id": "field",
+   "en": "FIELD",
+   "ko": "생산·작업 현장",
+   "desc": "제조·조선·건설·정비 현장의 활동성과 내구성을 고려한 근무복·작업복",
+   "image": "images/visual/factory-duo.jpg",
+   "sample": "images/products/p3_01.jpg"
+  },
+  {
+   "id": "safety",
+   "en": "SAFETY",
+   "ko": "안전 특화 현장",
+   "desc": "고시인성 컬러와 반사 소재로 작업자 식별과 안전을 우선한 안전복",
+   "image": "images/visual/jackets.jpg",
+   "sample": "images/products/p4_01.jpg"
+  }
+ ],
+ "filters": {
+  "season": [
+   "S/S",
+   "F/W",
+   "사계절"
+  ],
+  "item": [
+   "점퍼·자켓",
+   "패딩",
+   "티셔츠",
+   "조끼",
+   "세트"
+  ]
  }
 }
