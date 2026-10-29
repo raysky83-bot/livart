@@ -5,7 +5,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const nl=s=>esc(s).replace(/\n/g,"<br>");
 const PAGE=document.body.dataset.page;
 const V="?v=1";
-const NAV=[["company.html","COMPANY","회사소개"],["reference.html","REFERENCE","레퍼런스"],["guide.html","GUIDE","신청가이드"],["contact.html","CONTACT","견적문의"]];
+const NAV=[["company.html","COMPANY","회사소개"],["reference.html","REFERENCE","레퍼런스"],["portfolio.html","PORTFOLIO","포트폴리오"],["guide.html","GUIDE","신청가이드"],["contact.html","CONTACT","견적문의"]];
 let S;
 
 function chrome(){
@@ -76,11 +76,11 @@ function home(){
     <ul>${S.guide.slice(0,4).map((g,i)=>`<li><b>0${i+1}</b>${esc(g.ko)}</li>`).join("")}</ul><a class="btn dark" href="company.html">회사 소개</a></div></div></section>
   <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
-    <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="reference.html#projects">ALL PROJECTS</a></div></div></section>
+    <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="guide.html">신청가이드</a></div>
     <div class="steps-line">${S.guide.map((g,i)=>`<div><b>0${i+1}</b><strong>${esc(g.en)}</strong><span>${esc(g.ko)}</span></div>`).join("")}</div></section>
   ${ctaBand()}`;
-  bindProj($("#hp"));
+  $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
 }
 const ctaBand=()=>`<section class="cta-band"><div class="wrap"><div><h2>기업 유니폼 기획·제작, 전문 담당자와 상담하세요.</h2><p>견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 또는 유선으로 연락드립니다.</p></div><a class="btn" href="contact.html">견적 문의하기</a></div></section>`;
 
@@ -104,8 +104,8 @@ function reference(){
   const SP=S.spaces, F=S.filters, q=new URLSearchParams(location.search);
   let st={space:SP.some(x=>x.id===q.get("space"))?q.get("space"):"all",season:"all",item:"all"};
   $("#main").innerHTML=`
-  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/jackets.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Reference</span><h1>Our Work<small>근무 공간별 제작 실적 및 기업 프로젝트</small></h1><p>리바트웨어가 기획·생산한 기업 유니폼 실적을 근무 공간별로 소개합니다.\n시즌과 아이템으로 걸러 보고, 사진을 누르면 크게 볼 수 있습니다.</p></div></section>
-  <nav class="tabs" aria-label="근무 공간"><div class="wrap" id="sp-tabs"><a href="#" data-sp="all">ALL<small>전체</small></a>${SP.map(c=>`<a href="#" data-sp="${c.id}">${esc(c.en)}<small>${esc(c.ko)}</small></a>`).join("")}<a href="#projects" class="pj">PROJECTS<small>기업 프로젝트</small></a></div></nav>
+  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/jackets.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Reference</span><h1>Our Work<small>근무 공간별 제작 실적</small></h1><p>리바트웨어가 기획·생산한 기업 유니폼 실적을 근무 공간별로 소개합니다.\n시즌과 아이템으로 걸러 보고, 사진을 누르면 크게 볼 수 있습니다.</p></div></section>
+  <nav class="tabs" aria-label="근무 공간"><div class="wrap" id="sp-tabs"><a href="#" data-sp="all">ALL<small>전체</small></a>${SP.map(c=>`<a href="#" data-sp="${c.id}">${esc(c.en)}<small>${esc(c.ko)}</small></a>`).join("")}</div></nav>
   <section class="wrap catsec" id="works">
     <div class="sp-intro" id="sp-intro"></div>
     <div class="filters" role="group" aria-label="필터">
@@ -115,8 +115,7 @@ function reference(){
     </div>
     <div class="pgrid" id="grid"></div>
   </section>
-  <section class="sec band grid-bg" id="projects" style="margin-top:96px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Projects</span><h2>Corporate Projects<span class="ko">기업 유니폼 수행 프로젝트</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했으며, 착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div>
-    <div class="projects" id="pp">${S.projects.map(projCard).join("")}</div></div></section>
+  <section class="sec wrap" style="padding-top:72px"><a class="pf-link" href="portfolio.html"><span class="eyebrow">Portfolio</span><strong>주요 기업 유니폼 수행 실적 보기</strong><em>→</em></a></section>
   ${ctaBand()}`;
   const spName=id=>{const c=SP.find(x=>x.id===id);return c?c.ko:"";};
   function render(){
@@ -129,11 +128,49 @@ function reference(){
     $("#cnt").textContent=`${list.length} ITEMS`;
     $("#grid").innerHTML=list.length?list.map((x,i)=>`<button data-i="${i}" aria-label="${esc(x.item)} ${esc(x.season)} 크게 보기"><img loading="lazy" src="${esc(x.image)}${V}" alt="${esc(x.item)} ${esc(x.season)}"><span class="badge">${esc(x.season)} · ${esc(x.item)}</span></button>`).join(""):`<p class="empty">조건에 맞는 제작 사례가 없습니다. 필터를 바꿔 보세요.</p>`;
     $("#grid").querySelectorAll("button").forEach(b=>b.onclick=()=>openLB(list.map(x=>({src:x.image+V,cap:`${x.spaces.map(spName).join(" / ")} · ${x.season} · ${x.item}`})),+b.dataset.i));
-    const u=st.space==="all"?"reference.html":`reference.html?space=${st.space}`; history.replaceState(null,"",u+(location.hash==="#projects"?"#projects":""));
+    const u=st.space==="all"?"reference.html":`reference.html?space=${st.space}`; history.replaceState(null,"",u);
   }
   document.querySelectorAll("#sp-tabs a[data-sp]").forEach(a=>a.onclick=e=>{e.preventDefault();st.space=a.dataset.sp;render();const y=$("#works").getBoundingClientRect().top+scrollY-130; if(scrollY>y) scrollTo({top:y,behavior:"smooth"});});
   document.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{st[b.dataset.k]=b.dataset.v;render();});
-  render(); bindProj($("#pp"));
+  render();
+}
+
+function portfolio(){
+  const G=S.portfolioGroups, P=S.projects, q=new URLSearchParams(location.search);
+  let g="all";
+  $("#main").innerHTML=`
+  <section class="pf-head wrap"><span class="eyebrow">Our Work</span><h1>Portfolio</h1>
+    <p>업종과 근무 환경에 맞춰 기획·생산한 주요 기업 유니폼 수행 실적입니다.<br>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></section>
+  <section class="wrap"><div class="pf-filter" role="tablist" aria-label="업종">${[{id:"all",ko:"전체"},...G].map(x=>`<button role="tab" data-g="${x.id}">${esc(x.ko)}<i>${x.id==="all"?P.length:P.filter(p=>p.group===x.id).length}</i></button>`).join("")}</div>
+    <div class="pf-grid" id="pfg"></div></section>
+  <section class="pf-work grid-bg"><div class="wrap"><div><span class="eyebrow">Work with us</span><h2>우리 회사에 맞는 유니폼,<br>리바트웨어의 수행 경험으로 제안합니다.</h2></div><a class="btn primary" href="contact.html">견적 문의</a></div></section>
+  <div class="pf-modal" id="pfm" role="dialog" aria-modal="true" aria-labelledby="pfm-t" hidden><div class="pf-box"><button class="pf-x" aria-label="닫기">×</button><div class="pf-gal"><div class="pf-main"><img alt=""></div><div class="pf-th"></div></div><div class="pf-info"></div></div></div>`;
+  const gname=id=>(G.find(x=>x.id===id)||{}).ko||"";
+  function grid(){
+    document.querySelectorAll(".pf-filter button").forEach(b=>{const on=b.dataset.g===g;b.classList.toggle("on",on);b.setAttribute("aria-selected",on);});
+    const list=P.filter(p=>g==="all"||p.group===g);
+    $("#pfg").innerHTML=list.map(p=>`<button class="pf-card" data-no="${p.no}"><div class="im"><img loading="lazy" class="${isGarment(p.images[0])?"garment":""}" src="${esc(p.images[0])}${V}" alt=""></div>
+      <div class="tx"><span class="en">${esc(p.en)}</span><strong>PROJECT ${esc(p.no)}</strong><span class="ko">${esc(gname(p.group))} · ${esc(p.industry)}</span></div></button>`).join("");
+    $("#pfg").querySelectorAll(".pf-card").forEach(b=>b.onclick=()=>open(b.dataset.no));
+  }
+  const m=$("#pfm");
+  function open(no){
+    const p=P.find(x=>x.no===no); if(!p) return;
+    const show=i=>{m.querySelector(".pf-main img").src=p.images[i]+V; m.querySelector(".pf-main img").className=isGarment(p.images[i])?"garment":""; m.querySelectorAll(".pf-th button").forEach((t,k)=>t.classList.toggle("on",k===i));};
+    m.querySelector(".pf-th").innerHTML=p.images.length>1?p.images.map((s,i)=>`<button aria-label="이미지 ${i+1}"><img src="${esc(s)}${V}" alt=""></button>`).join(""):"";
+    m.querySelectorAll(".pf-th button").forEach((t,i)=>t.onclick=()=>show(i));
+    m.querySelector(".pf-info").innerHTML=`<span class="eyebrow">${esc(p.en)}</span><h2 id="pfm-t">PROJECT ${esc(p.no)}</h2>
+      <dl><dt>업종</dt><dd>${esc(gname(p.group))} · ${esc(p.industry)}</dd><dt>수행 연도</dt><dd>${esc(p.year)}</dd><dt>제작 품목</dt><dd>${esc(p.scope)}</dd></dl>
+      <p class="note">고객사 보호를 위해 상호와 로고는 비공개 처리했으며, 착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p>
+      <a class="btn primary" href="contact.html" style="margin-top:20px">비슷한 유니폼 견적 문의</a>`;
+    show(0); m.hidden=false; document.body.style.overflow="hidden"; m.querySelector(".pf-x").focus();
+    history.replaceState(null,"","portfolio.html?p="+no);
+  }
+  const close=()=>{m.hidden=true;document.body.style.overflow="";history.replaceState(null,"","portfolio.html");};
+  m.querySelector(".pf-x").onclick=close; m.onclick=e=>{if(e.target===m)close();};
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!m.hidden)close();});
+  document.querySelectorAll(".pf-filter button").forEach(b=>b.onclick=()=>{g=b.dataset.g;grid();});
+  grid(); if(q.get("p")) open(q.get("p"));
 }
 
 function guide(){
@@ -186,6 +223,6 @@ function contact(){
   };
 }
 
-fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,guide,contact})[PAGE]();})
+fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,portfolio,guide,contact})[PAGE]();})
  .catch(()=>{$("#main").innerHTML='<p class="wrap" style="padding:80px 0">콘텐츠를 불러오지 못했습니다. 새로고침해 주세요.</p>';});
 })();

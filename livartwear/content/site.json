@@ -42,7 +42,9 @@
     "images/refs/P01_01.jpg",
     "images/refs/P01_02.jpg",
     "images/refs/P01_03.jpg"
-   ]
+   ],
+   "group": "mobility",
+   "en": "AUTOMOTIVE SERVICE"
   },
   {
    "no": "02",
@@ -52,7 +54,9 @@
    "images": [
     "images/refs/P02_05.jpg",
     "images/refs/P02_04.jpg"
-   ]
+   ],
+   "group": "mobility",
+   "en": "AUTOMOTIVE NETWORK"
   },
   {
    "no": "03",
@@ -63,7 +67,9 @@
     "images/refs/P03_06.jpg",
     "images/refs/P03_07.jpg",
     "images/refs/P03_08.jpg"
-   ]
+   ],
+   "group": "construction",
+   "en": "CONSTRUCTION"
   },
   {
    "no": "04",
@@ -72,7 +78,9 @@
    "scope": "동계·하계 근무복 세트",
    "images": [
     "images/refs/P04_09.jpg"
-   ]
+   ],
+   "group": "service",
+   "en": "TELECOM SERVICE"
   },
   {
    "no": "05",
@@ -82,7 +90,9 @@
    "images": [
     "images/refs/P05_10.jpg",
     "images/refs/P05_11.jpg"
-   ]
+   ],
+   "group": "manufacturing",
+   "en": "MANUFACTURING"
   },
   {
    "no": "06",
@@ -92,7 +102,9 @@
    "images": [
     "images/refs/P06_12.jpg",
     "images/refs/P06_13.jpg"
-   ]
+   ],
+   "group": "manufacturing",
+   "en": "MANUFACTURING"
   },
   {
    "no": "07",
@@ -102,7 +114,9 @@
    "images": [
     "images/refs/P07_16.jpg",
     "images/refs/P07_15.jpg"
-   ]
+   ],
+   "group": "manufacturing",
+   "en": "CHEMICAL & MATERIALS"
   },
   {
    "no": "08",
@@ -112,7 +126,9 @@
    "images": [
     "images/refs/P08_17.jpg",
     "images/refs/P08_18.jpg"
-   ]
+   ],
+   "group": "construction",
+   "en": "CONSTRUCTION"
   },
   {
    "no": "09",
@@ -124,7 +140,9 @@
     "images/refs/P09_22.jpg",
     "images/refs/P09_20.jpg",
     "images/refs/P09_21.jpg"
-   ]
+   ],
+   "group": "construction",
+   "en": "ENGINEERING"
   }
  ],
  "guide": [
@@ -686,5 +704,23 @@
    "조끼",
    "세트"
   ]
- }
+ },
+ "portfolioGroups": [
+  {
+   "id": "mobility",
+   "ko": "자동차/모빌리티"
+  },
+  {
+   "id": "construction",
+   "ko": "건설/엔지니어링"
+  },
+  {
+   "id": "manufacturing",
+   "ko": "제조/화학"
+  },
+  {
+   "id": "service",
+   "ko": "통신/서비스"
+  }
+ ]
 }
