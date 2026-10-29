@@ -369,7 +369,7 @@ footer.ft .cp{margin-top:18px;color:#6f8a97;font-size:12px}
 .rf-hero .eyebrow{color:var(--sky)}
 .rf-hero h1{margin:18px 0 0;font:700 clamp(44px,6.4vw,96px)/1 var(--en);letter-spacing:-.02em}
 .rf-hero p{margin:24px 0 0;color:#cfe0e8;max-width:34em;font-size:clamp(15px,1.2vw,17px)}
-.rf-jump{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid rgba(255,255,255,.2)}
+.rf-jump{display:grid;grid-template-columns:repeat(3,1fr);margin-top:80px;border-top:1px solid rgba(255,255,255,.2)}
 .rf-jump a{padding:22px 18px 26px 0;font:700 15px var(--en);letter-spacing:.12em;border-right:1px solid rgba(255,255,255,.12);padding-left:18px}
 .rf-jump a:first-child{padding-left:0}.rf-jump a:last-child{border-right:0}
 .rf-jump b{display:block;font-size:12px;color:var(--sky);margin-bottom:6px;letter-spacing:.16em}
@@ -437,3 +437,5 @@ footer.ft .cp{margin-top:18px;color:#6f8a97;font-size:12px}
 .fab-cta:hover{background:var(--deep);transform:translateY(-2px)}
 @media (max-width:640px){.fab-cta{padding:14px;border-radius:50%}.fab-cta span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.fab-cta svg{width:24px;height:24px}}
 #archive{padding-bottom:110px}
+@media (max-width:800px){.rf-jump{grid-template-columns:1fr 1fr 1fr}.rf-jump a{padding:14px 8px!important;font-size:13px}}
+#sp-safety{padding-bottom:110px}
