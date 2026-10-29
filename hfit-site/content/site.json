@@ -10,16 +10,36 @@
   "heroImage": "images/look/hero-main.jpg",
   "slides": [
    {
-    "image": "images/look/fw26-padded.jpg",
-    "alt": "퀼팅 재킷 착용"
+    "image": "images/look/fw27-hivis-rain.jpg",
+    "alt": "고시인성 방수 재킷 착용"
+   },
+   {
+    "image": "images/look/fw27-rain-shell.jpg",
+    "alt": "방수 셸 재킷 착용"
+   },
+   {
+    "image": "images/look/fw27-fleece.jpg",
+    "alt": "보아 플리스 재킷"
+   },
+   {
+    "image": "images/look/fw27-down-ice.jpg",
+    "alt": "경량 다운 재킷"
+   },
+   {
+    "image": "images/look/fw27-team.jpg",
+    "alt": "현장 팀 착용 컷"
+   },
+   {
+    "image": "images/look/fw27-vest-splash.jpg",
+    "alt": "멀티포켓 베스트"
+   },
+   {
+    "image": "images/look/fw27-down-splash.jpg",
+    "alt": "블랙 다운 재킷"
    },
    {
     "image": "images/look/slide-down.jpg",
     "alt": "다운 재킷 착용"
-   },
-   {
-    "image": "images/look/fw26-sweat.jpg",
-    "alt": "맨투맨 착용"
    },
    {
     "image": "images/look/slide-navy-jacket.jpg",
@@ -30,20 +50,8 @@
     "alt": "퀼팅 재킷 착용"
    },
    {
-    "image": "images/look/fw26-down.jpg",
-    "alt": "다운 재킷 착용"
-   },
-   {
     "image": "images/look/slide-sweat.jpg",
     "alt": "맨투맨 착용"
-   },
-   {
-    "image": "images/look/fw26-heated.jpg",
-    "alt": "발열 베스트 착용"
-   },
-   {
-    "image": "images/look/ss27-fan-vest.jpg",
-    "alt": "팬 쿨링 베스트 착용"
    },
    {
     "image": "images/look/ss27-fan-jumper.jpg",
@@ -52,10 +60,6 @@
    {
     "image": "images/look/ss27-peltier.jpg",
     "alt": "펠티어 베스트 착용"
-   },
-   {
-    "image": "images/look/ss27-short-sleeve.jpg",
-    "alt": "반팔 착용"
    }
   ],
   "sections": [
@@ -79,7 +83,7 @@
     "en": "We strive to strike a balance between practicality and sophisticated design to meet the demands of diverse work environments. Throughout our product development process, we prioritize mobility, comfort, durability, and ease of care through understated silhouettes and functional details, we offer apparel that fits perfectly into every moment of the workday."
    },
    {
-    "image": "images/look/fw26-heated.jpg",
+    "image": "images/look/fw27-team-story.jpg",
     "text": "입는 사람에게는 편안함과 자신감을,\n기업에는 통일감 있는 전문적인 이미지를 전하고자 합니다.\n현장에 자연스럽게 어우러지면서도 브랜드의 개성이 드러나는\n워크웨어를 통해, 구성원과 기업이 함께 공감할 수 있는\n가치를 만들어갑니다.",
     "en": "We aim to provide comfort and confidence to those who wear our apparel, while fostering a cohesive, professional image for the organization. Through workwear that blends naturally into the workplace while highlighting the brand’s unique identity, we create shared value for both the individuals and the company."
    }
@@ -92,28 +96,28 @@
     "image": "images/products/views/27fw-24-front.jpg"
    },
    {
-    "image": "images/look/fw26-down.jpg"
+    "image": "images/look/fw27-hivis-rain.jpg"
    },
    {
     "image": "images/products/views/27fw-06-front.jpg"
    },
    {
-    "image": "images/look/ss27-short-sleeve.jpg"
+    "image": "images/look/fw27-down-ice.jpg"
    },
    {
     "image": "images/products/views/27fw-09-front.jpg"
    },
    {
-    "image": "images/look/ss27-fan-vest.jpg"
+    "image": "images/look/fw27-vest-splash.jpg"
    },
    {
     "image": "LOGO"
    },
    {
-    "image": "images/look/fw26-sweat.jpg"
+    "image": "images/look/fw27-down-splash.jpg"
    },
    {
-    "image": "images/products/views/ss27-fan-jumper-b-front.jpg"
+    "image": "images/look/fw27-fleece.jpg"
    }
   ],
   "closing": "실용성과 디자인의 균형을 고민합니다.\n구성원과 기업이 함께 만족할 수 있는 워크웨어를 만드는 것이 우리의 목표입니다."
