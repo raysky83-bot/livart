@@ -1,0 +1,328 @@
+{
+ "brand": {
+  "name": "LIVART Wear",
+  "ko": "리바트웨어",
+  "slogan": "Everywhere, Every wear"
+ },
+ "notice": "테스트용 홈페이지입니다. 착용 이미지는 생성형 AI로 제작되었으며, 레퍼런스의 고객사 상호·로고는 비공개 처리했습니다.",
+ "home": {
+  "hero": "images/visual/shipyard.jpg",
+  "heroSub": "조선소에서 사무 공간까지, 모든 근무 환경에 맞춘 기업 유니폼.\n기획·디자인부터 생산과 납품까지 리바트웨어가 함께합니다."
+ },
+ "capabilities": [
+  {
+   "en": "CUSTOM DESIGN",
+   "ko": "맞춤 디자인",
+   "text": "기업 아이덴티티와 근무 환경을 분석해 1:1 커스텀 디자인과 샘플을 제안합니다."
+  },
+  {
+   "en": "MATERIAL SOURCING",
+   "ko": "소재 소싱",
+   "text": "확정된 스펙에 맞춰 안정적인 서플라이어 네트워크에서 원단과 부자재를 조달합니다."
+  },
+  {
+   "en": "PRODUCTION & QC",
+   "ko": "생산·품질 관리",
+   "text": "공정별 진척도를 관리하고 인라인·파이널 2단계 품질 검수를 진행합니다."
+  },
+  {
+   "en": "PACKAGING & LOGISTICS",
+   "ko": "패키징·납품",
+   "text": "고객사 가이드에 맞춘 개별 패키징과 지정 납품처 입고까지 책임집니다."
+  }
+ ],
+ "categories": [
+  {
+   "id": "workwear-ss",
+   "en": "SEASONAL WORKWEAR",
+   "season": "S/S",
+   "ko": "근무복 S/S",
+   "desc": "트렌드와 브랜드 아이덴티티를 반영한 간절기 근무복",
+   "items": [
+    "images/products/p1_00.jpg",
+    "images/products/p1_01.jpg",
+    "images/products/p1_02.jpg",
+    "images/products/p1_03.jpg",
+    "images/products/p1_04.jpg",
+    "images/products/p1_05.jpg",
+    "images/products/p1_06.jpg"
+   ]
+  },
+  {
+   "id": "workwear-fw",
+   "en": "SEASONAL WORKWEAR",
+   "season": "F/W",
+   "ko": "근무복 F/W",
+   "desc": "보온성과 활동성을 함께 고려한 동절기 근무복",
+   "items": [
+    "images/products/p2_00.jpg",
+    "images/products/p2_01.jpg",
+    "images/products/p2_02.jpg",
+    "images/products/p2_03.jpg",
+    "images/products/p2_04.jpg",
+    "images/products/p2_05.jpg",
+    "images/products/p2_06.jpg",
+    "images/products/p2_07.jpg",
+    "images/products/p2_08.jpg",
+    "images/products/p2_09.jpg",
+    "images/products/p2_10.jpg",
+    "images/products/p2_11.jpg"
+   ]
+  },
+  {
+   "id": "work-ss",
+   "en": "DESIGNED FOR REAL WORK",
+   "season": "S/S",
+   "ko": "작업복 S/S",
+   "desc": "현장의 움직임을 고려한 하계 작업복",
+   "items": [
+    "images/products/p3_00.jpg",
+    "images/products/p3_01.jpg",
+    "images/products/p3_02.jpg",
+    "images/products/p3_03.jpg",
+    "images/products/p3_04.jpg"
+   ]
+  },
+  {
+   "id": "safety",
+   "en": "SAFETY WORKWEAR",
+   "season": "ALL SEASON",
+   "ko": "안전복",
+   "desc": "고시인성 컬러와 반사 소재로 안전을 우선한 현장복",
+   "items": [
+    "images/products/p4_00.jpg",
+    "images/products/p4_01.jpg",
+    "images/products/p4_02.jpg",
+    "images/products/p4_03.jpg",
+    "images/products/p4_04.jpg",
+    "images/products/p4_05.jpg",
+    "images/products/p4_06.jpg",
+    "images/products/p4_07.jpg",
+    "images/products/p4_08.jpg",
+    "images/products/p4_09.jpg"
+   ]
+  },
+  {
+   "id": "tshirt",
+   "en": "COOLING PERFORMANCE",
+   "season": "S/S",
+   "ko": "티셔츠 S/S",
+   "desc": "입는 순간 느껴지는 시원한 냉감 티셔츠",
+   "items": [
+    "images/products/p5_00.jpg",
+    "images/products/p5_01.jpg",
+    "images/products/p5_02.jpg",
+    "images/products/p5_03.jpg",
+    "images/products/p5_04.jpg",
+    "images/products/p5_05.jpg",
+    "images/products/p5_06.jpg"
+   ]
+  },
+  {
+   "id": "vest",
+   "en": "ALL SEASON PERFORMANCE",
+   "season": "ALL SEASON",
+   "ko": "조끼",
+   "desc": "계절에 맞춰 쾌적한 작업 환경을 위한 기능성 조끼",
+   "items": [
+    "images/products/p6_00.jpg",
+    "images/products/p6_01.jpg",
+    "images/products/p6_02.jpg",
+    "images/products/p6_03.jpg",
+    "images/products/p6_04.jpg",
+    "images/products/p6_05.jpg",
+    "images/products/p6_06.jpg"
+   ]
+  },
+  {
+   "id": "biz",
+   "en": "BUSINESS CASUAL",
+   "season": "ALL SEASON",
+   "ko": "비즈니스 캐주얼",
+   "desc": "일하는 모든 순간, 편안함과 스타일을 함께",
+   "items": [
+    "images/products/p7_00.jpg",
+    "images/products/p7_01.jpg",
+    "images/products/p7_02.jpg",
+    "images/products/p7_03.jpg",
+    "images/products/p7_04.jpg"
+   ]
+  }
+ ],
+ "projects": [
+  {
+   "no": "01",
+   "industry": "자동차 정비 서비스",
+   "year": "2025",
+   "scope": "춘추·동계 근무복, 조끼, 티셔츠, 하의",
+   "images": [
+    "images/refs/P01_00.jpg",
+    "images/refs/P01_01.jpg",
+    "images/refs/P01_02.jpg",
+    "images/refs/P01_03.jpg"
+   ]
+  },
+  {
+   "no": "02",
+   "industry": "자동차 서비스 네트워크",
+   "year": "2025",
+   "scope": "사계절 근무복, 티셔츠, 연결복",
+   "images": [
+    "images/refs/P02_05.jpg",
+    "images/refs/P02_04.jpg"
+   ]
+  },
+  {
+   "no": "03",
+   "industry": "건설",
+   "year": "2026",
+   "scope": "하계·춘추 티셔츠, 바지, 점퍼, 롱파카",
+   "images": [
+    "images/refs/P03_06.jpg",
+    "images/refs/P03_07.jpg",
+    "images/refs/P03_08.jpg"
+   ]
+  },
+  {
+   "no": "04",
+   "industry": "통신 서비스",
+   "year": "2025",
+   "scope": "동계·하계 근무복 세트",
+   "images": [
+    "images/refs/P04_09.jpg"
+   ]
+  },
+  {
+   "no": "05",
+   "industry": "제조",
+   "year": "2025",
+   "scope": "춘추 점퍼",
+   "images": [
+    "images/refs/P05_10.jpg",
+    "images/refs/P05_11.jpg"
+   ]
+  },
+  {
+   "no": "06",
+   "industry": "제조",
+   "year": "2022",
+   "scope": "춘추·동계 자켓",
+   "images": [
+    "images/refs/P06_12.jpg",
+    "images/refs/P06_13.jpg"
+   ]
+  },
+  {
+   "no": "07",
+   "industry": "화학·건자재",
+   "year": "2022",
+   "scope": "하계·동계 점퍼",
+   "images": [
+    "images/refs/P07_16.jpg",
+    "images/refs/P07_15.jpg"
+   ]
+  },
+  {
+   "no": "08",
+   "industry": "건설",
+   "year": "2022 / 2025",
+   "scope": "춘추·동계 점퍼",
+   "images": [
+    "images/refs/P08_17.jpg",
+    "images/refs/P08_18.jpg"
+   ]
+  },
+  {
+   "no": "09",
+   "industry": "엔지니어링",
+   "year": "2022",
+   "scope": "후리스, 조끼, 티셔츠, 춘추·동계·보온 점퍼",
+   "images": [
+    "images/refs/P09_19.jpg",
+    "images/refs/P09_22.jpg",
+    "images/refs/P09_20.jpg",
+    "images/refs/P09_21.jpg"
+   ]
+  }
+ ],
+ "guide": [
+  {
+   "en": "CLIENT MEETING",
+   "ko": "파트너사 1:1 샘플 리뷰 미팅",
+   "pts": [
+    "파트너사 1:1 커스텀 샘플 미팅",
+    "디테일(소재, 컬러, 핏 등) 리뷰 및 피드백 수렴"
+   ]
+  },
+  {
+   "en": "CUSTOMIZATION",
+   "ko": "디자인 디벨롭 및 최종 샘플링",
+   "pts": [
+    "클라이언트 니즈 기반 디자인 고도화",
+    "최종 컨펌용 샘플 제작 및 납품 준비"
+   ]
+  },
+  {
+   "en": "MATERIAL SOURCING",
+   "ko": "원부자재 소싱 및 발주",
+   "pts": [
+    "최종 컨펌된 스펙에 맞춘 원단 및 부자재 발주",
+    "품질 기준에 부합하는 안정적인 서플라이어 네트워크 활용"
+   ]
+  },
+  {
+   "en": "PRE-PRODUCTION",
+   "ko": "메인 생산 준비",
+   "pts": [
+    "생산 투입 전 최종 PP 샘플 확인",
+    "작업 지시서(오더시트) 확정 및 공장 라인 스케줄링"
+   ]
+  },
+  {
+   "en": "MAIN PRODUCTION & QC",
+   "ko": "메인 생산 및 품질 관리",
+   "pts": [
+    "본 생산 투입 및 공정별 진척도 트래킹",
+    "2단계 품질 검수: 인라인(생산 중) 및 파이널(포장 전) Q/C"
+   ]
+  },
+  {
+   "en": "PACKAGING & LOGISTICS",
+   "ko": "패키징 및 물류 납품",
+   "pts": [
+    "클라이언트 가이드에 맞춘 개별 폴리백·박스 패키징",
+    "지정 물류 창고 및 납품처로 배송·입고 완료"
+   ]
+  }
+ ],
+ "contact": {
+  "endpoint": "",
+  "types": [
+   "근무복",
+   "작업복",
+   "안전복",
+   "티셔츠",
+   "조끼",
+   "비즈니스 캐주얼",
+   "기타"
+  ],
+  "qty": [
+   "100벌 미만",
+   "100~500벌",
+   "500~1,000벌",
+   "1,000벌 이상",
+   "미정"
+  ],
+  "privacy": "견적 상담을 위해 회사명, 담당자명, 연락처, 이메일을 수집하며, 상담 완료 후 1년간 보관 후 파기합니다. 동의하지 않을 수 있으나, 이 경우 견적 문의가 제한됩니다."
+ },
+ "footer": {
+  "email": "livartcs@hyundailivart.co.kr",
+  "company": "(주)현대리바트",
+  "ceo": "민왕일",
+  "hq": "경기도 용인시 남사읍 경기동로 316",
+  "seoul": "서울특별시 강남구 압구정로 201",
+  "privacyOfficer": "민병호",
+  "bizNo": "135-81-32239",
+  "copyright": "Copyright© HYUNDAI LIVART Corporation. All Rights Reserved."
+ }
+}
