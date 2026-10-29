@@ -4,6 +4,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const V = "?v=" + Math.floor(Date.now()/60000);
 const PAGE = document.body.dataset.page;
+const sloganHTML = () => THEME_B ? esc(SITE.brand.slogan).split(/,\s*/).map((t,i,a)=>`<span class="ln">${t}${i<a.length-1?",":""}</span>`).join("") : esc(SITE.brand.slogan);
 const PFX = document.body.dataset.prefix || "";   // B안 페이지는 "b-" 접두어
 const THEME_B = PFX === "b-";
 const params = new URLSearchParams(location.search);
@@ -71,7 +72,7 @@ function home(){
   const lookB = THEME_B ? `<section class="look-fade"><div class="lf-head wrap"><span class="eyebrow">${esc(CB.lookTitle||"LOOKBOOK")}</span><p>${esc(CB.lookText||"")}</p></div>
     <div class="lf-grid"><div class="lf-col" id="lfA"></div><div class="lf-col" id="lfB"></div></div><div class="lf-bar wrap"><span id="lfCount"></span><span class="lf-prog"><i id="lfProg"></i></span></div></section>` : "";
   $("#main").innerHTML = `
-  <section class="hero" style="background-image:url('${esc(h.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.heroSub ? CB.heroSub : SITE.brand.quote)}</p></div></section>
+  <section class="hero" style="background-image:url('${esc(h.heroImage)}')"><div class="in"><h1>${sloganHTML()}</h1><p>${esc(THEME_B && CB.heroSub ? CB.heroSub : SITE.brand.quote)}</p></div></section>
   ${lookB}<section class="slider"${THEME_B?" hidden":""} id="slider" aria-label="화보"><div class="track">${h.slides.map(s=>`<div class="slide"><img src="${esc(s.image)}" alt="${esc(s.alt)}"></div>`).join("")}</div>
     <button class="arrow prev" aria-label="이전">${ICON.prev}</button><button class="arrow next" aria-label="다음">${ICON.next}</button><div class="count" id="count"></div></section>
   ${h.sections.map((s,k)=>{ const list=visible().filter(i=>i.season===s.season && i.featured!==false); return `
@@ -104,7 +105,7 @@ function brand(){
   const b = SITE.brandPage;
   const CB = THEME_B ? (SITE.copyB||{}) : {};
   $("#main").innerHTML = `
-  <section class="hero light" style="background-image:url('${esc(THEME_B && CB.brandHeroImage ? CB.brandHeroImage : b.heroImage)}')"><div class="in"><h1>${esc(SITE.brand.slogan)}</h1><p>${esc(THEME_B && CB.brandHeroSub ? CB.brandHeroSub : SITE.brand.quote)}</p></div></section>
+  <section class="hero light" style="background-image:url('${esc(THEME_B && CB.brandHeroImage ? CB.brandHeroImage : b.heroImage)}')"><div class="in"><h1>${sloganHTML()}</h1><p>${esc(THEME_B && CB.brandHeroSub ? CB.brandHeroSub : SITE.brand.quote)}</p></div></section>
   <section class="b-intro wrap"><img src="images/brand/${THEME_B?"symbol-color":"logo-color"}.png" alt="H.FIT"><p>${esc(THEME_B && CB.brandIntro ? CB.brandIntro : b.intro)}</p></section>
   ${b.stories.map((s,k)=>{ const c = THEME_B && CB.stories && CB.stories[k]; return `<section class="story${k%2?' rev':''}"><div class="img"><img loading="lazy" src="${esc(s.image)}" alt=""></div><div class="txt">${c?`<span class="eyebrow">${esc(c.eyebrow)}</span><h2>${esc(c.title)}</h2><p>${esc(c.text)}</p>`:`<p>${esc(s.text)}</p>`}${s.en?`<small>${esc(s.en)}</small>`:""}</div></section>`; }).join("")}
   <section class="mosaic">${b.mosaic.map(m=> /^LOGO/.test(m.image) ? `<div class="logo"><img src="images/brand/logo-color.png" alt="H.FIT"></div>` : `<div class="${/products\//.test(m.image)?'prod':''}"><img loading="lazy" src="${esc(m.image)}" alt=""></div>`).join("")}</section>
