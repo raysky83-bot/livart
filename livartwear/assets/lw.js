@@ -77,8 +77,7 @@ function home(){
     <h1>Everywhere,<br><em>Every wear.</em></h1><p>${esc(h.heroSub)}</p>
     <div class="acts"><a class="btn primary" href="solutions.html">솔루션 보기</a><a class="btn line" href="contact.html">견적 문의</a></div></div>
     <div class="ph" style="background-image:url('${esc(h.hero)}${V}')" role="img" aria-label="현장 근무복 착용 이미지"><span class="tag">CORPORATE UNIFORM SOLUTION</span></div></section>
-  <section class="caps wrap">${S.capabilities.map((c,i)=>`<div class="cap"><div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</section>
-  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Everywhere</span><h2>For Every Workplace<span class="ko">근무 공간별 기업 유니폼</span></h2></div><a class="more" href="solutions.html">VIEW ALL</a></div>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Everywhere</span><h2>For Every Workplace</h2></div><a class="more" href="solutions.html">VIEW ALL</a></div>
     <div class="spaces">${S.spaces.map((c,i)=>`<a class="space" href="solutions.html#sp-${c.id}"><div class="bg" style="background-image:url('${esc(c.image)}${V}')"></div><div class="tx"><b>0${i+1} · ${esc(c.en)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span><em>${S.items.filter(x=>x.spaces.includes(c.id)).length} ITEMS →</em></div></a>`).join("")}</div></section>
   <section class="sec" style="background:var(--mist)"><div class="wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인부터 봉제까지 제작 과정"></div>
     <div><span class="eyebrow">How we work</span><h2>기획부터 납품까지,<br>전 과정을 직접 관리합니다.</h2>
@@ -87,8 +86,6 @@ function home(){
   <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Portfolio</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
-  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="contact.html#process">진행 과정 자세히</a></div>
-    <div class="steps-v">${S.guide.map((g,i)=>`<a href="contact.html#process" class="sv"><span class="ic">${picon(g.icon)}</span><b>0${i+1}</b><strong>${esc(g.ko)}</strong><span class="en">${esc(g.en)}</span></a>`).join("")}</div></section>
   ${ctaBand()}`;
   $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
 }
