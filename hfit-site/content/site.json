@@ -75,7 +75,7 @@
  },
  "brandPage": {
   "heroImage": "images/look/hero-brand.jpg",
-  "intro": "일하는 사람의 편안함과 기업의 전문적인 이미지를 함께 생각하는 프리미엄 워크웨어 브랜드입니다.",
+  "intro": "일하는 순간의 편안함과 일상의 스타일을 함께 생각하는 프리미엄 워크웨어 브랜드입니다.",
   "stories": [
    {
     "image": "images/look/fw27-rain-shell.jpg",
@@ -84,8 +84,8 @@
    },
    {
     "image": "images/look/fw27-team-story.jpg",
-    "text": "입는 사람에게는 편안함과 자신감을,\n기업에는 통일감 있는 전문적인 이미지를 전하고자 합니다.\n현장에 자연스럽게 어우러지면서도 브랜드의 개성이 드러나는\n워크웨어를 통해, 구성원과 기업이 함께 공감할 수 있는\n가치를 만들어갑니다.",
-    "en": "We aim to provide comfort and confidence to those who wear our apparel, while fostering a cohesive, professional image for the organization. Through workwear that blends naturally into the workplace while highlighting the brand’s unique identity, we create shared value for both the individuals and the company."
+    "text": "다양한 체형과 움직임을 고려한 패턴,\n오래 입어도 편안한 착용감을 기준으로 삼습니다.\n현장에서도 일상에서도 자연스럽게 어울리는\n워크웨어를 통해, 입는 사람 모두가 공감할 수 있는\n가치를 만들어갑니다.",
+    "en": "We design patterns that respect different bodies and movements, and we make long-wearing comfort our standard. Through workwear that feels natural both on site and in everyday life, we create value that everyone who wears it can share."
    }
   ],
   "mosaic": [
@@ -120,7 +120,7 @@
     "image": "images/look/fw27-fleece.jpg"
    }
   ],
-  "closing": "실용성과 디자인의 균형을 고민합니다.\n구성원과 기업이 함께 만족할 수 있는 워크웨어를 만드는 것이 우리의 목표입니다."
+  "closing": "실용성과 디자인의 균형을 고민합니다.\n일과 일상을 함께 입는 워크웨어를 만드는 것이 우리의 목표입니다."
  },
  "lookbook": [
   {
@@ -166,11 +166,11 @@
  "support": {
   "endpoint": "",
   "types": [
-   "일반 고객",
-   "개인사업자",
-   "법인사업자"
+   "제품 문의",
+   "구매 문의",
+   "기타 문의"
   ],
-  "placeholder": "상세내용을 입력해주세요.\n-제품명\n-예상 수량\n-예상 일정\n-희망 색상\n-희망 사이즈\n-로고 포함 여부\n-변경 하고싶은 부분\n-예산",
+  "placeholder": "문의 내용을 입력해주세요.\n-관심 제품명\n-희망 색상·사이즈\n-기타 궁금한 점",
   "privacy": "상담 접수를 위해 이름, 연락처, 이메일을 수집하며, 상담 완료 후 1년간 보관 후 파기합니다. 동의하지 않을 수 있으나, 이 경우 상담 신청이 제한됩니다."
  },
  "footer": {
@@ -185,11 +185,11 @@
   "copyright": "Copyright© HYUNDAI LIVART Corporation. All Rights Reserved."
  },
  "copyB": {
-  "heroSub": "현장에서 검증된 기능, 일상에 어울리는 핏.\n기업 유니폼·근무복 브랜드 H.FIT",
+  "heroSub": "현장에서 검증된 기능, 일상에 어울리는 핏.\n일과 일상을 잇는 워크웨어 H.FIT",
   "lookTitle": "WORK / LIFE",
   "lookText": "일하는 순간과 일상의 순간을 함께 설계합니다.",
   "brandHeroImage": "images/look/hero-brand-b.jpg",
-  "brandHeroSub": "일하는 사람의 편안함,\n기업의 전문적인 이미지.",
+  "brandHeroSub": "일하는 순간의 편안함,\n일상까지 이어지는 스타일.",
   "brandIntro": "실용성과 디자인의 균형으로\n현장과 일상을 함께 설계하는 워크웨어.",
   "stories": [
    {
@@ -198,11 +198,11 @@
     "text": "활동성, 착용감, 내구성, 관리의 편의성을 제품 개발의 기준으로 삼습니다. 절제된 실루엣과 실용적인 디테일로 일하는 순간에 맞는 옷을 만듭니다."
    },
    {
-    "eyebrow": "FOR THE COMPANY",
-    "title": "기업을 위한 통일감",
-    "text": "입는 사람에게는 편안함과 자신감을, 기업에는 통일감 있는 전문적인 이미지를 전합니다. 현장에 자연스럽게 어우러지면서도 브랜드의 개성이 드러나는 워크웨어입니다."
+    "eyebrow": "FOR EVERYONE",
+    "title": "누구에게나 맞는 핏",
+    "text": "다양한 체형과 움직임을 고려한 패턴, 오래 입어도 편안한 착용감을 기준으로 삼습니다. 현장에서도 일상에서도 자연스럽게 어울리는 워크웨어입니다."
    }
   ],
-  "closing": "실용성과 디자인의 균형.\n구성원과 기업이 함께 만족하는 워크웨어."
+  "closing": "실용성과 디자인의 균형.\n일과 일상을 함께 입는 워크웨어."
  }
 }

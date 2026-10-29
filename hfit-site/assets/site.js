@@ -32,7 +32,7 @@ function chrome(){
     <nav class="gnb" id="gnb">${nav.map(([h,t,k])=>`<a href="${PFX}${h}"${k===cur?' aria-current="page"':''}>${t}</a>`).join("")}</nav>
     ${insta}<button class="menu-btn" id="menu" aria-label="메뉴 열기" aria-expanded="false">${ICON.menu}</button>
   </div></header>`;
-  if(THEME_B){ const fab=document.createElement("a"); fab.className="fab-cta"; fab.href=`${PFX}support.html`; fab.textContent="단체 구매 문의"; if(PAGE!=="support") document.body.appendChild(fab);
+  if(THEME_B){ const fab=document.createElement("a"); fab.className="fab-cta"; fab.href=`${PFX}support.html`; fab.textContent="문의하기"; if(PAGE!=="support") document.body.appendChild(fab);
     if(PAGE==="home"){ document.body.classList.add("over-hero"); const hd=$("header.site"), nt=$(".notice"); const onS=()=>{ hd.classList.toggle("solid", scrollY>60); hd.style.setProperty("--hd-top", Math.max(0,(nt?nt.offsetHeight:0)-scrollY)+"px"); }; addEventListener("scroll",onS,{passive:true}); onS(); } }
   $("#menu").onclick = () => { const o=$("#gnb").classList.toggle("open"); $("#menu").setAttribute("aria-expanded",String(o)); };
   const f = SITE.footer||{};
