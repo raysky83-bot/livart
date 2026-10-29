@@ -458,7 +458,7 @@
    "item": "점퍼·자켓"
   },
   {
-   "image": "images/products/p4_04.jpg",
+   "image": "images/products/p4_01.jpg",
    "spaces": [
     "safety"
    ],
@@ -672,7 +672,21 @@
    "ko": "사무·서비스 공간",
    "desc": "사무실, 매장, 고객 응대 현장을 위한 단정한 근무복과 비즈니스 캐주얼",
    "image": "images/refs/P06_12.jpg",
-   "sample": "images/products/p7_01.jpg"
+   "sample": "images/products/p7_01.jpg",
+   "headline": "단정함이 곧\n신뢰가 되는 공간",
+   "lead": "사무실, 매장, 고객 응대 현장에서 기업의 첫인상을 만드는 유니폼입니다. 비즈니스 캐주얼 실루엣에 이지케어 소재와 절제된 로고 디테일을 더해, 매일 입어도 단정한 인상을 유지합니다.",
+   "keywords": [
+    "고객 응대",
+    "사무·매장",
+    "이지케어",
+    "비즈니스 캐주얼"
+   ],
+   "main": "images/refs/P06_12.jpg",
+   "sub": [
+    "images/refs/P05_10.jpg",
+    "images/refs/P01_00.jpg"
+   ],
+   "tone": "light"
   },
   {
    "id": "field",
@@ -680,7 +694,21 @@
    "ko": "생산·작업 현장",
    "desc": "제조·조선·건설·정비 현장의 활동성과 내구성을 고려한 근무복·작업복",
    "image": "images/visual/factory-duo.jpg",
-   "sample": "images/products/p3_01.jpg"
+   "sample": "images/products/p3_01.jpg",
+   "headline": "움직임이 많은 현장일수록,\n옷이 먼저 일합니다",
+   "lead": "제조·조선·건설·정비 현장의 반복 동작과 마찰을 견디도록 설계합니다. 활동성을 높인 패턴, 내구성 있는 소재, 공구와 소지품을 고려한 수납 구조로 하루 종일 일하는 사람을 지원합니다.",
+   "keywords": [
+    "활동성 패턴",
+    "내구성 소재",
+    "수납 설계",
+    "계절별 라인업"
+   ],
+   "main": "images/visual/shipyard.jpg",
+   "sub": [
+    "images/visual/factory-duo.jpg",
+    "images/visual/vest-model.jpg"
+   ],
+   "tone": "mist"
   },
   {
    "id": "safety",
@@ -688,7 +716,21 @@
    "ko": "안전 특화 현장",
    "desc": "고시인성 컬러와 반사 소재로 작업자 식별과 안전을 우선한 안전복",
    "image": "images/visual/jackets.jpg",
-   "sample": "images/products/p4_01.jpg"
+   "sample": "images/products/p4_01.jpg",
+   "headline": "멀리서도 보이는 것,\n그것이 안전의 시작",
+   "lead": "고시인성 컬러와 재귀반사 테이프로 야간·악천후에도 작업자를 식별할 수 있게 합니다. 현장 안전 기준과 고객사 컬러 아이덴티티를 함께 반영해 안전복을 설계합니다.",
+   "keywords": [
+    "고시인성 컬러",
+    "재귀반사 테이프",
+    "야간·악천후",
+    "고객사 컬러 반영"
+   ],
+   "main": "images/visual/jackets.jpg",
+   "sub": [
+    "images/products/p4_00.jpg",
+    "images/products/p4_01.jpg"
+   ],
+   "tone": "dark"
   }
  ],
  "filters": {
@@ -722,5 +764,27 @@
    "id": "service",
    "ko": "통신/서비스"
   }
- ]
+ ],
+ "functionBand": {
+  "image": "images/visual/cooling.jpg",
+  "en": "ALL SEASON PERFORMANCE",
+  "title": "계절에 맞춘 기능 소재",
+  "points": [
+   {
+    "k": "COOL",
+    "t": "냉감·통기",
+    "d": "땀을 빠르게 배출하는 냉감 원단과 메시 구조로 하절기 작업 환경을 쾌적하게"
+   },
+   {
+    "k": "WARM",
+    "t": "보온·경량",
+    "d": "충전재와 방풍 소재로 무게는 줄이고 동절기 보온성은 높게"
+   },
+   {
+    "k": "CARE",
+    "t": "내구·이지케어",
+    "d": "잦은 세탁에도 형태와 색상을 유지하는 소재와 봉제 사양"
+   }
+  ]
+ }
 }
