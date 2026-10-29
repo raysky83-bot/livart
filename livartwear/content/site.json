@@ -7,7 +7,42 @@
  "notice": "테스트용 홈페이지입니다. 착용 이미지는 생성형 AI로 제작되었으며, 고객사 상호·로고는 비공개 처리했습니다.",
  "home": {
   "hero": "images/visual/shipyard.jpg",
-  "heroSub": "근무복·작업복·안전복 기업 유니폼 전문 기업 리바트웨어.\n기획·디자인부터 생산, 품질 관리, 납품까지 전 과정을 직접 수행합니다."
+  "heroSub": "근무복·작업복·안전복 기업 유니폼 전문 기업 리바트웨어.\n기획·디자인부터 생산, 품질 관리, 납품까지 전 과정을 직접 수행합니다.",
+  "heroSlides": [
+   {
+    "image": "images/visual/shipyard.jpg",
+    "tag": "02 · FIELD  생산·작업 현장",
+    "pos": "center 30%"
+   },
+   {
+    "image": "images/refs/P06_12.jpg",
+    "tag": "01 · OFFICE  사무·서비스 공간",
+    "pos": "center 25%"
+   },
+   {
+    "image": "images/visual/jackets.jpg",
+    "tag": "03 · SAFETY  안전 특화 현장",
+    "pos": "center 40%"
+   }
+  ],
+  "stats": [
+   {
+    "b": "1976",
+    "s": "유니폼 봉제 사업 시작"
+   },
+   {
+    "b": "50년",
+    "s": "유니폼 제조 경험"
+   },
+   {
+    "b": "Direct",
+    "s": "생산 공장 직접 관리"
+   },
+   {
+    "b": "One-stop",
+    "s": "기획부터 납품·C/S까지"
+   }
+  ]
  },
  "capabilities": [
   {
@@ -968,5 +1003,21 @@
    "ko": "금융",
    "n": "증권, 보증, 은행"
   }
- ]
+ ],
+ "industryMap": {
+  "mobility": "field",
+  "construction": "safety",
+  "manufacturing": "field",
+  "service": "office"
+ },
+ "catalog": {
+  "file": "catalog/LIVARTWear_Catalog.pdf",
+  "title": "LIVART Wear 카탈로그"
+ },
+ "industryImage": {
+  "mobility": "images/visual/shipyard.jpg",
+  "construction": "images/visual/jackets.jpg",
+  "manufacturing": "images/visual/factory-duo.jpg",
+  "service": "images/refs/P04_09.jpg"
+ }
 }

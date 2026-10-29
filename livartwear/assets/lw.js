@@ -75,10 +75,17 @@ function home(){
   $("#main").innerHTML=`
   <section class="hero"><div class="txt grid-bg"><span class="eyebrow">CORPORATE UNIFORM SPECIALIST</span>
     <h1>Everywhere,<br><em>Every wear.</em></h1><p>${esc(h.heroSub)}</p>
-    <div class="acts"><a class="btn primary" href="solutions.html">솔루션 보기</a><a class="btn line" href="contact.html">견적 문의</a></div></div>
-    <div class="ph" style="background-image:url('${esc(h.hero)}${V}')" role="img" aria-label="현장 근무복 착용 이미지"><span class="tag">CORPORATE UNIFORM SOLUTION</span></div></section>
+    <div class="acts"><a class="btn primary" href="solutions.html">솔루션 보기</a><a class="btn line" href="contact.html">견적 문의</a></div>
+    <button class="cat-dl" data-cat>카탈로그 PDF 받기 ↓</button></div>
+    <div class="ph hs" role="img" aria-label="근무 공간별 유니폼 착용 이미지">${h.heroSlides.map((x,i)=>`<div class="hsl tone${i===0?" on":""}" style="background-image:url('${esc(x.image)}${V}');background-position:${esc(x.pos)}"></div>`).join("")}
+      <span class="tag" id="hs-tag">${esc(h.heroSlides[0].tag)}</span><div class="hs-dots">${h.heroSlides.map((x,i)=>`<i class="${i===0?"on":""}"></i>`).join("")}</div></div></section>
+  <section class="statband"><div class="wrap">${h.stats.map(x=>`<div><b>${esc(x.b)}</b><span>${esc(x.s)}</span></div>`).join("")}</div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Everywhere</span><h2>For Every Workplace</h2></div><a class="more" href="solutions.html">VIEW ALL</a></div>
-    <div class="spaces">${S.spaces.map((c,i)=>`<a class="space" href="solutions.html#sp-${c.id}"><div class="bg" style="background-image:url('${esc(c.image)}${V}')"></div><div class="tx"><b>0${i+1} · ${esc(c.en)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span><em>${S.items.filter(x=>x.spaces.includes(c.id)).length} ITEMS →</em></div></a>`).join("")}</div></section>
+    <div class="spaces">${S.spaces.map((c,i)=>`<a class="space" href="solutions.html#sp-${c.id}"><div class="bg tone" style="background-image:url('${esc(c.image)}${V}')"></div><div class="tx"><b>0${i+1} · ${esc(c.en)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span><em>${S.items.filter(x=>x.spaces.includes(c.id)).length} ITEMS →</em></div></a>`).join("")}</div></section>
+  <section class="sec wrap" style="padding-top:0"><div class="sec-head"><div><span class="eyebrow">By industry</span><h2>Find by Industry<span class="ko">우리 업종에서는 어떻게 입고 있을까</span></h2></div></div>
+    <div class="inds">${S.portfolioGroups.map(g=>{const ps=S.projects.filter(p=>p.group===g.id), sp=S.spaces.find(x=>x.id===S.industryMap[g.id]); const img=(S.industryImage||{})[g.id]||(ps.find(p=>!isGarment(p.images[0]))||ps[0]).images[0];
+      return `<div class="ind"><div class="bg tone" style="background-image:url('${esc(img)}${V}')"></div><div class="tx"><strong>${esc(g.ko)}</strong><span>수행 프로젝트 ${ps.length}건</span>
+        <div class="ia"><a href="portfolio.html?g=${g.id}">프로젝트 보기 →</a>${sp?`<a href="solutions.html#sp-${sp.id}">추천 라인업 · ${esc(sp.en)} →</a>`:""}</div></div></div>`;}).join("")}</div></section>
   <section class="sec" style="background:var(--mist)"><div class="wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인부터 봉제까지 제작 과정"></div>
     <div><span class="eyebrow">How we work</span><h2>기획부터 납품까지,<br>전 과정을 직접 관리합니다.</h2>
     <p>고객사의 근무 환경과 요구 사양 분석에서 출발합니다. 샘플 미팅, 디자인 디벨롭, 원부자재 소싱, 생산·품질 관리, 패키징과 납품까지 유니폼 전문 인력이 단계별로 책임지고 관리합니다.</p>
@@ -88,6 +95,8 @@ function home(){
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
   ${ctaBand()}`;
   $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
+  const sl=[...document.querySelectorAll(".hsl")], dots=[...document.querySelectorAll(".hs-dots i")]; let hi=0;
+  if(sl.length>1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(()=>{sl[hi].classList.remove("on");dots[hi].classList.remove("on");hi=(hi+1)%sl.length;sl[hi].classList.add("on");dots[hi].classList.add("on");$("#hs-tag").textContent=h.heroSlides[hi].tag;},5000);
 }
 const ctaBand=()=>"";
 
@@ -111,7 +120,7 @@ function company(){
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Clients</span><h2>Our Clients<span class="ko">다양한 산업의 기업이 리바트웨어와 함께합니다</span></h2></div><p>고객사 보호를 위해 상호는 업종으로 표기했습니다.</p></div>
     <div class="cgroups">${S.clientGroups.map(g=>`<div><strong>${esc(g.ko)}</strong><span>${esc(g.n)}</span></div>`).join("")}</div></section>
   <section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Field ready</span><h2>Built for every field<span class="ko">조선·건설·제조·서비스 현장별 기능 설계</span></h2></div></div>
-    <div class="mosaic3"><div style="background-image:url('images/visual/jackets.jpg${V}')"></div><div style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div style="background-image:url('images/visual/cooling.jpg${V}')"></div></div>
+    <div class="mosaic3 tone-all"><div style="background-image:url('images/visual/jackets.jpg${V}')"></div><div style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div style="background-image:url('images/visual/cooling.jpg${V}')"></div></div>
     <p class="note">착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div></section>
   ${ctaBand()}`;
 }
@@ -127,7 +136,7 @@ function reference(){
   ${SP.map((c,i)=>{const its=S.items.filter(x=>x.spaces.includes(c.id));return `
   <section class="ch ch-${c.tone}${i%2?" rev":""}" id="sp-${c.id}"><div class="wrap">
     <div class="ch-grid">
-      <div class="ch-main"><img loading="lazy" src="${esc(c.main)}${V}" alt="${esc(c.ko)} 착용 이미지"><span class="ch-no">0${i+1}</span></div>
+      <div class="ch-main"><img class="tone" loading="lazy" src="${esc(c.main)}${V}" alt="${esc(c.ko)} 착용 이미지"><span class="ch-no">0${i+1}</span></div>
       <div class="ch-txt"><span class="eyebrow">${esc(c.en)} · ${esc(c.ko)}</span><h2>${nl(c.headline)}</h2><p>${esc(c.lead)}</p>
         <ul class="kw">${c.keywords.map(k=>`<li>${esc(k)}</li>`).join("")}</ul>
         <div class="ch-sub">${c.sub.map(sv=>`<div class="${/products\//.test(sv)?"prod":""}"><img loading="lazy" src="${esc(sv)}${V}" alt=""></div>`).join("")}</div></div>
@@ -138,6 +147,7 @@ function reference(){
   </div></section>`;}).join("")}
   <section class="fb"><div class="fb-img" style="background-image:url('${esc(FB.image)}${V}')"></div><div class="fb-txt"><span class="eyebrow">${esc(FB.en)}</span><h2>${esc(FB.title)}</h2>
     <div class="fb-pts">${FB.points.map(p=>`<div><b>${esc(p.k)}</b><strong>${esc(p.t)}</strong><p>${esc(p.d)}</p></div>`).join("")}</div></div></section>
+  <section class="catband wrap"><div><span class="eyebrow">Catalog</span><h2>리바트웨어 카탈로그</h2><p>근무 공간별 라인업과 제작 과정을 PDF 한 권으로 받아보세요.</p></div><button class="btn primary" data-cat>카탈로그 PDF 받기</button></section>
   ${ctaBand()}`;
   // rails
   document.querySelectorAll(".rail").forEach(r=>{
@@ -155,7 +165,7 @@ function reference(){
 
 function portfolio(){
   const G=S.portfolioGroups, P=S.projects, q=new URLSearchParams(location.search);
-  let g="all", sp=(S.spaces.find(x=>x.id===q.get("space"))||{}).id||"";
+  let g=(G.find(x=>x.id===q.get("g"))||{}).id||"all", sp=(S.spaces.find(x=>x.id===q.get("space"))||{}).id||"";
   const spN=id=>(S.spaces.find(x=>x.id===id)||{}).ko||"";
   $("#main").innerHTML=`
   <section class="pf-head wrap"><span class="eyebrow">Our Work</span><h1>Portfolio</h1>
@@ -222,11 +232,12 @@ function contact(){
       <div class="row2"><div class="f"><label class="t" for="q-co">회사명 <i>*</i></label><input type="text" id="q-co" name="company" autocomplete="organization" maxlength="60" placeholder="회사명을 입력해 주세요."></div>
       <div class="f"><label class="t" for="q-nm">담당자명 <i>*</i></label><input type="text" id="q-nm" name="name" autocomplete="name" maxlength="30" placeholder="이름 / 직함"></div></div>
       <div class="row2"><div class="f"><label class="t" for="q-tel">연락처 <i>*</i></label><input type="tel" id="q-tel" name="tel" inputmode="numeric" autocomplete="tel" maxlength="13" placeholder="'-' 없이 숫자만 입력"></div>
-      <div class="f"><label class="t" for="q-em">이메일 <i>*</i></label><input type="email" id="q-em" name="email" autocomplete="email" maxlength="80" placeholder="example@company.com"></div></div>
-      <div class="f"><span class="t" style="display:block;font-weight:600;margin-bottom:8px">관심 품목 <small style="color:var(--muted);font-weight:400">(복수 선택)</small></span><div class="chips">${c.types.map(t=>`<label><input type="checkbox" name="types" value="${esc(t)}"><span>${esc(t)}</span></label>`).join("")}</div></div>
+      <div class="f"><span class="t" style="display:block;font-weight:600;margin-bottom:8px">관심 품목 <small style="color:var(--muted);font-weight:400">(복수 선택)</small></span><div class="chips">${c.types.map(t=>`<label><input type="checkbox" name="types" value="${esc(t)}"><span>${esc(t)}</span></label>`).join("")}</div></div></div>
+      <details class="more-f"><summary>상세 정보 입력 <small>(선택 · 입력하시면 더 정확한 견적을 드립니다)</small></summary>
+      <div class="f"><label class="t" for="q-em">이메일</label><input type="email" id="q-em" name="email" autocomplete="email" maxlength="80" placeholder="example@company.com"></div>
       <div class="row2"><div class="f"><label class="t" for="q-qty">예상 수량</label><select id="q-qty" name="qty"><option value="">선택해 주세요</option>${c.qty.map(q=>`<option>${esc(q)}</option>`).join("")}</select></div>
       <div class="f"><label class="t" for="q-due">희망 납기</label><input type="month" id="q-due" name="due"></div></div>
-      <div class="f"><label class="t" for="q-msg">문의 내용 <i>*</i></label><textarea id="q-msg" name="msg" maxlength="3000" placeholder="착용 인원·근무 환경, 원하는 디자인 방향, 로고 적용 여부 등 자유롭게 작성해 주세요."></textarea></div>
+      <div class="f"><label class="t" for="q-msg">문의 내용</label><textarea id="q-msg" name="msg" maxlength="3000" placeholder="착용 인원·근무 환경, 원하는 디자인 방향, 로고 적용 여부 등 자유롭게 작성해 주세요."></textarea></div></details>
       <label class="agree"><input type="checkbox" id="q-ag"><span>[필수] 개인정보 수집·이용에 동의합니다. ${esc(c.privacy)}</span></label>
       <button class="btn primary" type="submit" id="q-sub" style="width:100%;margin-top:22px;min-height:58px;font-size:16px">견적 문의 등록</button>
       <div class="msg" id="q-msg-box" role="status"></div>
@@ -247,8 +258,7 @@ function contact(){
     if(!d.company.trim()) {$("#q-co").focus();return say("회사명을 입력해 주세요.",1);}
     if(!d.name.trim()) {$("#q-nm").focus();return say("담당자명을 입력해 주세요.",1);}
     if(!/^\d{9,11}$/.test(d.tel)) {$("#q-tel").focus();return say("연락처를 숫자 9~11자리로 입력해 주세요.",1);}
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) {$("#q-em").focus();return say("이메일 주소를 확인해 주세요.",1);}
-    if(!d.msg.trim()) {$("#q-msg").focus();return say("문의 내용을 입력해 주세요.",1);}
+    if(d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) {$(".more-f").open=true;$("#q-em").focus();return say("이메일 주소를 확인해 주세요.",1);}
     if(!$("#q-ag").checked) return say("개인정보 수집·이용에 동의해 주세요.",1);
     if(!S.contact.endpoint) return say("테스트 기간에는 견적 문의가 접수되지 않습니다. 정식 오픈 후 이용해 주세요.");
     const btn=$("#q-sub"); btn.disabled=true; btn.textContent="등록 중…";
@@ -258,6 +268,31 @@ function contact(){
   };
 }
 
-fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,solutions:reference,portfolio,guide,contact})[PAGE]();})
+function reveal(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window)) return;
+  const els=document.querySelectorAll("#main .sec-head,#main .space,#main .ind,#main .split > *,#main .proj,#main .ch-main,#main .ch-txt,#main .rail-head,#main .hist li,#main .pillars > div,#main .dtf .wrap,#main .pf-card,#main .cgroups > div,#main .mosaic3 > div,#main .stats > div,#main .statband .wrap > div,#main .fb-txt,#main .catband,#main .dcap > *,#main .paradigm .wrap");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px"});
+  els.forEach((el,i)=>{const r=el.getBoundingClientRect(); if(r.top<innerHeight*0.92) return; el.classList.add("rv"); el.style.transitionDelay=((i%4)*70)+"ms"; io.observe(el);});
+}
+function catalog(){
+  const c=S.catalog; if(!c) return;
+  const m=document.createElement("div"); m.className="cat-modal"; m.hidden=true; m.setAttribute("role","dialog"); m.setAttribute("aria-modal","true"); m.setAttribute("aria-labelledby","cm-t");
+  m.innerHTML=`<form class="cm-box" novalidate><button type="button" class="cm-x" aria-label="닫기">×</button><span class="eyebrow">Catalog</span><h3 id="cm-t">${esc(c.title)} 받기</h3><p>회사명과 이메일을 남겨주시면 바로 다운로드됩니다.</p>
+    <label>회사명<input name="company" maxlength="60" autocomplete="organization" required></label><label>이메일<input name="email" type="email" maxlength="80" autocomplete="email" required></label>
+    <label class="agree"><input type="checkbox" name="ag"><span>[필수] 카탈로그 발송 및 상담 안내를 위한 회사명·이메일 수집에 동의합니다.</span></label>
+    <button class="btn primary" type="submit">PDF 다운로드</button><div class="cm-msg" role="status"></div></form>`;
+  document.body.appendChild(m);
+  const f=m.querySelector("form"), msg=m.querySelector(".cm-msg"), close=()=>{m.hidden=true;document.body.style.overflow="";};
+  m.querySelector(".cm-x").onclick=close; m.onclick=e=>{if(e.target===m)close();}; document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!m.hidden)close();});
+  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{m.hidden=false;document.body.style.overflow="hidden";f.company.focus();});
+  f.onsubmit=e=>{e.preventDefault(); const d={type:"catalog",company:f.company.value.trim(),email:f.email.value.trim()};
+    if(!d.company){msg.textContent="회사명을 입력해 주세요.";return f.company.focus();}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){msg.textContent="이메일 주소를 확인해 주세요.";return f.email.focus();}
+    if(!f.ag.checked){msg.textContent="수집·이용에 동의해 주세요.";return;}
+    if(S.contact.endpoint){try{fetch(S.contact.endpoint,{method:"POST",body:JSON.stringify(d)});}catch(_){}}
+    const a=document.createElement("a"); a.href=c.file; a.download="LIVARTWear_Catalog.pdf"; document.body.appendChild(a); a.click(); a.remove();
+    msg.textContent="다운로드가 시작되었습니다."; setTimeout(close,1200);};
+}
+fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,solutions:reference,portfolio,guide,contact})[PAGE](); catalog(); reveal();})
  .catch(()=>{$("#main").innerHTML='<p class="wrap" style="padding:80px 0">콘텐츠를 불러오지 못했습니다. 새로고침해 주세요.</p>';});
 })();
