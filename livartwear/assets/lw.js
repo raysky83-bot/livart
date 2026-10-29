@@ -61,6 +61,14 @@ const capIcons=[
  '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="16"/><path d="M16 24l6 6 11-12"/></svg>',
  '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14h24v20H4zM28 20h9l7 7v7H28z"/><circle cx="12" cy="36" r="3.5"/><circle cx="36" cy="36" r="3.5"/></svg>'];
 
+const PICON={
+ meeting:'<path d="M6 10h22v14H14l-6 5v-5H6z"/><path d="M32 18h10v13h-3v4l-5-4h-8v-5"/><path d="M11 16h12M11 20h8"/>',
+ design:'<path d="M10 38l3-10L32 9l7 7-19 19z"/><path d="M28 13l7 7"/><path d="M6 42h36"/>',
+ fabric:'<ellipse cx="14" cy="24" rx="6" ry="14"/><path d="M14 10h22c3 0 6 6 6 14s-3 14-6 14H14"/><path d="M36 10c-3 0-6 6-6 14s3 14 6 14"/>',
+ plan:'<rect x="10" y="8" width="28" height="34" rx="2"/><path d="M18 8V5h12v3"/><path d="M16 20l3 3 5-6M16 32l3 3 5-6M28 21h6M28 33h6"/>',
+ qc:'<path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/><path d="M17 24l5 5 9-10"/>',
+ truck:'<path d="M4 14h24v20H4zM28 20h9l7 7v7H28z"/><circle cx="12" cy="36" r="3.5"/><circle cx="36" cy="36" r="3.5"/>'};
+const picon=k=>`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PICON[k]||""}</svg>`;
 /* pages */
 function home(){
   const h=S.home;
@@ -80,7 +88,7 @@ function home(){
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="contact.html#process">진행 과정 자세히</a></div>
-    <div class="steps-line">${S.guide.map((g,i)=>`<div><b>0${i+1}</b><strong>${esc(g.en)}</strong><span>${esc(g.ko)}</span></div>`).join("")}</div></section>
+    <div class="steps-v">${S.guide.map((g,i)=>`<a href="contact.html#process" class="sv"><span class="ic">${picon(g.icon)}</span><b>0${i+1}</b><strong>${esc(g.ko)}</strong><span class="en">${esc(g.en)}</span></a>`).join("")}</div></section>
   ${ctaBand()}`;
   $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
 }
@@ -191,8 +199,13 @@ function contact(){
   $("#main").innerHTML=`
   <section class="phead grid-bg"><div class="wrap"><span class="eyebrow">Contact</span><h1>Request a Quote<small>견적 문의</small></h1><p>필요 품목과 수량, 납기를 알려주시면 전문 담당자가 사양 검토 후 맞춤 견적과 생산 일정을 안내해 드립니다.</p></div></section>
   <section class="wrap proc" id="process"><div class="sec-head" style="margin-bottom:26px"><div><span class="eyebrow">Process</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계 · 단계를 누르면 세부 내용을 볼 수 있습니다</span></h2></div></div>
-    <ol class="ptl">${S.guide.map((g,i)=>`<li><button aria-expanded="${i===0}" aria-controls="pd${i}"><b>0${i+1}</b><span class="en">${esc(g.en)}</span><strong>${esc(g.ko)}</strong></button></li>`).join("")}</ol>
-    <div class="pdet">${S.guide.map((g,i)=>`<div id="pd${i}" ${i===0?"":"hidden"}><b>0${i+1} · ${esc(g.en)}</b><h3>${esc(g.ko)}</h3><ul>${g.pts.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`).join("")}</div>
+    <ol class="ptl2">${S.guide.map((g,i)=>`<li><button aria-expanded="${i===0}" aria-controls="pd${i}"><span class="ic">${picon(g.icon)}</span><b>0${i+1}</b><strong>${esc(g.ko)}</strong><span class="en">${esc(g.en)}</span></button></li>`).join("")}</ol>
+    <div class="pdet2">${S.guide.map((g,i)=>`<div id="pd${i}" class="pd" ${i===0?"":"hidden"}>
+      <div class="pv">${g.image?`<img loading="lazy" src="${esc(g.image)}${V}" alt="${esc(g.ko)}">`:`<div class="pv-ic grid-bg">${picon(g.icon)}</div>`}<span class="pn">0${i+1}</span></div>
+      <div class="pt"><span class="eyebrow">STEP 0${i+1} · ${esc(g.en)}</span><h3>${esc(g.ko)}</h3>
+        <div class="tags">${(g.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+        <ul>${g.pts.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+        <div class="pnav">${i>0?`<button data-go="${i-1}">← 이전 단계</button>`:"<span></span>"}${i<S.guide.length-1?`<button data-go="${i+1}">다음 단계 →</button>`:`<a href="#form">견적 문의서 작성 →</a>`}</div></div></div>`).join("")}</div>
   </section>
   <section class="sec wrap qgrid" id="form" style="padding-top:72px"><div class="qtitle"><span class="eyebrow">Quote form</span><h2>견적 문의서 작성</h2></div>
     <form class="q" id="qf" novalidate>
@@ -211,8 +224,10 @@ function contact(){
     <aside class="qside"><h3>AFTER SUBMIT</h3><ol><li>견적 문의 접수</li><li>담당자 연락 (영업일 1~2일)</li><li>1:1 샘플 리뷰 미팅</li><li>디자인 확정 · 생산</li><li>품질 검수 · 납품</li></ol>
       <p class="mail">메일 문의 <a href="mailto:${esc(S.footer.email)}">${esc(S.footer.email)}</a></p></aside>
   </section>`;
-  const bs=[...document.querySelectorAll(".ptl button")];
-  bs.forEach((b,i)=>b.onclick=()=>{bs.forEach((x,k)=>{x.setAttribute("aria-expanded",k===i);document.getElementById("pd"+k).hidden=k!==i;});});
+  const bs=[...document.querySelectorAll(".ptl2 button")];
+  const go=i=>bs.forEach((x,k)=>{x.setAttribute("aria-expanded",k===i);document.getElementById("pd"+k).hidden=k!==i;});
+  bs.forEach((b,i)=>b.onclick=()=>go(i));
+  document.querySelectorAll(".pnav button").forEach(b=>b.onclick=()=>go(+b.dataset.go));
   if(location.hash) setTimeout(()=>{const t=document.querySelector(location.hash); t&&t.scrollIntoView();},50);
   const f=$("#qf"), box=$("#q-msg-box");
   const say=(t,err)=>{box.textContent=t;box.className="msg show"+(err?" err":"");};

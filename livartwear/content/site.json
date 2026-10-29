@@ -152,7 +152,13 @@
    "pts": [
     "파트너사 1:1 커스텀 샘플 미팅",
     "디테일(소재, 컬러, 핏 등) 리뷰 및 피드백 수렴"
-   ]
+   ],
+   "icon": "meeting",
+   "tags": [
+    "1:1 샘플 미팅",
+    "소재·컬러·핏 리뷰"
+   ],
+   "image": "images/process/meeting.jpg"
   },
   {
    "en": "CUSTOMIZATION",
@@ -160,7 +166,13 @@
    "pts": [
     "클라이언트 니즈 기반 디자인 고도화",
     "최종 컨펌용 샘플 제작 및 납품 준비"
-   ]
+   ],
+   "icon": "design",
+   "tags": [
+    "디자인 고도화",
+    "컨펌 샘플 제작"
+   ],
+   "image": "images/process/design.jpg"
   },
   {
    "en": "MATERIAL SOURCING",
@@ -168,7 +180,13 @@
    "pts": [
     "최종 컨펌된 스펙에 맞춘 원단 및 부자재 발주",
     "품질 기준에 부합하는 안정적인 서플라이어 네트워크 활용"
-   ]
+   ],
+   "icon": "fabric",
+   "tags": [
+    "원단·부자재 발주",
+    "서플라이어 네트워크"
+   ],
+   "image": ""
   },
   {
    "en": "PRE-PRODUCTION",
@@ -176,7 +194,13 @@
    "pts": [
     "생산 투입 전 최종 PP 샘플 확인",
     "작업 지시서(오더시트) 확정 및 공장 라인 스케줄링"
-   ]
+   ],
+   "icon": "plan",
+   "tags": [
+    "PP 샘플 확인",
+    "라인 스케줄링"
+   ],
+   "image": "images/process/pattern.jpg"
   },
   {
    "en": "MAIN PRODUCTION & QC",
@@ -184,7 +208,13 @@
    "pts": [
     "본 생산 투입 및 공정별 진척도 트래킹",
     "2단계 품질 검수: 인라인(생산 중) 및 파이널(포장 전) Q/C"
-   ]
+   ],
+   "icon": "qc",
+   "tags": [
+    "공정 트래킹",
+    "2단계 Q/C"
+   ],
+   "image": "images/process/sewing.jpg"
   },
   {
    "en": "PACKAGING & LOGISTICS",
@@ -192,7 +222,13 @@
    "pts": [
     "클라이언트 가이드에 맞춘 개별 폴리백·박스 패키징",
     "지정 물류 창고 및 납품처로 배송·입고 완료"
-   ]
+   ],
+   "icon": "truck",
+   "tags": [
+    "개별 패키징",
+    "지정처 입고"
+   ],
+   "image": ""
   }
  ],
  "contact": {
