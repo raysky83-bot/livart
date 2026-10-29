@@ -95,15 +95,26 @@ function home(){
 const ctaBand=()=>"";
 
 function company(){
+  const H=S.history, C=S.capability;
   $("#main").innerHTML=`
   <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/factory-duo.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Company</span><h1>LIVART Wear<small>현대리바트 기업 유니폼 전문 사업</small></h1></div></section>
   <section class="sec wrap"><span class="eyebrow">Who we are</span>
-    <p class="statement" style="margin-top:22px">리바트웨어는 <em>기업 유니폼 전문 기업</em>입니다. 고객사의 근무 환경과 요구 사양을 분석해 근무복·작업복·안전복부터 비즈니스 캐주얼까지 기획·디자인하고, 생산·품질 관리와 납품까지 전 과정을 직접 수행합니다.</p>
-    <div class="scope">${S.spaces.map(c=>`<span>${esc(c.en)} · ${esc(c.ko)}</span>`).join("")}${S.filters.item.map(x=>`<span>${esc(x)}</span>`).join("")}</div></section>
-  <section class="sec" style="background:var(--mist);padding-top:90px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">What we do</span><h2>Capabilities<span class="ko">기획·생산·품질·물류 원스톱 수행 역량</span></h2></div></div>
-    <div class="capgrid">${S.capabilities.map((c,i)=>`<div>${capIcons[i]}<div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</div></div></section>
-  <section class="sec wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인, 패턴, 봉제 과정"></div>
-    <div><span class="eyebrow">Our process</span><h2>체계화된 생산 프로세스</h2><p>근무 환경과 소재를 분석해 디자인을 기획하고, 샘플 개발과 고객사 리뷰를 거쳐 사양을 확정합니다. 확정된 사양은 공정별 생산 관리와 인라인·파이널 2단계 품질 검수를 거쳐 일정한 품질로 납품됩니다.</p><a class="btn dark" href="contact.html#process">진행 과정 보기</a></div></section>
+    <p class="statement" style="margin-top:22px">리바트웨어는 <em>1976년부터 유니폼을 만들어 온 기업 유니폼 전문 기업</em>입니다. 고객사의 근무 환경과 요구 사양을 분석해 기획·디자인하고, 생산·품질 관리와 납품까지 전 과정을 직접 수행합니다.</p>
+    <div class="stats"><div><b>1976</b><span>유니폼 봉제 사업 시작</span></div><div><b>50<small>년</small></b><span>유니폼 제조 경험</span></div><div><b>Direct</b><span>생산 공장 직접 관리</span></div><div><b>One-stop</b><span>기획부터 C/S까지</span></div></div></section>
+  <section class="paradigm grid-bg"><div class="wrap"><h2>“${esc(S.paradigm.title)}”</h2><p>${esc(S.paradigm.text)}</p></div></section>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">History</span><h2>Since 1976<span class="ko">반세기 유니폼 제조의 역사</span></h2></div></div>
+    <ol class="hist">${H.map((h,i)=>`<li class="${i===H.length-1?"now":""}"><b>${esc(h.y)}</b><div><strong>${esc(h.t)}</strong><p>${esc(h.d)}</p></div></li>`).join("")}</ol></section>
+  <section class="sec" style="background:var(--mist)"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Core value</span><h2>Why LIVART Wear<span class="ko">리바트웨어가 제안하는 세 가지 가치</span></h2></div></div>
+    <div class="values">${S.values.map((v,i)=>`<div><span class="n">0${i+1}</span><b>${esc(v.en)}</b><h3>${esc(v.ko)}</h3><p>${esc(v.d)}</p></div>`).join("")}</div></div></section>
+  <section class="dtf"><div class="bg" style="background-image:url('images/process/sewing.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Production</span><h2>${esc(S.dtf.title)}</h2><p>${esc(S.dtf.text)}</p>
+    <div class="dtf-flow"><span>고객사</span><i></i><span class="on">리바트웨어</span><i></i><span>생산 공장 직접 관리</span></div></div></section>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">What we offer</span><h2>Our Strengths<span class="ko">디자인 · 소재 · 커스텀</span></h2></div></div>
+    <div class="pillars">${S.pillars.map((p,i)=>`<div>${capIcons[[0,1,2][i]]}<h3>${esc(p.ko)}</h3><p class="lead">${esc(p.lead)}</p><ul>${p.pts.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`).join("")}</div></section>
+  <section class="sec" style="background:var(--mist)"><div class="wrap dcap"><div class="dc-dia">
+      ${C.nodes.map((n,i)=>`<div class="dn dn${i}"><b>${esc(n.en)}</b><span>${esc(n.ko)}</span></div>`).join("")}<div class="dc-core">DESIGN<br>CAPABILITY</div></div>
+    <div class="ks"><span class="eyebrow">Key strength</span><h2>디자인 역량</h2><ol>${C.strengths.map((t,i)=>`<li><b>0${i+1}</b>${esc(t)}</li>`).join("")}</ol></div></div></section>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Clients</span><h2>Our Clients<span class="ko">다양한 산업의 기업이 리바트웨어와 함께합니다</span></h2></div><p>고객사 보호를 위해 상호는 업종으로 표기했습니다.</p></div>
+    <div class="cgroups">${S.clientGroups.map(g=>`<div><strong>${esc(g.ko)}</strong><span>${esc(g.n)}</span></div>`).join("")}</div></section>
   <section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Field ready</span><h2>Built for every field<span class="ko">조선·건설·제조·서비스 현장별 기능 설계</span></h2></div></div>
     <div class="mosaic3"><div style="background-image:url('images/visual/jackets.jpg${V}')"></div><div style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div style="background-image:url('images/visual/cooling.jpg${V}')"></div></div>
     <p class="note">착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div></section>
