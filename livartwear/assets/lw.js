@@ -104,8 +104,6 @@ function company(){
   <section class="paradigm grid-bg"><div class="wrap"><h2>“${esc(S.paradigm.title)}”</h2><p>${esc(S.paradigm.text)}</p></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">History</span><h2>Since 1976<span class="ko">반세기 유니폼 제조의 역사</span></h2></div></div>
     <ol class="hist">${H.map((h,i)=>`<li class="${i===H.length-1?"now":""}"><b>${esc(h.y)}</b><div><strong>${esc(h.t)}</strong><p>${esc(h.d)}</p></div></li>`).join("")}</ol></section>
-  <section class="sec" style="background:var(--mist)"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Core value</span><h2>Why LIVART Wear<span class="ko">리바트웨어가 제안하는 세 가지 가치</span></h2></div></div>
-    <div class="values">${S.values.map((v,i)=>`<div><span class="n">0${i+1}</span><b>${esc(v.en)}</b><h3>${esc(v.ko)}</h3><p>${esc(v.d)}</p></div>`).join("")}</div></div></section>
   <section class="dtf"><div class="bg" style="background-image:url('images/process/sewing.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Production</span><h2>${esc(S.dtf.title)}</h2><p>${esc(S.dtf.text)}</p>
     <div class="dtf-flow"><span>고객사</span><i></i><span class="on">리바트웨어</span><i></i><span>생산 공장 직접 관리</span></div></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">What we offer</span><h2>Our Strengths<span class="ko">디자인 · 소재 · 커스텀</span></h2></div></div>
