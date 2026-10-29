@@ -5,7 +5,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const nl=s=>esc(s).replace(/\n/g,"<br>");
 const PAGE=document.body.dataset.page;
 const V="?v=1";
-const NAV=[["company.html","COMPANY","회사소개"],["reference.html","REFERENCE","레퍼런스"],["portfolio.html","PORTFOLIO","포트폴리오"],["guide.html","GUIDE","신청가이드"],["contact.html","CONTACT","견적문의"]];
+const NAV=[["company.html","COMPANY","회사소개"],["reference.html","REFERENCE","레퍼런스"],["portfolio.html","PORTFOLIO","포트폴리오"],["contact.html","CONTACT","견적문의"]];
 let S;
 
 function chrome(){
@@ -77,7 +77,7 @@ function home(){
   <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
-  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="guide.html">신청가이드</a></div>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="contact.html#process">진행 과정 자세히</a></div>
     <div class="steps-line">${S.guide.map((g,i)=>`<div><b>0${i+1}</b><strong>${esc(g.en)}</strong><span>${esc(g.ko)}</span></div>`).join("")}</div></section>
   ${ctaBand()}`;
   $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
@@ -93,7 +93,7 @@ function company(){
   <section class="sec" style="background:var(--mist);padding-top:90px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">What we do</span><h2>Capabilities<span class="ko">기획·생산·품질·물류 원스톱 수행 역량</span></h2></div></div>
     <div class="capgrid">${S.capabilities.map((c,i)=>`<div>${capIcons[i]}<div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</div></div></section>
   <section class="sec wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인, 패턴, 봉제 과정"></div>
-    <div><span class="eyebrow">Our process</span><h2>체계화된 생산 프로세스</h2><p>근무 환경과 소재를 분석해 디자인을 기획하고, 샘플 개발과 고객사 리뷰를 거쳐 사양을 확정합니다. 확정된 사양은 공정별 생산 관리와 인라인·파이널 2단계 품질 검수를 거쳐 일정한 품질로 납품됩니다.</p><a class="btn dark" href="guide.html">신청가이드 보기</a></div></section>
+    <div><span class="eyebrow">Our process</span><h2>체계화된 생산 프로세스</h2><p>근무 환경과 소재를 분석해 디자인을 기획하고, 샘플 개발과 고객사 리뷰를 거쳐 사양을 확정합니다. 확정된 사양은 공정별 생산 관리와 인라인·파이널 2단계 품질 검수를 거쳐 일정한 품질로 납품됩니다.</p><a class="btn dark" href="contact.html#process">진행 과정 보기</a></div></section>
   <section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Field ready</span><h2>Built for every field<span class="ko">조선·건설·제조·서비스 현장별 기능 설계</span></h2></div></div>
     <div class="mosaic3"><div style="background-image:url('images/visual/jackets.jpg${V}')"></div><div style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div style="background-image:url('images/visual/cooling.jpg${V}')"></div></div>
     <p class="note">착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div></section>
@@ -187,7 +187,11 @@ function contact(){
   const c=S.contact;
   $("#main").innerHTML=`
   <section class="phead grid-bg"><div class="wrap"><span class="eyebrow">Contact</span><h1>Request a Quote<small>견적 문의</small></h1><p>필요 품목과 수량, 납기를 알려주시면 전문 담당자가 사양 검토 후 맞춤 견적과 생산 일정을 안내해 드립니다.</p></div></section>
-  <section class="sec wrap qgrid">
+  <section class="wrap proc" id="process"><div class="sec-head" style="margin-bottom:26px"><div><span class="eyebrow">Process</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계 · 단계를 누르면 세부 내용을 볼 수 있습니다</span></h2></div></div>
+    <ol class="ptl">${S.guide.map((g,i)=>`<li><button aria-expanded="${i===0}" aria-controls="pd${i}"><b>0${i+1}</b><span class="en">${esc(g.en)}</span><strong>${esc(g.ko)}</strong></button></li>`).join("")}</ol>
+    <div class="pdet">${S.guide.map((g,i)=>`<div id="pd${i}" ${i===0?"":"hidden"}><b>0${i+1} · ${esc(g.en)}</b><h3>${esc(g.ko)}</h3><ul>${g.pts.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`).join("")}</div>
+  </section>
+  <section class="sec wrap qgrid" id="form" style="padding-top:72px"><div class="qtitle"><span class="eyebrow">Quote form</span><h2>견적 문의서 작성</h2></div>
     <form class="q" id="qf" novalidate>
       <div class="row2"><div class="f"><label class="t" for="q-co">회사명 <i>*</i></label><input type="text" id="q-co" name="company" autocomplete="organization" maxlength="60" placeholder="회사명을 입력해 주세요."></div>
       <div class="f"><label class="t" for="q-nm">담당자명 <i>*</i></label><input type="text" id="q-nm" name="name" autocomplete="name" maxlength="30" placeholder="이름 / 직함"></div></div>
@@ -201,9 +205,12 @@ function contact(){
       <button class="btn primary" type="submit" id="q-sub" style="width:100%;margin-top:22px;min-height:58px;font-size:16px">견적 문의 등록</button>
       <div class="msg" id="q-msg-box" role="status"></div>
     </form>
-    <aside class="qside"><h3>PROCESS</h3><ol><li>견적 문의 접수</li><li>담당자 연락 (영업일 1~2일)</li><li>1:1 샘플 리뷰 미팅</li><li>디자인 확정 · 생산</li><li>품질 검수 · 납품</li></ol>
+    <aside class="qside"><h3>AFTER SUBMIT</h3><ol><li>견적 문의 접수</li><li>담당자 연락 (영업일 1~2일)</li><li>1:1 샘플 리뷰 미팅</li><li>디자인 확정 · 생산</li><li>품질 검수 · 납품</li></ol>
       <p class="mail">메일 문의 <a href="mailto:${esc(S.footer.email)}">${esc(S.footer.email)}</a></p></aside>
   </section>`;
+  const bs=[...document.querySelectorAll(".ptl button")];
+  bs.forEach((b,i)=>b.onclick=()=>{bs.forEach((x,k)=>{x.setAttribute("aria-expanded",k===i);document.getElementById("pd"+k).hidden=k!==i;});});
+  if(location.hash) setTimeout(()=>{const t=document.querySelector(location.hash); t&&t.scrollIntoView();},50);
   const f=$("#qf"), box=$("#q-msg-box");
   const say=(t,err)=>{box.textContent=t;box.className="msg show"+(err?" err":"");};
   f.onsubmit=async e=>{e.preventDefault();
