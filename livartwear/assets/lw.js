@@ -63,19 +63,19 @@ const capIcons=[
 function home(){
   const h=S.home, cats=S.categories;
   $("#main").innerHTML=`
-  <section class="hero"><div class="txt grid-bg"><span class="eyebrow">B2B UNIFORM &amp; WORKWEAR</span>
+  <section class="hero"><div class="txt grid-bg"><span class="eyebrow">CORPORATE UNIFORM SPECIALIST</span>
     <h1>Everywhere,<br><em>Every wear.</em></h1><p>${esc(h.heroSub)}</p>
     <div class="acts"><a class="btn primary" href="reference.html">레퍼런스 보기</a><a class="btn line" href="contact.html">견적 문의</a></div></div>
-    <div class="ph" style="background-image:url('${esc(h.hero)}${V}')" role="img" aria-label="현장 근무복 착용 이미지"><span class="tag">LIVART WEAR · FIELD</span></div></section>
+    <div class="ph" style="background-image:url('${esc(h.hero)}${V}')" role="img" aria-label="현장 근무복 착용 이미지"><span class="tag">CORPORATE UNIFORM SOLUTION</span></div></section>
   <section class="caps wrap">${S.capabilities.map((c,i)=>`<div class="cap"><div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</section>
-  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">What we make</span><h2>Categories<span class="ko">근무 환경별 유니폼 라인업</span></h2></div><a class="more" href="reference.html">VIEW ALL</a></div>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">What we make</span><h2>What We Produce<span class="ko">근무 환경별 기업 유니폼 제작 영역</span></h2></div><a class="more" href="reference.html">VIEW ALL</a></div>
     <div class="cats">${cats.map(c=>`<a class="cat" href="reference.html#${c.id}"><div class="im"><img loading="lazy" src="${esc(c.items[0])}${V}" alt="${esc(c.ko)}"></div><div class="tx"><b>${esc(c.season)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span></div></a>`).join("")}
     <a class="cat cta" href="contact.html"><strong>Custom<br>Order</strong><span>원하는 디자인과 수량으로 맞춤 제작을 상담해 보세요 →</span></a></div></section>
   <section class="sec" style="background:var(--mist)"><div class="wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인부터 봉제까지 제작 과정"></div>
-    <div><span class="eyebrow">How we work</span><h2>옷 한 벌이 만들어지기까지,<br>처음부터 끝까지 함께합니다.</h2>
-    <p>근무 환경과 기업 아이덴티티를 이해하는 것에서 시작합니다. 샘플 미팅, 디자인 디벨롭, 소재 소싱, 생산과 품질 검수, 패키징과 납품까지 한 흐름으로 관리합니다.</p>
-    <ul>${S.guide.slice(0,4).map((g,i)=>`<li><b>0${i+1}</b>${esc(g.ko)}</li>`).join("")}</ul><a class="btn dark" href="company.html">회사 소개 보기</a></div></div></section>
-  <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Selected Projects<span class="ko">기업 유니폼 제작 사례</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
+    <div><span class="eyebrow">How we work</span><h2>기획부터 납품까지,<br>전 과정을 직접 관리합니다.</h2>
+    <p>고객사의 근무 환경과 요구 사양 분석에서 출발합니다. 샘플 미팅, 디자인 디벨롭, 원부자재 소싱, 생산·품질 관리, 패키징과 납품까지 유니폼 전문 인력이 단계별로 책임지고 관리합니다.</p>
+    <ul>${S.guide.slice(0,4).map((g,i)=>`<li><b>0${i+1}</b>${esc(g.ko)}</li>`).join("")}</ul><a class="btn dark" href="company.html">회사 소개</a></div></div></section>
+  <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="reference.html#projects">ALL PROJECTS</a></div></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="guide.html">신청가이드</a></div>
@@ -83,19 +83,19 @@ function home(){
   ${ctaBand()}`;
   bindProj($("#hp"));
 }
-const ctaBand=()=>`<section class="cta-band"><div class="wrap"><div><h2>우리 회사에 맞는 유니폼, 리바트웨어와 상담하세요.</h2><p>견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 또는 유선으로 연락드립니다.</p></div><a class="btn" href="contact.html">견적 문의하기</a></div></section>`;
+const ctaBand=()=>`<section class="cta-band"><div class="wrap"><div><h2>기업 유니폼 기획·제작, 전문 담당자와 상담하세요.</h2><p>견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 또는 유선으로 연락드립니다.</p></div><a class="btn" href="contact.html">견적 문의하기</a></div></section>`;
 
 function company(){
   $("#main").innerHTML=`
-  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/factory-duo.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Company</span><h1>LIVART Wear<small>현대리바트의 B2B 유니폼·워크웨어 브랜드</small></h1></div></section>
+  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/factory-duo.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Company</span><h1>LIVART Wear<small>현대리바트 기업 유니폼 전문 사업</small></h1></div></section>
   <section class="sec wrap"><span class="eyebrow">Who we are</span>
-    <p class="statement" style="margin-top:22px">리바트웨어는 <em>일하는 모든 곳, 모든 순간</em>을 위한 기업 유니폼을 만듭니다. 현장의 안전과 활동성, 기업의 아이덴티티를 함께 담아 근무복·작업복·안전복부터 비즈니스 캐주얼까지 제안합니다.</p>
+    <p class="statement" style="margin-top:22px">리바트웨어는 <em>기업 유니폼 전문 기업</em>입니다. 고객사의 근무 환경과 요구 사양을 분석해 근무복·작업복·안전복부터 비즈니스 캐주얼까지 기획·디자인하고, 생산·품질 관리와 납품까지 전 과정을 직접 수행합니다.</p>
     <div class="scope">${S.categories.map(c=>`<span>${esc(c.ko)}</span>`).join("")}</div></section>
-  <section class="sec" style="background:var(--mist);padding-top:90px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">What we do</span><h2>Capabilities<span class="ko">기획부터 납품까지 원스톱</span></h2></div></div>
+  <section class="sec" style="background:var(--mist);padding-top:90px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">What we do</span><h2>Capabilities<span class="ko">기획·생산·품질·물류 원스톱 수행 역량</span></h2></div></div>
     <div class="capgrid">${S.capabilities.map((c,i)=>`<div>${capIcons[i]}<div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</div></div></section>
   <section class="sec wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인, 패턴, 봉제 과정"></div>
-    <div><span class="eyebrow">Our process</span><h2>트렌드 분석에서 품질 검수까지</h2><p>트렌드와 소재를 분석해 디자인을 기획하고, 샘플 개발과 고객사 리뷰를 거쳐 사양을 확정합니다. 확정된 사양은 생산 관리와 2단계 품질 검수를 통해 일정한 품질로 납품됩니다.</p><a class="btn dark" href="guide.html">신청가이드 보기</a></div></section>
-  <section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Field ready</span><h2>Built for every field<span class="ko">현장 환경에 맞춘 기능 설계</span></h2></div></div>
+    <div><span class="eyebrow">Our process</span><h2>체계화된 생산 프로세스</h2><p>근무 환경과 소재를 분석해 디자인을 기획하고, 샘플 개발과 고객사 리뷰를 거쳐 사양을 확정합니다. 확정된 사양은 공정별 생산 관리와 인라인·파이널 2단계 품질 검수를 거쳐 일정한 품질로 납품됩니다.</p><a class="btn dark" href="guide.html">신청가이드 보기</a></div></section>
+  <section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Field ready</span><h2>Built for every field<span class="ko">조선·건설·제조·서비스 현장별 기능 설계</span></h2></div></div>
     <div class="mosaic3"><div style="background-image:url('images/visual/jackets.jpg${V}')"></div><div style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div style="background-image:url('images/visual/cooling.jpg${V}')"></div></div>
     <p class="note">착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div></section>
   ${ctaBand()}`;
@@ -104,11 +104,11 @@ function company(){
 function reference(){
   const cats=S.categories;
   $("#main").innerHTML=`
-  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/jackets.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Reference</span><h1>Our Work<small>카테고리별 제작 사례와 기업 프로젝트</small></h1><p>리바트웨어가 제작해 온 근무복·작업복·안전복을 카테고리별로 소개합니다.\n사진을 누르면 크게 볼 수 있습니다.</p></div></section>
+  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/jackets.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Reference</span><h1>Our Work<small>카테고리별 제작 실적 및 기업 프로젝트</small></h1><p>리바트웨어가 기획·생산한 기업 유니폼 실적을 카테고리별로 소개합니다.\n사진을 누르면 크게 볼 수 있습니다.</p></div></section>
   <nav class="tabs" aria-label="카테고리"><div class="wrap">${cats.map(c=>`<a href="#${c.id}">${esc(c.ko)}</a>`).join("")}<a href="#projects">기업 프로젝트</a></div></nav>
   <div class="wrap">${cats.map(c=>`<section class="catsec" id="${c.id}"><div class="sec-head"><div><span class="eyebrow">${esc(c.en)}</span><h2 style="font-family:var(--ko);font-size:clamp(24px,2.4vw,32px)">${esc(c.ko)}<span class="ko" style="font-size:15px">${esc(c.desc)}</span></h2></div><span class="tagline">${esc(c.season)} · ${c.items.length} ITEMS</span></div>
     <div class="pgrid">${c.items.map((s,i)=>`<button data-c="${c.id}" data-i="${i}" aria-label="${esc(c.ko)} ${i+1} 크게 보기"><img loading="lazy" src="${esc(s)}${V}" alt="${esc(c.ko)} ${i+1}"></button>`).join("")}</div></section>`).join("")}</div>
-  <section class="sec band grid-bg" id="projects" style="margin-top:96px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Projects</span><h2>Corporate Projects<span class="ko">기업 유니폼 제작 프로젝트</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했으며, 착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div>
+  <section class="sec band grid-bg" id="projects" style="margin-top:96px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Projects</span><h2>Corporate Projects<span class="ko">기업 유니폼 수행 프로젝트</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했으며, 착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p></div>
     <div class="projects" id="pp">${S.projects.map(projCard).join("")}</div></div></section>
   ${ctaBand()}`;
   document.querySelectorAll(".pgrid button").forEach(b=>b.onclick=()=>{const c=cats.find(x=>x.id===b.dataset.c); openLB(c.items.map(s=>({src:s+V,cap:c.ko})),+b.dataset.i);});
@@ -120,7 +120,7 @@ function reference(){
 
 function guide(){
   $("#main").innerHTML=`
-  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Buyer's guide</span><h1>Order Guide<small>제품 구매 가이드</small></h1><p>구매를 희망하는 제품을 선택하신 후, 샘플 생산 및 최종 생산 일정을 확인하세요.\n견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 및 유선으로 상담이 진행됩니다.</p></div></section>
+  <section class="phead grid-bg"><div class="bgimg" style="background-image:url('images/visual/vest-model.jpg${V}')"></div><div class="wrap"><span class="eyebrow">Buyer's guide</span><h1>Order Guide<small>기업 유니폼 발주 가이드</small></h1><p>희망 품목과 수량을 확인하신 후, 샘플 제작 및 본 생산 일정을 확인하세요.\n견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 및 유선으로 상담이 진행됩니다.</p></div></section>
   <section class="sec wrap">
     <div class="intro-box"><div class="ic">START</div><div><h3>견적 문의 접수</h3><p>관심 품목과 예상 수량, 희망 납기를 남겨주시면 담당자가 영업일 기준 1~2일 내 연락드립니다.</p></div><a class="btn primary" href="contact.html">견적 문의하기</a></div>
     <div class="timeline">${S.guide.map((g,i)=>`<div class="step"><div class="no">0${i+1}</div><span class="en">${esc(g.en)}</span><h3>${esc(g.ko)}</h3><ul>${g.pts.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`).join("")}</div>
@@ -131,7 +131,7 @@ function guide(){
 function contact(){
   const c=S.contact;
   $("#main").innerHTML=`
-  <section class="phead grid-bg"><div class="wrap"><span class="eyebrow">Contact</span><h1>Request a Quote<small>견적 문의</small></h1><p>필요하신 품목과 수량을 알려주시면 맞춤 견적과 제작 일정을 안내해 드립니다.</p></div></section>
+  <section class="phead grid-bg"><div class="wrap"><span class="eyebrow">Contact</span><h1>Request a Quote<small>견적 문의</small></h1><p>필요 품목과 수량, 납기를 알려주시면 전문 담당자가 사양 검토 후 맞춤 견적과 생산 일정을 안내해 드립니다.</p></div></section>
   <section class="sec wrap qgrid">
     <form class="q" id="qf" novalidate>
       <div class="row2"><div class="f"><label class="t" for="q-co">회사명 <i>*</i></label><input type="text" id="q-co" name="company" autocomplete="organization" maxlength="60" placeholder="회사명을 입력해 주세요."></div>
