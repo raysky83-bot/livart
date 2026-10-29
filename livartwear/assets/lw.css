@@ -561,3 +561,14 @@ footer.ft .cp{margin-top:18px;color:#6f8a97;font-size:12px}
 .cgroups strong{display:block;font-size:18px}
 .cgroups span{display:block;margin-top:6px;color:var(--muted);font-size:14px}
 @media (max-width:700px){.cgroups{grid-template-columns:1fr 1fr}.cgroups div{padding:20px 16px}}
+.to-pf{display:flex;align-items:center;gap:20px;margin-top:36px;border:1px solid var(--line);padding:20px 26px;background:#fff}
+.ch-mist .to-pf{background:#fff}.ch-dark .to-pf{background:transparent;border-color:rgba(255,255,255,.25)}
+.to-pf strong{font-size:17px}.to-pf em{margin-left:auto;font-style:normal;font-size:22px;color:var(--blue)}
+.ch-dark .to-pf em{color:var(--sky)}
+.to-pf:hover{border-color:var(--blue)}
+@media (max-width:640px){.to-pf{flex-wrap:wrap;gap:6px;padding:16px 18px}.to-pf strong{font-size:15px}}
+.pf-sp{display:flex;align-items:center;gap:14px;margin:-18px 0 24px;font-size:14px;color:var(--muted)}
+.pf-sp[hidden]{display:none}
+.pf-sp span{background:var(--mist);padding:8px 12px;font-weight:600;color:var(--ink)}
+.pf-sp button{border:0;background:none;color:var(--blue);font-weight:600;cursor:pointer}
+.pf-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}

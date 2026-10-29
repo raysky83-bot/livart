@@ -5,7 +5,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const nl=s=>esc(s).replace(/\n/g,"<br>");
 const PAGE=document.body.dataset.page;
 const V="?v=1";
-const NAV=[["company.html","COMPANY","회사소개"],["reference.html","REFERENCE","레퍼런스"],["portfolio.html","PORTFOLIO","포트폴리오"],["contact.html","CONTACT","견적문의"]];
+const NAV=[["company.html","COMPANY","회사소개"],["solutions.html","SOLUTIONS","솔루션"],["portfolio.html","PORTFOLIO","포트폴리오"],["contact.html","CONTACT","견적문의"]];
 let S;
 
 function chrome(){
@@ -75,16 +75,16 @@ function home(){
   $("#main").innerHTML=`
   <section class="hero"><div class="txt grid-bg"><span class="eyebrow">CORPORATE UNIFORM SPECIALIST</span>
     <h1>Everywhere,<br><em>Every wear.</em></h1><p>${esc(h.heroSub)}</p>
-    <div class="acts"><a class="btn primary" href="reference.html">레퍼런스 보기</a><a class="btn line" href="contact.html">견적 문의</a></div></div>
+    <div class="acts"><a class="btn primary" href="solutions.html">솔루션 보기</a><a class="btn line" href="contact.html">견적 문의</a></div></div>
     <div class="ph" style="background-image:url('${esc(h.hero)}${V}')" role="img" aria-label="현장 근무복 착용 이미지"><span class="tag">CORPORATE UNIFORM SOLUTION</span></div></section>
   <section class="caps wrap">${S.capabilities.map((c,i)=>`<div class="cap"><div class="n">0${i+1}</div><h3>${esc(c.en)}<small>${esc(c.ko)}</small></h3><p>${esc(c.text)}</p></div>`).join("")}</section>
-  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Everywhere</span><h2>For Every Workplace<span class="ko">근무 공간별 기업 유니폼</span></h2></div><a class="more" href="reference.html">VIEW ALL</a></div>
-    <div class="spaces">${S.spaces.map((c,i)=>`<a class="space" href="reference.html#sp-${c.id}"><div class="bg" style="background-image:url('${esc(c.image)}${V}')"></div><div class="tx"><b>0${i+1} · ${esc(c.en)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span><em>${S.items.filter(x=>x.spaces.includes(c.id)).length} ITEMS →</em></div></a>`).join("")}</div></section>
+  <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Everywhere</span><h2>For Every Workplace<span class="ko">근무 공간별 기업 유니폼</span></h2></div><a class="more" href="solutions.html">VIEW ALL</a></div>
+    <div class="spaces">${S.spaces.map((c,i)=>`<a class="space" href="solutions.html#sp-${c.id}"><div class="bg" style="background-image:url('${esc(c.image)}${V}')"></div><div class="tx"><b>0${i+1} · ${esc(c.en)}</b><strong>${esc(c.ko)}</strong><span>${esc(c.desc)}</span><em>${S.items.filter(x=>x.spaces.includes(c.id)).length} ITEMS →</em></div></a>`).join("")}</div></section>
   <section class="sec" style="background:var(--mist)"><div class="wrap split"><div class="im"><img loading="lazy" src="images/visual/process.jpg${V}" alt="디자인부터 봉제까지 제작 과정"></div>
     <div><span class="eyebrow">How we work</span><h2>기획부터 납품까지,<br>전 과정을 직접 관리합니다.</h2>
     <p>고객사의 근무 환경과 요구 사양 분석에서 출발합니다. 샘플 미팅, 디자인 디벨롭, 원부자재 소싱, 생산·품질 관리, 패키징과 납품까지 유니폼 전문 인력이 단계별로 책임지고 관리합니다.</p>
     <ul>${S.guide.slice(0,4).map((g,i)=>`<li><b>0${i+1}</b>${esc(g.ko)}</li>`).join("")}</ul><a class="btn dark" href="company.html">회사 소개</a></div></div></section>
-  <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
+  <section class="sec band grid-bg"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Portfolio</span><h2>Selected Projects<span class="ko">주요 기업 유니폼 수행 실적</span></h2></div><p>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></div>
     <div class="projects" id="hp">${S.projects.slice(0,3).map(projCard).join("")}</div>
     <div style="margin-top:36px"><a class="more" style="color:var(--sky)" href="portfolio.html">VIEW PORTFOLIO</a></div></div></section>
   <section class="sec wrap"><div class="sec-head"><div><span class="eyebrow">Buyer's guide</span><h2>Order Process<span class="ko">상담부터 납품까지 6단계</span></h2></div><a class="more" href="contact.html#process">진행 과정 자세히</a></div>
@@ -127,7 +127,7 @@ function reference(){
   const spName=id=>{const c=SP.find(x=>x.id===id);return c?c.ko:"";};
   $("#main").innerHTML=`
   <section class="rf-hero"><div class="bg" style="background-image:url('images/visual/shipyard.jpg${V}')"></div><div class="wrap">
-    <span class="eyebrow">Reference</span><h1>Everywhere,<br>Every wear.</h1><p>사무 공간부터 생산 현장, 안전 특화 현장까지.<br>근무 환경마다 다른 요구를 유니폼으로 풀어낸 리바트웨어의 제작 실적입니다.</p>
+    <span class="eyebrow">Solutions</span><h1>Everywhere,<br>Every wear.</h1><p>사무 공간부터 생산 현장, 안전 특화 현장까지.<br>근무 환경마다 다른 요구에 맞춘 리바트웨어의 유니폼 솔루션입니다.</p>
     <nav class="rf-jump">${SP.map((c,i)=>`<a href="#sp-${c.id}"><b>0${i+1}</b>${esc(c.en)}<small>${esc(c.ko)}</small></a>`).join("")}</nav></div></section>
   ${SP.map((c,i)=>{const its=S.items.filter(x=>x.spaces.includes(c.id));return `
   <section class="ch ch-${c.tone}${i%2?" rev":""}" id="sp-${c.id}"><div class="wrap">
@@ -137,8 +137,9 @@ function reference(){
         <ul class="kw">${c.keywords.map(k=>`<li>${esc(k)}</li>`).join("")}</ul>
         <div class="ch-sub">${c.sub.map(sv=>`<div class="${/products\//.test(sv)?"prod":""}"><img loading="lazy" src="${esc(sv)}${V}" alt=""></div>`).join("")}</div></div>
     </div>
-    <div class="rail-head"><strong>${esc(c.ko)} 제작 아이템 <em>${its.length}</em></strong><div class="rail-nav"><button class="rp" aria-label="이전">‹</button><button class="rn" aria-label="다음">›</button><button class="more rall" aria-expanded="false">전체 보기</button></div></div>
+    <div class="rail-head"><strong>${esc(c.ko)} 라인업 <em>${its.length}</em></strong><div class="rail-nav"><button class="rp" aria-label="이전">‹</button><button class="rn" aria-label="다음">›</button><button class="more rall" aria-expanded="false">전체 보기</button></div></div>
     <div class="rail" data-sp="${c.id}">${its.map((x,k)=>`<button data-k="${k}"><span class="im"><img loading="lazy" src="${esc(x.image)}${V}" alt="${esc(x.item)}"></span><span class="rcap">${esc(x.season)} · ${esc(x.item)}</span></button>`).join("")}</div>
+    ${(()=>{const n=S.projects.filter(p=>p.space===c.id).length;return n?`<a class="to-pf" href="portfolio.html?space=${c.id}"><span class="eyebrow">Portfolio</span><strong>${esc(c.ko)} 수행 프로젝트 ${n}건 보기</strong><em>→</em></a>`:"";})()}
   </div></section>`;}).join("")}
   <section class="fb"><div class="fb-img" style="background-image:url('${esc(FB.image)}${V}')"></div><div class="fb-txt"><span class="eyebrow">${esc(FB.en)}</span><h2>${esc(FB.title)}</h2>
     <div class="fb-pts">${FB.points.map(p=>`<div><b>${esc(p.k)}</b><strong>${esc(p.t)}</strong><p>${esc(p.d)}</p></div>`).join("")}</div></div></section>
@@ -159,19 +160,22 @@ function reference(){
 
 function portfolio(){
   const G=S.portfolioGroups, P=S.projects, q=new URLSearchParams(location.search);
-  let g="all";
+  let g="all", sp=(S.spaces.find(x=>x.id===q.get("space"))||{}).id||"";
+  const spN=id=>(S.spaces.find(x=>x.id===id)||{}).ko||"";
   $("#main").innerHTML=`
   <section class="pf-head wrap"><span class="eyebrow">Our Work</span><h1>Portfolio</h1>
     <p>업종과 근무 환경에 맞춰 기획·생산한 주요 기업 유니폼 수행 실적입니다.<br>고객사 보호를 위해 상호와 로고는 비공개 처리했습니다.</p></section>
   <section class="wrap"><div class="pf-filter" role="tablist" aria-label="업종">${[{id:"all",ko:"전체"},...G].map(x=>`<button role="tab" data-g="${x.id}">${esc(x.ko)}<i>${x.id==="all"?P.length:P.filter(p=>p.group===x.id).length}</i></button>`).join("")}</div>
-    <div class="pf-grid" id="pfg"></div></section>
+    <div class="pf-sp" id="pfsp" hidden></div><div class="pf-grid" id="pfg"></div></section>
   <section class="pf-work grid-bg"><div class="wrap"><div><span class="eyebrow">Work with us</span><h2>우리 회사에 맞는 유니폼,<br>리바트웨어의 수행 경험으로 제안합니다.</h2></div><a class="btn primary" href="contact.html">견적 문의</a></div></section>
   <div class="pf-modal" id="pfm" role="dialog" aria-modal="true" aria-labelledby="pfm-t" hidden><div class="pf-box"><button class="pf-x" aria-label="닫기">×</button><div class="pf-gal"><div class="pf-main"><img alt=""></div><div class="pf-th"></div></div><div class="pf-info"></div></div></div>`;
   const gname=id=>(G.find(x=>x.id===id)||{}).ko||"";
   function grid(){
     document.querySelectorAll(".pf-filter button").forEach(b=>{const on=b.dataset.g===g;b.classList.toggle("on",on);b.setAttribute("aria-selected",on);});
-    const list=P.filter(p=>g==="all"||p.group===g);
-    $("#pfg").innerHTML=list.map(p=>`<button class="pf-card" data-no="${p.no}"><div class="im"><img loading="lazy" class="${isGarment(p.images[0])?"garment":""}" src="${esc(p.images[0])}${V}" alt=""></div>
+    const list=P.filter(p=>(g==="all"||p.group===g)&&(!sp||p.space===sp));
+    const box=$("#pfsp"); box.hidden=!sp; if(sp){box.innerHTML=`<span>${esc(spN(sp))} 프로젝트만 보는 중</span><button>전체 보기 ×</button>`; box.querySelector("button").onclick=()=>{sp="";history.replaceState(null,"","portfolio.html");grid();};}
+    if(!list.length) $("#pfg").innerHTML='<p class="empty">조건에 맞는 프로젝트가 없습니다.</p>';
+    if(list.length) $("#pfg").innerHTML=list.map(p=>`<button class="pf-card" data-no="${p.no}"><div class="im"><img loading="lazy" class="${isGarment(p.images[0])?"garment":""}" src="${esc(p.images[0])}${V}" alt=""></div>
       <div class="tx"><span class="en">${esc(p.en)}</span><strong>PROJECT ${esc(p.no)}</strong><span class="ko">${esc(gname(p.group))} · ${esc(p.industry)}</span></div></button>`).join("");
     $("#pfg").querySelectorAll(".pf-card").forEach(b=>b.onclick=()=>open(b.dataset.no));
   }
@@ -182,9 +186,9 @@ function portfolio(){
     m.querySelector(".pf-th").innerHTML=p.images.length>1?p.images.map((s,i)=>`<button aria-label="이미지 ${i+1}"><img src="${esc(s)}${V}" alt=""></button>`).join(""):"";
     m.querySelectorAll(".pf-th button").forEach((t,i)=>t.onclick=()=>show(i));
     m.querySelector(".pf-info").innerHTML=`<span class="eyebrow">${esc(p.en)}</span><h2 id="pfm-t">PROJECT ${esc(p.no)}</h2>
-      <dl><dt>업종</dt><dd>${esc(gname(p.group))} · ${esc(p.industry)}</dd><dt>수행 연도</dt><dd>${esc(p.year)}</dd><dt>제작 품목</dt><dd>${esc(p.scope)}</dd></dl>
+      <dl><dt>업종</dt><dd>${esc(gname(p.group))} · ${esc(p.industry)}</dd><dt>근무 공간</dt><dd>${esc(spN(p.space))}</dd><dt>수행 연도</dt><dd>${esc(p.year)}</dd><dt>제작 품목</dt><dd>${esc(p.scope)}</dd></dl>
       <p class="note">고객사 보호를 위해 상호와 로고는 비공개 처리했으며, 착용 이미지는 생성형 AI로 제작한 연출 이미지입니다.</p>
-      <a class="btn primary" href="contact.html" style="margin-top:20px">비슷한 유니폼 견적 문의</a>`;
+      <div class="pf-acts"><a class="btn primary" href="contact.html">비슷한 유니폼 견적 문의</a><a class="btn line-dark" href="solutions.html#sp-${esc(p.space)}">${esc(spN(p.space))} 라인업 보기</a></div>`;
     show(0); m.hidden=false; document.body.style.overflow="hidden"; m.querySelector(".pf-x").focus();
     history.replaceState(null,"","portfolio.html?p="+no);
   }
@@ -259,6 +263,6 @@ function contact(){
   };
 }
 
-fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,portfolio,guide,contact})[PAGE]();})
+fetch("content/site.json?v="+Math.floor(Date.now()/60000)).then(r=>r.json()).then(j=>{S=j; chrome(); lbInit(); ({home,company,reference,solutions:reference,portfolio,guide,contact})[PAGE]();})
  .catch(()=>{$("#main").innerHTML='<p class="wrap" style="padding:80px 0">콘텐츠를 불러오지 못했습니다. 새로고침해 주세요.</p>';});
 })();
