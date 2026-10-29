@@ -430,3 +430,10 @@ footer.ft .cp{margin-top:18px;color:#6f8a97;font-size:12px}
 .btn.line-dark{border-color:var(--ink);color:var(--ink);background:#fff}.btn.line-dark:hover{background:var(--ink);color:#fff}
 .rail button{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
 .rail .rcap{text-align:left}
+
+/* floating quote button (replaces CTA band) */
+.fab-cta{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-weight:600;font-size:14px;padding:14px 20px 14px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(11,37,51,.28);transition:.2s}
+.fab-cta svg{width:20px;height:20px}
+.fab-cta:hover{background:var(--deep);transform:translateY(-2px)}
+@media (max-width:640px){.fab-cta{padding:14px;border-radius:50%}.fab-cta span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.fab-cta svg{width:24px;height:24px}}
+#archive{padding-bottom:110px}

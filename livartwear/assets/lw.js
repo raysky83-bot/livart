@@ -20,6 +20,8 @@ function chrome(){
   <div class="mnav">${NAV.map(([h,e,k])=>`<a href="${h}">${e}<small>${k}</small></a>`).join("")}</div>`;
   const b=$(".menu-btn"), m=$(".mnav");
   b.onclick=()=>{const o=m.classList.toggle("open"); b.setAttribute("aria-expanded",o); document.documentElement.style.setProperty("--nt",(document.querySelector(".notice")?.offsetHeight||0)+"px"); document.body.style.overflow=o?"hidden":"";};
+  if(PAGE!=="contact"){const fab=document.createElement("a"); fab.className="fab-cta"; fab.href="contact.html#form"; fab.setAttribute("aria-label","견적 문의");
+    fab.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg><span>견적 문의</span>'; document.body.appendChild(fab);}
   const f=S.footer||{};
   $("#foot").innerHTML=`<footer class="ft"><div class="wrap">
     <div class="top"><img src="images/brand/logo-slogan-white.png" alt="LIVART Everywhere, Every wear"><nav>${NAV.map(([h,e])=>`<a href="${h}">${e}</a>`).join("")}</nav></div>
@@ -82,7 +84,7 @@ function home(){
   ${ctaBand()}`;
   $("#hp").querySelectorAll(".proj").forEach(b=>b.onclick=()=>location.href="portfolio.html?p="+b.dataset.no);
 }
-const ctaBand=()=>`<section class="cta-band"><div class="wrap"><div><h2>기업 유니폼 기획·제작, 전문 담당자와 상담하세요.</h2><p>견적 문의를 남겨주시면 영업일 기준 1~2일 내 메일 또는 유선으로 연락드립니다.</p></div><a class="btn" href="contact.html">견적 문의하기</a></div></section>`;
+const ctaBand=()=>"";
 
 function company(){
   $("#main").innerHTML=`
@@ -131,7 +133,6 @@ function reference(){
     <div class="pgrid" id="grid"></div>
     <div class="more-wrap"><button class="btn line-dark" id="more">더 보기</button></div>
   </section>
-  <section class="sec wrap" style="padding-top:40px"><a class="pf-link" href="portfolio.html"><span class="eyebrow">Portfolio</span><strong>주요 기업 유니폼 수행 실적 보기</strong><em>→</em></a></section>
   ${ctaBand()}`;
   // rails
   document.querySelectorAll(".rail").forEach(r=>{
