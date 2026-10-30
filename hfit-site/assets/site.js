@@ -23,7 +23,7 @@ const visible = () => PROD.items.filter(i => i.show !== false);
 
 /* ---------- header / footer ---------- */
 function chrome(){
-  const nav = [["brand.html","BRAND","brand"],["product.html","PRODUCT","product"],...(THEME_B?[["technology.html","TECHNOLOGY","technology"]]:[]),["lookbook.html","LOOKBOOK","lookbook"],["support.html","SUPPORT","support"]];
+  const nav = [["brand.html","BRAND","brand"],["product.html","PRODUCT","product"],...(THEME_B&&SITE.showTechnology?[["technology.html","TECHNOLOGY","technology"]]:[]),["lookbook.html","LOOKBOOK","lookbook"],["support.html","SUPPORT","support"]];
   const cur = PAGE==="detail" ? "product" : PAGE;
   const insta = SITE.brand.instagram ? `<a class="insta" href="${esc(SITE.brand.instagram)}" target="_blank" rel="noopener" aria-label="인스타그램">${ICON.insta}</a>` : "";
   $("#chrome-top").innerHTML = (SITE.notice?`<div class="notice">${esc(SITE.notice)}</div>`:"") + `<div class="topbar"></div>
