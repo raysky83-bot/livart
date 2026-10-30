@@ -23,7 +23,7 @@ const visible = () => PROD.items.filter(i => i.show !== false);
 
 /* ---------- header / footer ---------- */
 function chrome(){
-  const nav = [["brand.html","BRAND","brand"],["product.html","PRODUCT","product"],["lookbook.html","LOOKBOOK","lookbook"],["support.html","SUPPORT","support"]];
+  const nav = [["brand.html","BRAND","brand"],["product.html","PRODUCT","product"],...(THEME_B?[["technology.html","TECHNOLOGY","technology"]]:[]),["lookbook.html","LOOKBOOK","lookbook"],["support.html","SUPPORT","support"]];
   const cur = PAGE==="detail" ? "product" : PAGE;
   const insta = SITE.brand.instagram ? `<a class="insta" href="${esc(SITE.brand.instagram)}" target="_blank" rel="noopener" aria-label="인스타그램">${ICON.insta}</a>` : "";
   $("#chrome-top").innerHTML = (SITE.notice?`<div class="notice">${esc(SITE.notice)}</div>`:"") + `<div class="topbar"></div>
@@ -157,7 +157,7 @@ function detail(){
   ${sz?`<section class="sizes"><table><caption>단위: cm · 실측 사이즈는 추후 등록 예정입니다.</caption><thead><tr><th>사이즈</th>${sz.columns.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${sz.rows.map(r=>`<tr><th>${esc(r.label)}</th>${sz.columns.map((c,k)=>`<td>${esc(r.values[k]||"-")}</td>`).join("")}</tr>`).join("")}</tbody></table></section>`:""}
   </div>`;
   // thumbs → replace first big image
-  document.querySelectorAll("#thumbs button").forEach(b=>b.onclick=()=>{ const m=imgs[+b.dataset.k]; const z=$("#z0 img"); z.src=m.image; z.alt=`${it.name} ${m.caption}`; document.querySelectorAll("#thumbs button").forEach(x=>x.setAttribute("aria-current",String(x===b))); });
+  document.querySelectorAll("#thumbs button").forEach(b=>b.onclick=()=>{ const m=imgs[+b.dataset.k]; const z=$("#z0 img"); z.removeAttribute("srcset"); z.removeAttribute("sizes"); z.src=m.image; z.alt=`${it.name} ${m.caption}`; document.querySelectorAll("#thumbs button").forEach(x=>x.setAttribute("aria-current",String(x===b))); });
   // hover zoom (mouse) / tap toggle (touch)
   document.querySelectorAll(".zoom").forEach(z=>{
     const img=z.querySelector("img");
@@ -168,9 +168,9 @@ function detail(){
 }
 
 function lookbook(){
-  $("#main").innerHTML = `<div class="wrap"><div class="lgrid">${SITE.lookbook.map((c,k)=>`<div class="lcard">
+  $("#main").innerHTML = `<h1 class="sr-only">H.FIT 룩북</h1><div class="wrap"><div class="lgrid">${SITE.lookbook.map((c,k)=>`<div class="lcard">
     <button class="cover" data-k="${k}" aria-label="${esc(c.title)} 보기"><img loading="lazy" src="${esc(c.cover)}" alt=""><div class="t"><b>${esc(c.title)}</b><span>${esc(c.en)}</span></div></button>
-    <div class="acts"><button class="btn-line view" data-k="${k}">VIEW</button>${c.pdf?`<a class="btn-line" href="${esc(c.pdf)}" target="_blank" rel="noopener">카달로그 다운받기</a>`:`<button class="btn-line nopdf">카달로그 다운받기</button>`}</div></div>`).join("")}</div></div>`;
+    <div class="acts"><button class="btn-line view" data-k="${k}">VIEW</button>${c.pdf?`<a class="btn-line" href="${esc(c.pdf)}" target="_blank" rel="noopener">카탈로그 다운받기</a>`:`<button class="btn-line nopdf">카탈로그 다운받기</button>`}</div></div>`).join("")}</div></div>`;
   document.querySelectorAll(".cover,.view").forEach(b=>b.onclick=()=>gallery(SITE.lookbook[+b.dataset.k]));
   document.querySelectorAll(".nopdf").forEach(b=>b.onclick=()=>toast("카탈로그 PDF는 준비 중입니다."));
 }
@@ -187,10 +187,32 @@ function gallery(c){
   addEventListener("keydown",key); show(); g.querySelector(".x").focus();
 }
 
+function technology(){
+  const T=SITE.technology, items=visible();
+  const has=(it,keys)=>(it.icons||[]).some(n=>keys.includes(String(n).toUpperCase()));
+  const ic=k=>window.HFIT_ICONS&&HFIT_ICONS.get(k);
+  $("#main").innerHTML=`<div class="wrap"><div class="plist-head tech-head"><h1>기능과 소재</h1></div>
+    <p class="tech-intro">${esc(T.intro).replace(/\n/g,"<br>")}</p>
+    <nav class="tech-jump" aria-label="기능 분류">${T.groups.map(g=>`<a href="#tg-${g.en.replace(/\W+/g,'')}">${esc(g.en)}<small>${esc(g.ko)}</small></a>`).join("")}</nav>
+    ${T.groups.map(g=>`<section class="tg" id="tg-${g.en.replace(/\W+/g,'')}"><div class="tg-h"><span class="eyebrow">${esc(g.en)}</span><h2>${esc(g.ko)}</h2></div>
+      <div class="tcards">${g.items.map(x=>{const i=ic(x.keys[0]); const n=items.filter(it=>has(it,x.keys)).length; return `<button class="tcard" data-k="${esc(x.keys.join("|"))}" ${n?"":"disabled"}>
+        <span class="ti">${i?i.svg:""}</span><b>${esc(x.keys[0])}</b><strong>${esc(i?i.ko:"")}</strong><p>${esc(x.d)}</p><em>${n?`적용 제품 ${n}종 →`:"적용 제품 준비 중"}</em></button>`;}).join("")}</div></section>`).join("")}
+    <div class="tech-panel" id="tp" hidden></div></div>`;
+  const tp=$("#tp");
+  document.querySelectorAll(".tcard").forEach(b=>b.onclick=()=>{
+    const keys=b.dataset.k.split("|"), list=items.filter(it=>has(it,keys)), i=ic(keys[0]);
+    document.querySelectorAll(".tcard").forEach(x=>x.classList.toggle("on",x===b));
+    tp.hidden=false; b.closest(".tg").appendChild(tp);
+    tp.innerHTML=`<div class="tp-h"><span class="ti">${i?i.svg:""}</span><div><b>${esc(keys[0])}</b><strong>${esc(i?i.ko:"")} 적용 제품 ${list.length}종</strong></div><button class="tp-x" aria-label="닫기">✕</button></div><div class="pgrid">${list.map(card).join("")}</div>`;
+    tp.querySelector(".tp-x").onclick=()=>{tp.hidden=true;b.classList.remove("on");b.focus();};
+    tp.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
 function support(){
   const s = SITE.support;
   const pcode = params.get("product"); const pit = pcode && PROD.items.find(i=>i.code===pcode);
-  $("#main").innerHTML = `<div class="wrap"><form class="form" id="form" novalidate>
+  $("#main").innerHTML = `<h1 class="sr-only">H.FIT 상담 신청</h1><div class="wrap"><form class="form" id="form" novalidate>
     <div class="radios" role="radiogroup" aria-label="고객 구분">${s.types.map((t,k)=>`<label><input type="radio" name="type" id="type${k}" value="${esc(t)}"${k===0?" checked":""}>${esc(t)}</label>`).join("")}</div>
     <div class="field"><label for="f-name">신청자명</label><input id="f-name" name="name" autocomplete="name" placeholder="이름을 입력해 주세요." maxlength="40"></div>
     <div class="field"><label for="f-tel">연락처</label><input id="f-tel" name="tel" inputmode="numeric" autocomplete="tel" placeholder="휴대폰 번호 ‘-’를 제외한 숫자만 입력해 주세요." maxlength="13"></div>
@@ -223,7 +245,14 @@ function support(){
 }
 
 /* ---------- boot ---------- */
-Promise.all([fetch("content/site.json"+V).then(r=>r.json()), fetch("content/products.json"+V).then(r=>r.json())])
-.then(([s,p])=>{ const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]=v+"?v=5"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome(); ({home,brand,product,detail,lookbook,support})[PAGE](); })
+const WMAP={};
+function srcsets(root){ (root.querySelectorAll?root:document).querySelectorAll("img[src*='.webp']:not([srcset])").forEach(img=>{ const u=img.getAttribute("src"), path=u.split("?")[0], m=WMAP[path]; if(!m||!m[1]) return;
+  const w=(img.getBoundingClientRect().width||img.parentElement.getBoundingClientRect().width||600);
+  img.sizes=Math.ceil(w)+"px"; img.srcset=`${path.replace(/\.webp$/,"-640.webp")}?v=6 640w, ${u} ${m[0]}w`; }); }
+Promise.all([fetch("content/site.json"+V).then(r=>r.json()), fetch("content/products.json"+V).then(r=>r.json()), fetch("images/manifest.json"+V).then(r=>r.ok?r.json():{}).catch(()=>({}))])
+.then(([s,p,man])=>{ for(const k in man) WMAP[k.replace(/\.(jpe?g)$/i,".webp")]=man[k];
+  const bust=o=>{ for(const k in o){ const v=o[k]; if(typeof v==="string" && /^images\/.+\.(jpe?g|png)$/i.test(v)) o[k]= man[v] ? v.replace(/\.(jpe?g)$/i,".webp")+"?v=6" : v+"?v=5"; else if(v && typeof v==="object") bust(v); } }; bust(s); bust(p); SITE=s; PROD=p; chrome();
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{ if(n.nodeType===1) srcsets(n.tagName==="IMG"?n.parentElement:n); }))).observe(document.body,{childList:true,subtree:true});
+  ({home,brand,product,detail,lookbook,support,technology})[PAGE](); srcsets(document); })
 .catch(()=>{ $("#main").innerHTML='<p class="wrap" style="padding:80px 0">내용을 불러오지 못했습니다. 새로고침해 주세요.</p>'; });
 })();
