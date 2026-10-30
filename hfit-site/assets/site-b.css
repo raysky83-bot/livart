@@ -205,6 +205,5 @@ footer.site .fbody::after{content:"";position:absolute;right:-30px;top:50%;width
 
 /* look-fade: PC 한 화면에 맞춤 */
 @media (min-width:641px){
-  .lf-col{aspect-ratio:auto;height:clamp(420px,calc(100vh - 230px),760px)}
-  .lf-col img{object-position:center 22%}
+  .lf-grid{max-width:min(100%,calc(clamp(420px,100vh - 230px,900px) * 1.6 + 6px));margin-inline:auto}
 }
